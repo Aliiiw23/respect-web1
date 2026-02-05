@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respect Server | سيرفر ريسبكت</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* المتغيرات والألوان */
+        :root {
+            --primary: #FFD700; /* اللون الذهبي المميز */
+            --primary-hover: #ffea00;
+            --dark-bg: #0f0f0f;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* الخلفية المتحركة أو الصورة */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* استبدل الرابط أدناه بصورة من سيرفرك بجودة عالية */
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://wallpapers.com/images/hd/gta-v-gold-4k-u6w8j9x5t5z1y2v3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* الهيدر (القائمة العلوية) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .logo span { color: var(--primary); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        .btn-nav {
+            padding: 8px 20px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            color: var(--primary);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        /* القسم الرئيسي Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-main {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-play {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-play:hover {
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        }
+
+        .btn-discord {
+            background: #5865F2;
+            color: #fff;
+        }
+
+        .btn-discord:hover {
+            background: #4752c4;
+            transform: translateY(-3px);
+        }
+
+        /* قسم الإحصائيات */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* التجاوب */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            nav { display: none; } /* يمكن إضافة قائمة برجر للجوال */
+            .actions { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+
+    <header>
+        <div class="logo">RESPECT <span>SA</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">القوانين</a></li>
+                <li><a href="#">المتجر</a></li>
+                <li><a href="#">تواصل معنا</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn-nav">تسجيل دخول</a>
+    </header>
+
+    <section class="hero">
+        <h1 data-aos="fade-up">عالمك الواقعي<br><span>يبدأ هنا</span></h1>
+        <p>نقدم لك أفضل تجربة حياة واقعية في الشرق الأوسط، مجتمع راقٍ، وسكربتات حصرية.</p>
+        
+        <div class="actions">
+            <a href="mtasa://ip:port" class="btn-main btn-play">
+                <i class="fas fa-play"></i> العب الآن
+            </a>
+            <a href="https://discord.gg/yourlink" class="btn-main btn-discord">
+                <i class="fab fa-discord"></i> ديسكورد
+            </a>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-number" data-target="520">0</span>
+                <span class="stat-label">لاعب متصل</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="15000">0</span>
+                <span class="stat-label">عضو ديسكورد</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        حقوق النشر © 2024 سيرفر ريسبكت. جميع الحقوق محفوظة.
+    </footer>
+
+    <script>
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / 100; // سرعة العداد
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    </script>
+
+</body>
+</html>
