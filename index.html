@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Respect Server | سيرفر ريسبكت</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Respect Server | ريسبكت</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        /* المتغيرات والألوان */
         :root {
-            --primary: #FFD700; /* اللون الذهبي المميز */
-            --primary-hover: #ffea00;
-            --dark-bg: #0f0f0f;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-main: #ffffff;
-            --text-secondary: #b3b3b3;
+            --main-yellow: #ffc107; /* اللون الأصفر كما في طلبك */
+            --dark-bg: #0b0b0b;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 193, 7, 0.3);
         }
 
         * {
@@ -23,265 +19,268 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Cairo', sans-serif;
-            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--dark-bg);
-            color: var(--text-main);
+            color: white;
             overflow-x: hidden;
         }
 
-        /* الخلفية المتحركة أو الصورة */
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            /* استبدل الرابط أدناه بصورة من سيرفرك بجودة عالية */
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://wallpapers.com/images/hd/gta-v-gold-4k-u6w8j9x5t5z1y2v3.jpg');
+        /* الخلفية الرئيسية */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), 
+                        url('https://i.postimg.cc/m2H8pX5X/gta-bg.jpg'); /* استبدل برابط صورتك */
             background-size: cover;
             background-position: center;
-        }
-
-        /* الهيدر (القائمة العلوية) */
-        header {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 20px 50px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.4);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .logo span { color: var(--primary); }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 600;
-            transition: 0.3s;
             position: relative;
         }
 
-        nav a:hover { color: var(--primary); }
-
-        .btn-nav {
-            padding: 8px 20px;
-            background: transparent;
-            border: 2px solid var(--primary);
-            border-radius: 5px;
-            color: var(--primary);
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-nav:hover {
-            background: var(--primary);
-            color: #000;
-        }
-
-        /* القسم الرئيسي Hero */
-        .hero {
-            height: 100vh;
+        /* الهيدر */
+        header {
+            width: 100%;
+            padding: 20px 5%;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            z-index: 10;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            background: var(--glass-bg);
+            border-radius: 5px;
+        }
+
+        .logo img {
+            height: 60px; /* شعار ريسبكت */
+        }
+
+        /* محتوى الواجهة */
+        .hero-content {
             text-align: center;
+            margin-top: 10vh;
+            max-width: 800px;
             padding: 0 20px;
         }
 
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 10px;
-            line-height: 1.2;
-            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
         }
 
-        .hero p {
+        .hero-content p {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .play-btn {
+            background-color: var(--main-yellow);
+            color: black;
+            padding: 15px 60px;
             font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 600px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
         }
 
-        .actions {
+        .play-btn:hover {
+            transform: scale(1.05);
+            background-color: #e0ac06;
+        }
+
+        /* كروت الإحصائيات (مثل الصورة) */
+        .stats-row {
             display: flex;
             gap: 20px;
+            margin-top: 50px;
         }
 
-        .btn-main {
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-        }
-
-        .btn-play {
-            background: var(--primary);
-            color: #000;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .btn-play:hover {
-            background: var(--primary-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-        }
-
-        .btn-discord {
-            background: #5865F2;
-            color: #fff;
-        }
-
-        .btn-discord:hover {
-            background: #4752c4;
-            transform: translateY(-3px);
-        }
-
-        /* قسم الإحصائيات */
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 60px;
-            flex-wrap: wrap;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
+        .stat-box {
+            background: var(--glass-bg);
             backdrop-filter: blur(10px);
             padding: 20px 40px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
             text-align: center;
-            min-width: 200px;
+            min-width: 180px;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            display: block;
+        .stat-box h2 {
+            color: var(--main-yellow);
+            font-size: 2rem;
         }
 
-        .stat-label {
-            color: var(--text-secondary);
+        .stat-box span {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* قسم البثوث */
+        .streams-section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .streams-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .streams-section h2 span {
+            color: var(--main-yellow);
+        }
+
+        .streams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .streamer-card {
+            background: var(--glass-bg);
+            padding: 30px 20px;
+            border-radius: 15px;
+            border-bottom: 3px solid var(--main-yellow);
+            transition: 0.3s;
+        }
+
+        .streamer-card:hover {
+            background: rgba(255, 193, 7, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .streamer-circle {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--main-yellow);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .streamer-name {
+            font-weight: bold;
             font-size: 0.9rem;
         }
 
-        /* الفوتر */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #000;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            font-size: 0.9rem;
-            color: #666;
+        /* منصات التواصل (الفوتر) */
+        .social-footer {
+            background: linear-gradient(to top, #000, #0b0b0b);
+            padding: 60px 5%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
         }
 
-        /* التجاوب */
+        .social-card {
+            flex: 1;
+            min-width: 300px;
+            background: #111;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+
+        .social-card.discord { border-right: 5px solid var(--main-yellow); }
+
+        .social-card i {
+            font-size: 4rem;
+            color: var(--main-yellow);
+            margin-bottom: 20px;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            nav { display: none; } /* يمكن إضافة قائمة برجر للجوال */
-            .actions { flex-direction: column; }
+            .hero-content h1 { font-size: 2rem; }
+            .stats-row { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-overlay"></div>
-
-    <header>
-        <div class="logo">RESPECT <span>SA</span></div>
-        <nav>
-            <ul>
-                <li><a href="#">الرئيسية</a></li>
-                <li><a href="#">القوانين</a></li>
-                <li><a href="#">المتجر</a></li>
-                <li><a href="#">تواصل معنا</a></li>
-            </ul>
-        </nav>
-        <a href="#" class="btn-nav">تسجيل دخول</a>
-    </header>
-
-    <section class="hero">
-        <h1 data-aos="fade-up">عالمك الواقعي<br><span>يبدأ هنا</span></h1>
-        <p>نقدم لك أفضل تجربة حياة واقعية في الشرق الأوسط، مجتمع راقٍ، وسكربتات حصرية.</p>
-        
-        <div class="actions">
-            <a href="mtasa://ip:port" class="btn-main btn-play">
-                <i class="fas fa-play"></i> العب الآن
-            </a>
-            <a href="https://discord.gg/yourlink" class="btn-main btn-discord">
-                <i class="fab fa-discord"></i> ديسكورد
-            </a>
-        </div>
-
-        <div class="stats-container">
-            <div class="stat-card">
-                <span class="stat-number" data-target="520">0</span>
-                <span class="stat-label">لاعب متصل</span>
+    <section class="hero-section">
+        <header>
+            <div class="menu-icon"><i class="fas fa-bars"></i></div>
+            <div class="logo">
+                <h2 style="color:var(--main-yellow)">RESPECT</h2>
             </div>
-            <div class="stat-card">
-                <span class="stat-number" data-target="15000">0</span>
-                <span class="stat-label">عضو ديسكورد</span>
+        </header>
+
+        <div class="hero-content">
+            <h1>Respect | ريسبكت</h1>
+            <p>حياكم الله في سيرفر ريسبكت المتخصص في الرول بلاي، نحاول جاهدين تقديم أفضل تجربة للرول بلاي في الشرق الأوسط. انضم إلينا الآن وعيش حياتك كما تريد.</p>
+            <button class="play-btn">العب الآن</button>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <h2>35k+</h2>
+                    <span>تسجيلات الدخول</span>
+                </div>
+                <div class="stat-box">
+                    <h2>200k+</h2>
+                    <span>إجمالي اللاعبين</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        حقوق النشر © 2024 سيرفر ريسبكت. جميع الحقوق محفوظة.
-    </footer>
+    <section class="streams-section">
+        <h2>شاهد <span>أفضل البثوث</span></h2>
+        <div class="streams-grid">
+            <div class="streamer-card">
+                <div class="streamer-circle"><i class="fas fa-user fa-2x"></i></div>
+                <div class="streamer-name">Streamer_1</div>
+            </div>
+            <div class="streamer-card">
+                <div class="streamer-circle"><i class="fas fa-user fa-2x"></i></div>
+                <div class="streamer-name">Streamer_2</div>
+            </div>
+            <div class="streamer-card">
+                <div class="streamer-circle"><i class="fas fa-user fa-2x"></i></div>
+                <div class="streamer-name">Streamer_3</div>
+            </div>
+            <div class="streamer-card">
+                <div class="streamer-circle"><i class="fas fa-user fa-2x"></i></div>
+                <div class="streamer-name">Streamer_4</div>
+            </div>
+            <div class="streamer-card">
+                <div class="streamer-circle"><i class="fas fa-user fa-2x"></i></div>
+                <div class="streamer-name">Streamer_5</div>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        const counters = document.querySelectorAll('.stat-number');
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const inc = target / 100; // سرعة العداد
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
-        });
-    </script>
+    <section class="social-footer">
+        <div class="social-card discord">
+            <i class="fab fa-discord"></i>
+            <h3>مجتمعنا في الديسكورد</h3>
+            <p>انضم لأكثر من 60 ألف عضو وتعرف على آخر التحديثات.</p>
+        </div>
+        <div class="social-card">
+            <i class="fab fa-twitter"></i>
+            <h3>تابعنا على تويتر</h3>
+            <p>للحصول على الأخبار السريعة والفعاليات القادمة.</p>
+        </div>
+    </section>
 
 </body>
 </html>
