@@ -182,7 +182,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* منصات التواصل */
+        /* منصات التواصل (ديسكورد فقط) */
         .social-platforms {
             display: flex;
             flex-wrap: wrap;
@@ -223,189 +223,6 @@
 
         .social-icon-large:hover {
             color: gold;
-        }
-
-        /* قسم تويتر الجديد (وفق الصورة) */
-        .twitter-feed-section {
-            background: #142850;
-            border-radius: 40px;
-            padding: 30px;
-            margin: 40px 0;
-            border: 1px solid gold;
-        }
-
-        .twitter-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #ffd70060;
-            padding-bottom: 15px;
-        }
-
-        .twitter-header h3 {
-            color: gold;
-            font-size: 2rem;
-        }
-
-        .twitter-header span {
-            color: #aaa;
-        }
-
-        .discord-warning {
-            background: #0a1a2a;
-            border-radius: 60px;
-            padding: 15px 25px;
-            margin-bottom: 25px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid #ffd70080;
-        }
-
-        .discord-warning p {
-            color: #ffd700;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .discord-warning p i {
-            font-size: 2rem;
-            color: #5865F2; /* لون دسكورد */
-        }
-
-        .discord-warning .buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-discord {
-            background: #5865F2;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 60px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-discord:hover {
-            background: #4752c4;
-            transform: scale(1.05);
-        }
-
-        .btn-post {
-            background: gold;
-            color: #0a1a2a;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 60px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-post:hover {
-            background: #ffd966;
-        }
-
-        .tweet-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .tweet-item {
-            background: #0a1a2a;
-            border-radius: 30px;
-            padding: 20px;
-            border: 1px solid #ffd70060;
-            transition: 0.2s;
-        }
-
-        .tweet-item:hover {
-            border-color: gold;
-        }
-
-        .tweet-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-
-        .tweet-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #1e3a5a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid gold;
-        }
-
-        .tweet-avatar i {
-            font-size: 2rem;
-            color: gold;
-        }
-
-        .tweet-user-info {
-            flex: 1;
-        }
-
-        .tweet-user-name {
-            color: gold;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .tweet-user-handle {
-            color: #aaa;
-        }
-
-        .tweet-time {
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        .tweet-content {
-            margin: 10px 0 15px;
-            font-size: 1.1rem;
-            padding-right: 65px; /* لمحاذاة تحت الصورة */
-        }
-
-        .tweet-stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 10px;
-            padding-right: 65px;
-        }
-
-        .tweet-stats span {
-            color: #aaa;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .tweet-stats span:hover {
-            color: gold;
-        }
-
-        .tweet-stats i {
-            font-size: 1.3rem;
         }
 
         /* وصف المجتمع */
@@ -486,12 +303,15 @@
             color: gold;
         }
 
-        /* صناع محتوى ريسبكت */
+        /* صناع محتوى ريسبكت (4 فقط) */
         .creators-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 25px;
             margin: 40px 0 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .creator-card {
@@ -502,15 +322,19 @@
             text-align: center;
             border: 1px solid #ffd70060;
             transition: 0.3s;
+            text-decoration: none;
+            color: #fff;
+            display: block;
         }
 
         .creator-card:hover {
             border-color: gold;
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.2);
         }
 
         .creator-card i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: gold;
             margin-bottom: 10px;
         }
@@ -518,11 +342,21 @@
         .creator-card h4 {
             font-size: 1.4rem;
             color: #fff;
+            margin-bottom: 5px;
         }
 
         .creator-card p {
             color: #ccc;
             font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .creator-card p i {
+            font-size: 1.2rem;
+            color: #ff0000; /* لون اليوتيوب */
         }
 
         /* قسم القوانين (مخفي افتراضياً) */
@@ -641,9 +475,7 @@
             header { flex-direction: column; gap: 15px; text-align: center; }
             .social-platforms { gap: 30px; }
             .social-icon-large i { width: 100px; height: 100px; font-size: 4rem; }
-            .discord-warning { flex-direction: column; gap: 15px; text-align: center; }
-            .tweet-content { padding-right: 0; }
-            .tweet-stats { padding-right: 0; }
+            .creators-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -690,123 +522,12 @@
     <div class="container">
         <!-- المحتوى الرئيسي -->
         <div id="mainContent">
-            <!-- منصات التواصل -->
+            <!-- منصات التواصل (ديسكورد فقط) -->
             <h2 class="section-title">منصات <span>التواصل</span></h2>
             <div class="social-platforms">
-                <a href="#" class="social-icon-large"><i class="fab fa-discord"></i> دسكورد</a>
-                <a href="#" class="social-icon-large"><i class="fab fa-youtube"></i> يوتيوب</a>
-            </div>
-
-            <!-- قسم تويتر (حسب الصورة) -->
-            <h2 class="section-title">آخر <span>المنشورات</span></h2>
-            <div class="twitter-feed-section">
-                <div class="twitter-header">
-                    <h3>الرئيسية</h3>
-                    <span>آخر النشاطات</span>
-                </div>
-
-                <!-- رسالة ربط Discord -->
-                <div class="discord-warning">
-                    <p>
-                        <i class="fab fa-discord"></i>
-                        يجب إضافة حساب Discord في إعدادات الملف الشخصي للتمكن من النشر
-                    </p>
-                    <div class="buttons">
-                        <button class="btn-discord"><i class="fab fa-discord"></i> أضف حساب Discord</button>
-                        <button class="btn-post">نشر</button>
-                    </div>
-                </div>
-
-                <!-- قائمة المنشورات -->
-                <div class="tweet-list">
-                    <!-- منشور 1: Twitter Company -->
-                    <div class="tweet-item">
-                        <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <div class="tweet-user-info">
-                                <div class="tweet-user-name">Twitter Company</div>
-                                <div class="tweet-user-handle">@TwitterCo</div>
-                            </div>
-                            <div class="tweet-time">منذ 3 أيام</div>
-                        </div>
-                        <div class="tweet-content">
-                            نعلن عن تحديثات جديدة في منصتنا، ترقبوا المزيد ✨
-                        </div>
-                        <div class="tweet-stats">
-                            <span><i class="far fa-heart"></i> 1</span>
-                            <span><i class="fas fa-retweet"></i> 0</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-
-                    <!-- منشور 2: وزارة الصحة -->
-                    <div class="tweet-item">
-                        <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <i class="fas fa-hospital"></i>
-                            </div>
-                            <div class="tweet-user-info">
-                                <div class="tweet-user-name">وزارة الصحة</div>
-                                <div class="tweet-user-handle">@MOH_Saudi</div>
-                            </div>
-                            <div class="tweet-time">منذ 3 أيام</div>
-                        </div>
-                        <div class="tweet-content">
-                            نصائح صحية لرمضان: احرص على شرب الماء وتناول وجبة السحور المتوازنة 🌙
-                        </div>
-                        <div class="tweet-stats">
-                            <span><i class="far fa-heart"></i> 1</span>
-                            <span><i class="fas fa-retweet"></i> 0</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-
-                    <!-- منشور 3: وزارة الداخلية -->
-                    <div class="tweet-item">
-                        <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="tweet-user-info">
-                                <div class="tweet-user-name">وزارة الداخلية</div>
-                                <div class="tweet-user-handle">@MOI_Saudi</div>
-                            </div>
-                            <div class="tweet-time">منذ 3 أيام</div>
-                        </div>
-                        <div class="tweet-content">
-                            نذكركم بالالتزام بالقوانين المرورية خلال الشهر الفضيل، سلامتكم تهمنا.
-                        </div>
-                        <div class="tweet-stats">
-                            <span><i class="far fa-heart"></i> 1</span>
-                            <span><i class="fas fa-retweet"></i> 0</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-
-                    <!-- منشور 4: وزارة العدل -->
-                    <div class="tweet-item">
-                        <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <i class="fas fa-gavel"></i>
-                            </div>
-                            <div class="tweet-user-info">
-                                <div class="tweet-user-name">وزارة العدل</div>
-                                <div class="tweet-user-handle">@MOJ_Saudi</div>
-                            </div>
-                            <div class="tweet-time">منذ 3 أيام</div>
-                        </div>
-                        <div class="tweet-content">
-                            إطلاق خدمة التوثيق الإلكتروني الجديدة تسهيلاً للمستفيدين.
-                        </div>
-                        <div class="tweet-stats">
-                            <span><i class="far fa-heart"></i> 1</span>
-                            <span><i class="fas fa-retweet"></i> 0</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-                </div>
+                <a href="https://discord.gg/f9QJbGEdsd" target="_blank" class="social-icon-large">
+                    <i class="fab fa-discord"></i> دسكورد
+                </a>
             </div>
 
             <!-- وصف المجتمع -->
@@ -827,15 +548,33 @@
                 <p style="color: #ccc; margin-top: 15px;">شاهد كيفية الانضمام واللعب في سيرفر Respect SAMP</p>
             </div>
 
-            <!-- صناع محتوى ريسبكت -->
+            <!-- صناع محتوى ريسبكت (4 فقط) -->
             <h2 class="section-title">صناع محتوى <span>ريسبكت</span></h2>
             <div class="creators-grid">
-                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
-                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
-                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
-                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
-                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
-                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
+                <!-- الأول: Saibor | سايبور -->
+                <a href="https://youtube.com/@saiboryt?si=ax-77z6dqbaSyFUV" target="_blank" class="creator-card">
+                    <i class="fas fa-user-star"></i>
+                    <h4>Saibor | سايبور</h4>
+                    <p><i class="fab fa-youtube"></i> يوتيوب</p>
+                </a>
+                <!-- الثاني: عليوان&3lawan -->
+                <a href="https://youtube.com/@lawan-dx8qi?si=P6whg0w7PDG7adJc" target="_blank" class="creator-card">
+                    <i class="fas fa-user-star"></i>
+                    <h4>عليوان&3lawan</h4>
+                    <p><i class="fab fa-youtube"></i> يوتيوب</p>
+                </a>
+                <!-- الثالث: ALSAYB_911 -->
+                <a href="https://www.youtube.com/@ALSAYB_911/" target="_blank" class="creator-card">
+                    <i class="fas fa-user-star"></i>
+                    <h4>ALSAYB_911</h4>
+                    <p><i class="fab fa-youtube"></i> يوتيوب</p>
+                </a>
+                <!-- الرابع: FURY -->
+                <a href="https://youtube.com/@udsajad528?si=F3en_r2qAdQBZr1l" target="_blank" class="creator-card">
+                    <i class="fas fa-user-star"></i>
+                    <h4>FURY</h4>
+                    <p><i class="fab fa-youtube"></i> يوتيوب</p>
+                </a>
             </div>
         </div>
 
@@ -877,7 +616,7 @@
         setInterval(updateTopBar, 1000);
         updateTopBar();
 
-        // بيانات القوانين (مختصرة للاختصار)
+        // بيانات القوانين
         const rulesData = {
             general: { title: 'قوانين عامة', icon: 'fa-globe', items: [ 'اتباع تعليمات الإدارة أولاً.', 'لا للنقاش خارج الشخصية (OOC) في العام.', 'الالتزام بلغة السيرفر (العربية/الإنجليزية).', 'عدم إزعاج اللاعبين الآخرين.', 'التقارير تكون في التذكرة المخصصة.' ] },
             important: { title: 'قوانين مهمة', icon: 'fa-exclamation-triangle', items: [ 'احترام جميع اللاعبين والإدارة.', 'عدم استخدام الغش أو البرامج الخارجية.', 'الالتزام بقوانين المحاكاة الواقعية.', 'لا للسب أو العنصرية بأي شكل.', 'الصوت فقط في الراديو المخصص.' ] },
