@@ -225,6 +225,189 @@
             color: gold;
         }
 
+        /* قسم تويتر الجديد (وفق الصورة) */
+        .twitter-feed-section {
+            background: #142850;
+            border-radius: 40px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid gold;
+        }
+
+        .twitter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ffd70060;
+            padding-bottom: 15px;
+        }
+
+        .twitter-header h3 {
+            color: gold;
+            font-size: 2rem;
+        }
+
+        .twitter-header span {
+            color: #aaa;
+        }
+
+        .discord-warning {
+            background: #0a1a2a;
+            border-radius: 60px;
+            padding: 15px 25px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ffd70080;
+        }
+
+        .discord-warning p {
+            color: #ffd700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .discord-warning p i {
+            font-size: 2rem;
+            color: #5865F2; /* لون دسكورد */
+        }
+
+        .discord-warning .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-discord {
+            background: #5865F2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-discord:hover {
+            background: #4752c4;
+            transform: scale(1.05);
+        }
+
+        .btn-post {
+            background: gold;
+            color: #0a1a2a;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-post:hover {
+            background: #ffd966;
+        }
+
+        .tweet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tweet-item {
+            background: #0a1a2a;
+            border-radius: 30px;
+            padding: 20px;
+            border: 1px solid #ffd70060;
+            transition: 0.2s;
+        }
+
+        .tweet-item:hover {
+            border-color: gold;
+        }
+
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .tweet-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #1e3a5a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid gold;
+        }
+
+        .tweet-avatar i {
+            font-size: 2rem;
+            color: gold;
+        }
+
+        .tweet-user-info {
+            flex: 1;
+        }
+
+        .tweet-user-name {
+            color: gold;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .tweet-user-handle {
+            color: #aaa;
+        }
+
+        .tweet-time {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .tweet-content {
+            margin: 10px 0 15px;
+            font-size: 1.1rem;
+            padding-right: 65px; /* لمحاذاة تحت الصورة */
+        }
+
+        .tweet-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+            padding-right: 65px;
+        }
+
+        .tweet-stats span {
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tweet-stats span:hover {
+            color: gold;
+        }
+
+        .tweet-stats i {
+            font-size: 1.3rem;
+        }
+
         /* وصف المجتمع */
         .community-box {
             background: #142850;
@@ -342,105 +525,7 @@
             font-size: 1rem;
         }
 
-        /* ===== قسم معرض الصور ===== */
-        .gallery-section {
-            display: none;
-            margin: 40px 0;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 3px solid gold;
-            aspect-ratio: 16/9;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            border-color: #ffd966;
-            box-shadow: 0 15px 30px rgba(255,215,0,0.3);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-item .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: gold;
-            padding: 15px;
-            transform: translateY(100%);
-            transition: 0.3s;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .gallery-item:hover .overlay {
-            transform: translateY(0);
-        }
-
-        /* Lightbox (النافذة المنبثقة) */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            border: 4px solid gold;
-            border-radius: 15px;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            color: gold;
-            font-size: 3rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .lightbox-close:hover {
-            color: #ffd966;
-            transform: scale(1.1);
-        }
-
-        .lightbox-caption {
-            color: gold;
-            font-size: 1.5rem;
-            margin-top: 20px;
-        }
-
-        /* ===== قسم القوانين (مخفي افتراضياً) ===== */
+        /* قسم القوانين (مخفي افتراضياً) */
         .rules-section {
             display: none;
             margin: 40px 0;
@@ -556,26 +641,28 @@
             header { flex-direction: column; gap: 15px; text-align: center; }
             .social-platforms { gap: 30px; }
             .social-icon-large i { width: 100px; height: 100px; font-size: 4rem; }
+            .discord-warning { flex-direction: column; gap: 15px; text-align: center; }
+            .tweet-content { padding-right: 0; }
+            .tweet-stats { padding-right: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الشريط العلوي (تاريخ ووقت حي) -->
+    <!-- الشريط العلوي -->
     <div class="top-bar" id="topBar">
         <span id="hijriDate">🌙 تحميل...</span>
         <span id="gregorianDate">📅 تحميل...</span>
         <span id="liveTime">⏰ تحميل...</span>
     </div>
 
-    <!-- الهيدر مع الشعار والقائمة -->
+    <!-- الهيدر -->
     <header>
         <div class="logo">
             RESPECT ☪️ SAMP
         </div>
         <nav>
             <a href="#" id="homeLink">الرئيسية</a>
-            <a href="#" onclick="showGallery(); return false;">معرض الصور</a> <!-- رابط المعرض الجديد -->
             <div class="dropdown">
                 <a href="#" class="dropbtn">القوانين ▼</a>
                 <div class="dropdown-content">
@@ -591,24 +678,135 @@
         </nav>
     </header>
 
-    <!-- قسم الهيرو مع الصورة -->
+    <!-- قسم الهيرو -->
     <section class="hero">
         <h1>رمضان كريم في مجتمع Respect SAMP</h1>
         <p>التزم بالقوانين واستمتع بأفضل تجربة لعب واقعي في الشهر الفضيل</p>
-        <!-- الصورة (يمكنك تغيير الرابط) -->
         <div class="hero-image">
             <img src="https://i.imgur.com/placeholder.jpg" alt="Respect SAMP" onerror="this.src='https://via.placeholder.com/600x300/142850/gold?text=Respect+SAMP';">
         </div>
     </section>
 
     <div class="container">
-        <!-- المحتوى الرئيسي (يظهر افتراضياً) -->
+        <!-- المحتوى الرئيسي -->
         <div id="mainContent">
-            <!-- منصات التواصل (ديسكورد ويوتيوب فقط) -->
+            <!-- منصات التواصل -->
             <h2 class="section-title">منصات <span>التواصل</span></h2>
             <div class="social-platforms">
                 <a href="#" class="social-icon-large"><i class="fab fa-discord"></i> دسكورد</a>
                 <a href="#" class="social-icon-large"><i class="fab fa-youtube"></i> يوتيوب</a>
+            </div>
+
+            <!-- قسم تويتر (حسب الصورة) -->
+            <h2 class="section-title">آخر <span>المنشورات</span></h2>
+            <div class="twitter-feed-section">
+                <div class="twitter-header">
+                    <h3>الرئيسية</h3>
+                    <span>آخر النشاطات</span>
+                </div>
+
+                <!-- رسالة ربط Discord -->
+                <div class="discord-warning">
+                    <p>
+                        <i class="fab fa-discord"></i>
+                        يجب إضافة حساب Discord في إعدادات الملف الشخصي للتمكن من النشر
+                    </p>
+                    <div class="buttons">
+                        <button class="btn-discord"><i class="fab fa-discord"></i> أضف حساب Discord</button>
+                        <button class="btn-post">نشر</button>
+                    </div>
+                </div>
+
+                <!-- قائمة المنشورات -->
+                <div class="tweet-list">
+                    <!-- منشور 1: Twitter Company -->
+                    <div class="tweet-item">
+                        <div class="tweet-header">
+                            <div class="tweet-avatar">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="tweet-user-info">
+                                <div class="tweet-user-name">Twitter Company</div>
+                                <div class="tweet-user-handle">@TwitterCo</div>
+                            </div>
+                            <div class="tweet-time">منذ 3 أيام</div>
+                        </div>
+                        <div class="tweet-content">
+                            نعلن عن تحديثات جديدة في منصتنا، ترقبوا المزيد ✨
+                        </div>
+                        <div class="tweet-stats">
+                            <span><i class="far fa-heart"></i> 1</span>
+                            <span><i class="fas fa-retweet"></i> 0</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+
+                    <!-- منشور 2: وزارة الصحة -->
+                    <div class="tweet-item">
+                        <div class="tweet-header">
+                            <div class="tweet-avatar">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div class="tweet-user-info">
+                                <div class="tweet-user-name">وزارة الصحة</div>
+                                <div class="tweet-user-handle">@MOH_Saudi</div>
+                            </div>
+                            <div class="tweet-time">منذ 3 أيام</div>
+                        </div>
+                        <div class="tweet-content">
+                            نصائح صحية لرمضان: احرص على شرب الماء وتناول وجبة السحور المتوازنة 🌙
+                        </div>
+                        <div class="tweet-stats">
+                            <span><i class="far fa-heart"></i> 1</span>
+                            <span><i class="fas fa-retweet"></i> 0</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+
+                    <!-- منشور 3: وزارة الداخلية -->
+                    <div class="tweet-item">
+                        <div class="tweet-header">
+                            <div class="tweet-avatar">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="tweet-user-info">
+                                <div class="tweet-user-name">وزارة الداخلية</div>
+                                <div class="tweet-user-handle">@MOI_Saudi</div>
+                            </div>
+                            <div class="tweet-time">منذ 3 أيام</div>
+                        </div>
+                        <div class="tweet-content">
+                            نذكركم بالالتزام بالقوانين المرورية خلال الشهر الفضيل، سلامتكم تهمنا.
+                        </div>
+                        <div class="tweet-stats">
+                            <span><i class="far fa-heart"></i> 1</span>
+                            <span><i class="fas fa-retweet"></i> 0</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+
+                    <!-- منشور 4: وزارة العدل -->
+                    <div class="tweet-item">
+                        <div class="tweet-header">
+                            <div class="tweet-avatar">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="tweet-user-info">
+                                <div class="tweet-user-name">وزارة العدل</div>
+                                <div class="tweet-user-handle">@MOJ_Saudi</div>
+                            </div>
+                            <div class="tweet-time">منذ 3 أيام</div>
+                        </div>
+                        <div class="tweet-content">
+                            إطلاق خدمة التوثيق الإلكتروني الجديدة تسهيلاً للمستفيدين.
+                        </div>
+                        <div class="tweet-stats">
+                            <span><i class="far fa-heart"></i> 1</span>
+                            <span><i class="fas fa-retweet"></i> 0</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- وصف المجتمع -->
@@ -617,7 +815,7 @@
                 مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
             </div>
 
-            <!-- قسم الفيديو: فيديو Google Drive الخاص بك -->
+            <!-- قسم الفيديو -->
             <h2 class="section-title">🎥 فيديو <span>تعريفي</span></h2>
             <div class="video-section">
                 <div class="video-container" id="videoContainer">
@@ -625,12 +823,11 @@
                         <i class="fas fa-play-circle"></i>
                         <button onclick="playVideo()">تشغيل الفيديو</button>
                     </div>
-                    <!-- يتم إضافة iframe هنا عند الضغط على الزر -->
                 </div>
                 <p style="color: #ccc; margin-top: 15px;">شاهد كيفية الانضمام واللعب في سيرفر Respect SAMP</p>
             </div>
 
-            <!-- صناع محتوى ريسبكت (يمكنك إضافة الأسماء لاحقاً) -->
+            <!-- صناع محتوى ريسبكت -->
             <h2 class="section-title">صناع محتوى <span>ريسبكت</span></h2>
             <div class="creators-grid">
                 <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
@@ -642,35 +839,15 @@
             </div>
         </div>
 
-        <!-- قسم القوانين (مخفي في البداية) -->
+        <!-- قسم القوانين (مخفي) -->
         <div id="rulesSection" class="rules-section">
-            <div id="ruleDisplay" class="rule-card">
-                <!-- يتم ملؤها ديناميكياً عند اختيار قانون -->
-            </div>
+            <div id="ruleDisplay" class="rule-card"></div>
             <div class="back-home">
                 <button onclick="showHome()">العودة إلى الرئيسية</button>
             </div>
         </div>
 
-        <!-- قسم معرض الصور (جديد) -->
-        <div id="gallerySection" class="gallery-section">
-            <h2 class="section-title">🖼️ <span>معرض الصور</span></h2>
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- سيتم ملؤها ديناميكياً بواسطة JavaScript -->
-            </div>
-            <div class="back-home">
-                <button onclick="showHome()">العودة إلى الرئيسية</button>
-            </div>
-        </div>
-
-        <!-- Lightbox (للصور المكبرة) -->
-        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-            <img id="lightboxImg" src="" alt="">
-            <div id="lightboxCaption" class="lightbox-caption"></div>
-        </div>
-
-    </div> <!-- نهاية container -->
+    </div>
 
     <!-- الفوتر -->
     <footer>
@@ -679,15 +856,13 @@
     </footer>
 
     <script>
-        // ========== تحديث الشريط العلوي ==========
+        // تحديث الشريط العلوي
         function updateTopBar() {
             const now = new Date();
             const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Riyadh', hour12: false };
             const timeString = now.toLocaleTimeString('ar-SA', optionsTime);
-
             const optionsGregorian = { year: 'numeric', month: 'numeric', day: 'numeric', timeZone: 'Asia/Riyadh' };
             const gregorianDate = now.toLocaleDateString('ar-SA', optionsGregorian);
-
             const hijriOptions = { year: 'numeric', month: 'numeric', day: 'numeric', calendar: 'islamic', timeZone: 'Asia/Riyadh' };
             let hijriDate;
             try {
@@ -695,162 +870,43 @@
             } catch (e) {
                 hijriDate = 'رمضان 1446';
             }
-
             document.getElementById('hijriDate').innerHTML = `🌙 ${hijriDate}`;
             document.getElementById('gregorianDate').innerHTML = `📅 ${gregorianDate}`;
             document.getElementById('liveTime').innerHTML = `⏰ ${timeString}`;
         }
-
         setInterval(updateTopBar, 1000);
         updateTopBar();
 
-        // ========== بيانات القوانين ==========
+        // بيانات القوانين (مختصرة للاختصار)
         const rulesData = {
-            general: {
-                title: 'قوانين عامة',
-                icon: 'fa-globe',
-                items: [
-                    'اتباع تعليمات الإدارة أولاً.',
-                    'لا للنقاش خارج الشخصية (OOC) في العام.',
-                    'الالتزام بلغة السيرفر (العربية/الإنجليزية).',
-                    'عدم إزعاج اللاعبين الآخرين.',
-                    'التقارير تكون في التذكرة المخصصة.'
-                ]
-            },
-            important: {
-                title: 'قوانين مهمة',
-                icon: 'fa-exclamation-triangle',
-                items: [
-                    'احترام جميع اللاعبين والإدارة.',
-                    'عدم استخدام الغش أو البرامج الخارجية.',
-                    'الالتزام بقوانين المحاكاة الواقعية.',
-                    'لا للسب أو العنصرية بأي شكل.',
-                    'الصوت فقط في الراديو المخصص.'
-                ]
-            },
-            admin: {
-                title: 'قوانين الإدارة',
-                icon: 'fa-crown',
-                items: [
-                    'قرارات الإدارة نهائية وغير قابلة للنقاش.',
-                    'الإدارة ملزمة بتطبيق القانون بعدل.',
-                    'الأونر هو المرجع الأعلى.',
-                    'أي شكوى ضد إداري تقدم للأونر فقط.',
-                    'الاحترام متبادل بين الإدارة واللاعبين.'
-                ]
-            },
-            police: {
-                title: 'قوانين الشرطة',
-                icon: 'fa-shield-halved',
-                items: [
-                    'الالتزام بالتسلسل القيادي.',
-                    'لا إطلاق نار دون أمر مشروع.',
-                    'استخدام الصفارات والإشارات الضوئية إلزامي.',
-                    'تقديم المساعدة للمواطنين أولوية.',
-                    'تحرير المخالفات وفق النظام.'
-                ]
-            },
-            ems: {
-                title: 'قوانين الصحة',
-                icon: 'fa-ambulance',
-                items: [
-                    'الاستجابة الفورية للبلاغات الطبية.',
-                    'التعاون مع الشرطة في الحوادث.',
-                    'لا للإسعاف في مناطق الـ DM.',
-                    'الحفاظ على المخزون الطبي.',
-                    'تقديم تقرير بعد كل حالة وفاة.'
-                ]
-            },
-            gang: {
-                title: 'قوانين العصابات',
-                icon: 'fa-people-group',
-                items: [
-                    'حياد منطقة العصابات (تورف).',
-                    'لا للهجمات دون سبب RP واضح.',
-                    'احترام مناطق النفوذ.',
-                    'تنسيق الهجمات مع قائد العصابة.',
-                    'ممنوع استهداف المدنيين عشوائياً.'
-                ]
-            },
-            criminal: {
-                title: 'قوانين الإجرام',
-                icon: 'fa-gun',
-                items: [
-                    'الالتزام بقوانين الـ RP الواقعي.',
-                    'السرقة مسموحة ضمن السيناريو.',
-                    'لا لقتل اللاعبين بدون تفاعل.',
-                    'حظر خطف الشخصيات المهمة.',
-                    'العقوبات تضاعف لتكرار الجرائم.'
-                ]
-            }
+            general: { title: 'قوانين عامة', icon: 'fa-globe', items: [ 'اتباع تعليمات الإدارة أولاً.', 'لا للنقاش خارج الشخصية (OOC) في العام.', 'الالتزام بلغة السيرفر (العربية/الإنجليزية).', 'عدم إزعاج اللاعبين الآخرين.', 'التقارير تكون في التذكرة المخصصة.' ] },
+            important: { title: 'قوانين مهمة', icon: 'fa-exclamation-triangle', items: [ 'احترام جميع اللاعبين والإدارة.', 'عدم استخدام الغش أو البرامج الخارجية.', 'الالتزام بقوانين المحاكاة الواقعية.', 'لا للسب أو العنصرية بأي شكل.', 'الصوت فقط في الراديو المخصص.' ] },
+            admin: { title: 'قوانين الإدارة', icon: 'fa-crown', items: [ 'قرارات الإدارة نهائية وغير قابلة للنقاش.', 'الإدارة ملزمة بتطبيق القانون بعدل.', 'الأونر هو المرجع الأعلى.', 'أي شكوى ضد إداري تقدم للأونر فقط.', 'الاحترام متبادل بين الإدارة واللاعبين.' ] },
+            police: { title: 'قوانين الشرطة', icon: 'fa-shield-halved', items: [ 'الالتزام بالتسلسل القيادي.', 'لا إطلاق نار دون أمر مشروع.', 'استخدام الصفارات والإشارات الضوئية إلزامي.', 'تقديم المساعدة للمواطنين أولوية.', 'تحرير المخالفات وفق النظام.' ] },
+            ems: { title: 'قوانين الصحة', icon: 'fa-ambulance', items: [ 'الاستجابة الفورية للبلاغات الطبية.', 'التعاون مع الشرطة في الحوادث.', 'لا للإسعاف في مناطق الـ DM.', 'الحفاظ على المخزون الطبي.', 'تقديم تقرير بعد كل حالة وفاة.' ] },
+            gang: { title: 'قوانين العصابات', icon: 'fa-people-group', items: [ 'حياد منطقة العصابات (تورف).', 'لا للهجمات دون سبب RP واضح.', 'احترام مناطق النفوذ.', 'تنسيق الهجمات مع قائد العصابة.', 'ممنوع استهداف المدنيين عشوائياً.' ] },
+            criminal: { title: 'قوانين الإجرام', icon: 'fa-gun', items: [ 'الالتزام بقوانين الـ RP الواقعي.', 'السرقة مسموحة ضمن السيناريو.', 'لا لقتل اللاعبين بدون تفاعل.', 'حظر خطف الشخصيات المهمة.', 'العقوبات تضاعف لتكرار الجرائم.' ] }
         };
 
-        // ========== إظهار قانون محدد ==========
         function showRule(category) {
             const rule = rulesData[category];
             if (!rule) return;
-
-            let html = `
-                <h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3>
-                <ul>
-                    ${rule.items.map(item => `<li><i class="fas fa-circle"></i> ${item}</li>`).join('')}
-                </ul>
-                <div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>
-            `;
-
+            let html = `<h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3><ul>${rule.items.map(item => `<li><i class="fas fa-circle"></i> ${item}</li>`).join('')}</ul><div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>`;
             document.getElementById('ruleDisplay').innerHTML = html;
             document.getElementById('mainContent').style.display = 'none';
             document.getElementById('rulesSection').style.display = 'block';
-            document.getElementById('gallerySection').style.display = 'none';
         }
 
-        // ========== إظهار معرض الصور ==========
-        function showGallery() {
-            // إخفاء الأقسام الأخرى
-            document.getElementById('mainContent').style.display = 'none';
+        function showHome() {
+            document.getElementById('mainContent').style.display = 'block';
             document.getElementById('rulesSection').style.display = 'none';
-            document.getElementById('gallerySection').style.display = 'block';
-
-            // إنشاء شبكة الصور (بيانات تجريبية)
-            const galleryGrid = document.getElementById('galleryGrid');
-            // مصفوفة الصور: يمكنك استبدال الروابط بروابط حقيقية
-            const images = [
-                { src: 'https://via.placeholder.com/800x450/142850/gold?text=صورة+1', caption: 'لقطة من السيرفر 1' },
-                { src: 'https://via.placeholder.com/800x450/1a3a5a/gold?text=صورة+2', caption: 'لقطة من السيرفر 2' },
-                { src: 'https://via.placeholder.com/800x450/0a2a4a/gold?text=صورة+3', caption: 'لقطة من السيرفر 3' },
-                { src: 'https://via.placeholder.com/800x450/2a4a6a/gold?text=صورة+4', caption: 'لقطة من السيرفر 4' },
-                { src: 'https://via.placeholder.com/800x450/3a5a7a/gold?text=صورة+5', caption: 'لقطة من السيرفر 5' },
-                { src: 'https://via.placeholder.com/800x450/4a6a8a/gold?text=صورة+6', caption: 'لقطة من السيرفر 6' }
-            ];
-
-            let html = '';
-            images.forEach((img, index) => {
-                html += `
-                    <div class="gallery-item" onclick="openLightbox('${img.src}', '${img.caption}')">
-                        <img src="${img.src}" alt="${img.caption}">
-                        <div class="overlay">${img.caption}</div>
-                    </div>
-                `;
-            });
-            galleryGrid.innerHTML = html;
         }
 
-        // ========== Lightbox ==========
-        function openLightbox(src, caption) {
-            document.getElementById('lightbox').style.display = 'flex';
-            document.getElementById('lightboxImg').src = src;
-            document.getElementById('lightboxCaption').innerText = caption;
-        }
+        document.getElementById('homeLink').addEventListener('click', function(e) { e.preventDefault(); showHome(); });
 
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-
-        // ========== تشغيل الفيديو عند النقر على الزر ==========
         function playVideo() {
             const container = document.getElementById('videoContainer');
             const overlay = document.getElementById('videoOverlay');
-            // إزالة الطبقة وإضافة iframe
             overlay.style.display = 'none';
             const iframe = document.createElement('iframe');
             iframe.className = 'video-iframe';
@@ -861,20 +917,9 @@
             container.appendChild(iframe);
         }
 
-        // ========== العودة إلى الرئيسية ==========
-        function showHome() {
-            document.getElementById('mainContent').style.display = 'block';
-            document.getElementById('rulesSection').style.display = 'none';
-            document.getElementById('gallerySection').style.display = 'none';
-        }
-
-        // ربط رابط الرئيسية
-        document.getElementById('homeLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            showHome();
+        document.querySelectorAll('.dropdown-content a').forEach(link => {
+            link.addEventListener('click', function(e) { e.preventDefault(); });
         });
-
-        // منع إعادة تحميل الصفحة عند النقر على روابط القوانين (تم حلها بالفعل)
     </script>
 </body>
 </html>
