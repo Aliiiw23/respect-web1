@@ -142,7 +142,7 @@
             margin-bottom: 30px;
         }
 
-        /* الصورة الجديدة تحت النص */
+        /* الصورة تحت النص */
         .hero-image {
             margin-top: 30px;
             display: flex;
@@ -155,7 +155,7 @@
             border-radius: 20px;
             border: 3px solid gold;
             box-shadow: 0 0 25px rgba(255,215,0,0.3);
-            width: 600px; /* تحكم في الحجم الأقصى */
+            width: 600px;
         }
 
         /* أقسام عامة */
@@ -180,7 +180,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* منصات التواصل (ديسكورد ويوتيوب فقط) */
+        /* منصات التواصل */
         .social-platforms {
             display: flex;
             flex-wrap: wrap;
@@ -233,6 +233,30 @@
             font-size: 1.2rem;
             line-height: 1.8;
             text-align: center;
+        }
+
+        /* قسم الفيديو */
+        .video-section {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            border: 3px solid gold;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255,215,0,0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            display: block;
         }
 
         /* صناع محتوى ريسبكت */
@@ -395,14 +419,14 @@
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
+    <!-- الشريط العلوي (تاريخ ووقت حي) -->
     <div class="top-bar" id="topBar">
         <span id="hijriDate">🌙 تحميل...</span>
         <span id="gregorianDate">📅 تحميل...</span>
         <span id="liveTime">⏰ تحميل...</span>
     </div>
 
-    <!-- الهيدر -->
+    <!-- الهيدر مع الشعار والقائمة -->
     <header>
         <div class="logo">
             RESPECT ☪️ SAMP
@@ -428,17 +452,16 @@
     <section class="hero">
         <h1>رمضان كريم في مجتمع Respect SAMP</h1>
         <p>التزم بالقوانين واستمتع بأفضل تجربة لعب واقعي في الشهر الفضيل</p>
-        <!-- الصورة المضافة -->
+        <!-- الصورة (يمكنك تغيير الرابط) -->
         <div class="hero-image">
             <img src="https://i.imgur.com/placeholder.jpg" alt="Respect SAMP" onerror="this.src='https://via.placeholder.com/600x300/142850/gold?text=Respect+SAMP';">
-            <!-- استبدل الرابط أعلاه برابط الصورة الخاصة بك -->
         </div>
     </section>
 
     <div class="container">
-        <!-- المحتوى الرئيسي -->
+        <!-- المحتوى الرئيسي (يظهر افتراضياً) -->
         <div id="mainContent">
-            <!-- منصات التواصل -->
+            <!-- منصات التواصل (ديسكورد ويوتيوب فقط) -->
             <h2 class="section-title">منصات <span>التواصل</span></h2>
             <div class="social-platforms">
                 <a href="#" class="social-icon-large"><i class="fab fa-discord"></i> دسكورد</a>
@@ -451,7 +474,20 @@
                 مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
             </div>
 
-            <!-- صناع محتوى ريسبكت -->
+            <!-- قسم الفيديو: فيديو Google Drive الخاص بك -->
+            <h2 class="section-title">🎥 فيديو <span>تعريفي</span></h2>
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1VCE7Xgwsld5oFQTOGn0ik7ui3lwuJa-_/preview" 
+                            frameborder="0" 
+                            allowfullscreen 
+                            allow="autoplay; encrypted-media">
+                    </iframe>
+                </div>
+                <p style="color: #ccc; margin-top: 15px;">شاهد كيفية الانضمام واللعب في سيرفر Respect SAMP</p>
+            </div>
+
+            <!-- صناع محتوى ريسبكت (يمكنك إضافة الأسماء لاحقاً) -->
             <h2 class="section-title">صناع محتوى <span>ريسبكت</span></h2>
             <div class="creators-grid">
                 <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
@@ -463,17 +499,17 @@
             </div>
         </div>
 
-        <!-- قسم القوانين (مخفي) -->
+        <!-- قسم القوانين (مخفي في البداية) -->
         <div id="rulesSection" class="rules-section">
             <div id="ruleDisplay" class="rule-card">
-                <!-- سيتم ملؤها ديناميكياً -->
+                <!-- يتم ملؤها ديناميكياً عند اختيار قانون -->
             </div>
             <div class="back-home">
                 <button onclick="showHome()">العودة إلى الرئيسية</button>
             </div>
         </div>
 
-    </div>
+    </div> <!-- نهاية container -->
 
     <!-- الفوتر -->
     <footer>
@@ -482,7 +518,7 @@
     </footer>
 
     <script>
-        // تحديث الشريط العلوي
+        // ========== تحديث الشريط العلوي ==========
         function updateTopBar() {
             const now = new Date();
             const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Riyadh', hour12: false };
@@ -507,7 +543,7 @@
         setInterval(updateTopBar, 1000);
         updateTopBar();
 
-        // بيانات القوانين
+        // ========== بيانات القوانين (كل قانون بمفرده) ==========
         const rulesData = {
             general: {
                 title: 'قوانين عامة',
@@ -588,11 +624,12 @@
             }
         };
 
-        // إظهار قانون محدد
+        // ========== إظهار قانون محدد عند النقر من القائمة ==========
         function showRule(category) {
             const rule = rulesData[category];
             if (!rule) return;
 
+            // بناء HTML للقانون المحدد فقط
             let html = `
                 <h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3>
                 <ul>
@@ -602,23 +639,28 @@
             `;
 
             document.getElementById('ruleDisplay').innerHTML = html;
+
+            // إخفاء المحتوى الرئيسي وإظهار قسم القوانين
             document.getElementById('mainContent').style.display = 'none';
             document.getElementById('rulesSection').style.display = 'block';
         }
 
+        // ========== العودة إلى الصفحة الرئيسية ==========
         function showHome() {
             document.getElementById('mainContent').style.display = 'block';
             document.getElementById('rulesSection').style.display = 'none';
         }
 
+        // ربط رابط الرئيسية
         document.getElementById('homeLink').addEventListener('click', function(e) {
             e.preventDefault();
             showHome();
         });
 
+        // منع إعادة تحميل الصفحة عند النقر على روابط القوانين
         document.querySelectorAll('.dropdown-content a').forEach(link => {
             link.addEventListener('click', function(e) {
-                e.preventDefault();
+                e.preventDefault(); // منع التنقل
             });
         });
     </script>
