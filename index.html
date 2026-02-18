@@ -508,4 +508,119 @@
         updateTopBar();
 
         // بيانات القوانين
-        const
+        const rulesData = {
+            general: {
+                title: 'قوانين عامة',
+                icon: 'fa-globe',
+                items: [
+                    'اتباع تعليمات الإدارة أولاً.',
+                    'لا للنقاش خارج الشخصية (OOC) في العام.',
+                    'الالتزام بلغة السيرفر (العربية/الإنجليزية).',
+                    'عدم إزعاج اللاعبين الآخرين.',
+                    'التقارير تكون في التذكرة المخصصة.'
+                ]
+            },
+            important: {
+                title: 'قوانين مهمة',
+                icon: 'fa-exclamation-triangle',
+                items: [
+                    'احترام جميع اللاعبين والإدارة.',
+                    'عدم استخدام الغش أو البرامج الخارجية.',
+                    'الالتزام بقوانين المحاكاة الواقعية.',
+                    'لا للسب أو العنصرية بأي شكل.',
+                    'الصوت فقط في الراديو المخصص.'
+                ]
+            },
+            admin: {
+                title: 'قوانين الإدارة',
+                icon: 'fa-crown',
+                items: [
+                    'قرارات الإدارة نهائية وغير قابلة للنقاش.',
+                    'الإدارة ملزمة بتطبيق القانون بعدل.',
+                    'الأونر هو المرجع الأعلى.',
+                    'أي شكوى ضد إداري تقدم للأونر فقط.',
+                    'الاحترام متبادل بين الإدارة واللاعبين.'
+                ]
+            },
+            police: {
+                title: 'قوانين الشرطة',
+                icon: 'fa-shield-halved',
+                items: [
+                    'الالتزام بالتسلسل القيادي.',
+                    'لا إطلاق نار دون أمر مشروع.',
+                    'استخدام الصفارات والإشارات الضوئية إلزامي.',
+                    'تقديم المساعدة للمواطنين أولوية.',
+                    'تحرير المخالفات وفق النظام.'
+                ]
+            },
+            ems: {
+                title: 'قوانين الصحة',
+                icon: 'fa-ambulance',
+                items: [
+                    'الاستجابة الفورية للبلاغات الطبية.',
+                    'التعاون مع الشرطة في الحوادث.',
+                    'لا للإسعاف في مناطق الـ DM.',
+                    'الحفاظ على المخزون الطبي.',
+                    'تقديم تقرير بعد كل حالة وفاة.'
+                ]
+            },
+            gang: {
+                title: 'قوانين العصابات',
+                icon: 'fa-people-group',
+                items: [
+                    'حياد منطقة العصابات (تورف).',
+                    'لا للهجمات دون سبب RP واضح.',
+                    'احترام مناطق النفوذ.',
+                    'تنسيق الهجمات مع قائد العصابة.',
+                    'ممنوع استهداف المدنيين عشوائياً.'
+                ]
+            },
+            criminal: {
+                title: 'قوانين الإجرام',
+                icon: 'fa-gun',
+                items: [
+                    'الالتزام بقوانين الـ RP الواقعي.',
+                    'السرقة مسموحة ضمن السيناريو.',
+                    'لا لقتل اللاعبين بدون تفاعل.',
+                    'حظر خطف الشخصيات المهمة.',
+                    'العقوبات تضاعف لتكرار الجرائم.'
+                ]
+            }
+        };
+
+        // إظهار قانون محدد
+        function showRule(category) {
+            const rule = rulesData[category];
+            if (!rule) return;
+
+            let html = `
+                <h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3>
+                <ul>
+                    ${rule.items.map(item => `<li><i class="fas fa-circle"></i> ${item}</li>`).join('')}
+                </ul>
+                <div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>
+            `;
+
+            document.getElementById('ruleDisplay').innerHTML = html;
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('rulesSection').style.display = 'block';
+        }
+
+        function showHome() {
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('rulesSection').style.display = 'none';
+        }
+
+        document.getElementById('homeLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            showHome();
+        });
+
+        document.querySelectorAll('.dropdown-content a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
