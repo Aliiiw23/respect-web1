@@ -1,75 +1,534 @@
-<div style="background-color: #0a1a2a; color: gold; padding: 5px; display: flex; justify-content: space-around;">
-    <span>🌙 5 رمضان</span> | <span>👥 المتصلين: 150</span> | <span>⏰ الوقت: 21:30</span>
-</div>
 
-<header style="background-color: #142850; padding: 20px; border-bottom: 3px solid gold; display: flex; justify-content: space-between; align-items: center;">
-    <div class="logo" style="font-size: 24px; color: gold; font-weight: bold;">
-        RESPECT ☪️ SAMP
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>RESPECT SAMP · الموقع الرسمي</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #0a1a2a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* شريط علوي */
+        .top-bar {
+            background-color: #0a1a2a;
+            color: gold;
+            padding: 8px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid #ffd70040;
+            font-size: 1rem;
+        }
+
+        .top-bar span {
+            margin: 0 10px;
+        }
+
+        /* الهيدر */
+        header {
+            background-color: #142850;
+            padding: 15px 30px;
+            border-bottom: 3px solid gold;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            color: gold;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #f5f5dc; /* cream */
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: gold;
+        }
+
+        nav a.active {
+            color: gold;
+            font-weight: bold;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(20,40,80,0.8), rgba(20,40,80,0.8)), url('https://via.placeholder.com/1600x600/1a2f4a/2e5a8a?text=GTA+RAMADAN');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            color: gold;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        /* أقسام عامة */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 50px 0 30px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, gold, #f0b300);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Streamers Grid */
+        .streamers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .streamer-card {
+            background: rgba(20, 45, 70, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            padding: 20px 10px;
+            text-align: center;
+            border: 1px solid #ffd70060;
+            transition: 0.3s;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        }
+
+        .streamer-card:hover {
+            transform: translateY(-5px);
+            border-color: gold;
+            box-shadow: 0 12px 24px rgba(255,215,0,0.2);
+        }
+
+        .streamer-card i {
+            font-size: 3rem;
+            color: gold;
+            margin-bottom: 10px;
+        }
+
+        .streamer-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Stats */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            background: #142850;
+            border-radius: 60px;
+            padding: 40px 50px;
+            margin: 40px 0;
+            border: 1px solid gold;
+        }
+
+        .stat-item {
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: gold;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            color: #ddd;
+        }
+
+        /* Social Platforms */
+        .social-platforms {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .social-icon-large {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: 0.2s;
+        }
+
+        .social-icon-large i {
+            font-size: 4rem;
+            background: #142850;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid gold;
+            transition: 0.2s;
+        }
+
+        .social-icon-large:hover i {
+            background: gold;
+            color: #0a1a2a;
+            transform: scale(1.1);
+        }
+
+        .social-icon-large:hover {
+            color: gold;
+        }
+
+        /* Community Description */
+        .community-box {
+            background: #142850;
+            border-radius: 50px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid gold;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Rules Cards */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .rule-card {
+            background: #142850;
+            border-top: 5px solid gold; /* default gold, but each will be overridden */
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: 0.2s;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255,215,0,0.15);
+        }
+
+        .rule-card h3 {
+            font-size: 1.8rem;
+            color: gold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rule-card h3 i {
+            font-size: 2rem;
+        }
+
+        .rule-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .rule-card li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border-bottom: 1px dotted #2a4a6a;
+            padding-bottom: 8px;
+        }
+
+        .rule-card li i {
+            color: gold;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .edit-note {
+            background: #0a1a2a;
+            border-radius: 30px;
+            padding: 6px 15px;
+            display: inline-block;
+            margin-top: 15px;
+            color: #ffd700;
+            font-size: 0.9rem;
+            border: 1px dashed gold;
+        }
+
+        /* ألوان الحدود لكل فئة */
+        .rule-card.general { border-top-color: gold; }
+        .rule-card.important { border-top-color: red; }
+        .rule-card.admin { border-top-color: purple; }
+        .rule-card.police { border-top-color: blue; }
+        .rule-card.ems { border-top-color: green; }
+        .rule-card.gang { border-top-color: darkorange; }
+        .rule-card.criminal { border-top-color: crimson; }
+
+        /* Footer */
+        footer {
+            background-color: #0a1a2a;
+            color: #aaa;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 2px solid gold;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        footer .ramadan {
+            color: gold;
+            font-size: 1.3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2.2rem; }
+            .stats-container { flex-direction: column; align-items: center; gap: 25px; }
+            .top-bar { flex-direction: column; gap: 5px; }
+            header { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشريط العلوي (تاريخ، متصلين، وقت) -->
+    <div class="top-bar">
+        <span>🌙 5 رمضان</span>
+        <span>👥 المتصلين: 150</span>
+        <span>⏰ الوقت: 21:30</span>
     </div>
-    <nav>
-        <a href="#" style="color: cream; margin: 0 10px;">الرئيسية</a>
-        <a href="#" style="color: cream; margin: 0 10px;">المنتدى</a>
-        <a href="#" style="color: gold; margin: 0 10px; font-weight: bold;">القوانين ▼</a>
-        <a href="#" style="color: cream; margin: 0 10px;">تسجيل دخول</a>
-    </nav>
-</header>
 
-<section class="hero" style="background: linear-gradient(rgba(20,40,80,0.7), rgba(20,40,80,0.7)), url('gta-night-mosque.jpg'); padding: 100px 20px; text-align: center; color: white;">
-    <h1 style="color: gold; font-size: 3em;">رمضان كريم في مجتمع Respect SAMP</h1>
-    <p>التزم بالقوانين واستمتع بأفضل تجربة لعب واقعي في الشهر الفضيل</p>
-</section>
+    <!-- الهيدر مع الشعار والقائمة -->
+    <header>
+        <div class="logo">
+            RESPECT ☪️ SAMP
+        </div>
+        <nav>
+            <a href="#">الرئيسية</a>
+            <a href="#">المنتدى</a>
+            <a href="#" class="active">القوانين ▼</a>
+            <a href="#">تسجيل دخول</a>
+        </nav>
+    </header>
 
-<main style="padding: 50px 20px; background-color: #f4f4f4; text-align: center;">
-    <h2 style="color: #142850; margin-bottom: 40px;">📜 دستور السيرفر ودليل اللاعب 📜</h2>
+    <!-- قسم الهيرو الترحيبي -->
+    <section class="hero">
+        <h1>رمضان كريم في مجتمع Respect SAMP</h1>
+        <p>التزم بالقوانين واستمتع بأفضل تجربة لعب واقعي في الشهر الفضيل</p>
+    </section>
 
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1200px; margin: auto;">
+    <div class="container">
 
-        <div class="card" style="background: white; border-top: 4px solid gold; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 10px;">
-            <div style="font-size: 40px;">📜</div>
-            <h3 style="color: #142850;">قوانين عامة</h3>
-            <p style="color: #666;">الأساسيات التي يجب على كل مواطن في لوس سانتوس معرفتها.</p>
-            <button style="background: #142850; color: gold; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 5px;">تصفح القوانين</button>
+        <!-- قسم البثوث (مثل respect.sa) -->
+        <h2 class="section-title">شاهد أفضل <span>البثوث</span></h2>
+        <div class="streamers-grid">
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Drb7h</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Peerless</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Fhlwy</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>xMusabRT</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>S5B</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Wolf</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>F1aisal</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>ABO8ALYY</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>OKB8</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>RAYAN_A3</h3><p>بث مباشر</p></div>
         </div>
 
-        <div class="card" style="background: white; border-top: 4px solid red; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 10px;">
-            <div style="font-size: 40px;">⚠️</div>
-            <h3 style="color: #142850;">قوانين مهمة (عقوبات)</h3>
-            <p style="color: #666;">الخطوط الحمراء التي لا يجب تجاوزها لتجنب الحظر.</p>
-             <button style="background: #142850; color: gold; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 5px;">تصفح القوانين</button>
+        <!-- قسم الإحصائيات -->
+        <h2 class="section-title">مجتمع <span>ريسبكت</span> بالأرقام</h2>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">200k+</div>
+                <div class="stat-label">مجموع الأعضاء</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">170k+</div>
+                <div class="stat-label">مجموع المتابعين</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">60k+</div>
+                <div class="stat-label">مجتمع تويتر</div>
+            </div>
         </div>
 
-        <div class="card" style="background: white; border-top: 4px solid purple; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 10px;">
-            <div style="font-size: 40px;">🔫</div>
-            <h3 style="color: #142850;">قوانين عصابات</h3>
-            <p style="color: #666;">ضوابط حروب الشوارع والسيطرة على المناطق واللعب الإجرامي.</p>
-             <button style="background: #142850; color: gold; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 5px;">تصفح القوانين</button>
+        <!-- منصات التواصل (كيك، دسكورد، تويتر) -->
+        <h2 class="section-title">منصات <span>التواصل</span></h2>
+        <div class="social-platforms">
+            <a href="#" class="social-icon-large"><i class="fas fa-video"></i> كيك</a>
+            <a href="#" class="social-icon-large"><i class="fab fa-discord"></i> دسكورد</a>
+            <a href="#" class="social-icon-large"><i class="fab fa-twitter"></i> تويتر</a>
         </div>
 
-        <div class="card" style="background: white; border-top: 4px solid green; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 10px;">
-            <div style="font-size: 40px;">🚑</div>
-            <h3 style="color: #142850;">قوانين الصحة والمسعفين</h3>
-            <p style="color: #666;">بروتوكولات وزارة الصحة ونظام علاج المصابين.</p>
-             <button style="background: #142850; color: gold; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 5px;">تصفح القوانين</button>
+        <!-- وصف المجتمع -->
+        <h2 class="section-title">مجتمع <span>ريسبكت</span></h2>
+        <div class="community-box">
+            مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
         </div>
 
-        <div class="card" style="background: white; border-top: 4px solid blue; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 10px;">
-            <div style="font-size: 40px;">💼</div>
-            <h3 style="color: #142850;">قوانين الشركات</h3>
-            <p style="color: #666;">لوائح القطاع الخاص، التوظيف، والمعاملات المالية.</p>
-             <button style="background: #142850; color: gold; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 5px;">تصفح القوانين</button>
+        <!-- ========== قسم القوانين الكامل ========== -->
+        <h2 class="section-title">📜 <span>دستور السيرفر</span> ودليل اللاعب 📜</h2>
+        <div class="rules-grid">
+
+            <!-- 1. قوانين عامة -->
+            <div class="rule-card general">
+                <h3><i class="fas fa-globe"></i> قوانين عامة</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> اتباع تعليمات الإدارة أولاً.</li>
+                    <li><i class="fas fa-circle"></i> لا للنقاش خارج الشخصية (OOC) في العام.</li>
+                    <li><i class="fas fa-circle"></i> الالتزام بلغة السيرفر (العربية/الإنجليزية).</li>
+                    <li><i class="fas fa-circle"></i> عدم إزعاج اللاعبين الآخرين.</li>
+                    <li><i class="fas fa-circle"></i> التقارير تكون في التذكرة المخصصة.</li>
+                </ul>
+                <div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>
+            </div>
+
+            <!-- 2. قوانين مهمة -->
+            <div class="rule-card important">
+                <h3><i class="fas fa-exclamation-triangle"></i> قوانين مهمة</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> احترام جميع اللاعبين والإدارة.</li>
+                    <li><i class="fas fa-circle"></i> عدم استخدام الغش أو البرامج الخارجية.</li>
+                    <li><i class="fas fa-circle"></i> الالتزام بقوانين المحاكاة الواقعية.</li>
+                    <li><i class="fas fa-circle"></i> لا للسب أو العنصرية بأي شكل.</li>
+                    <li><i class="fas fa-circle"></i> الصوت فقط في الراديو المخصص.</li>
+                </ul>
+            </div>
+
+            <!-- 3. قوانين الإدارة والأونر -->
+            <div class="rule-card admin">
+                <h3><i class="fas fa-crown"></i> قوانين الإدارة</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> قرارات الإدارة نهائية وغير قابلة للنقاش.</li>
+                    <li><i class="fas fa-circle"></i> الإدارة ملزمة بتطبيق القانون بعدل.</li>
+                    <li><i class="fas fa-circle"></i> الأونر هو المرجع الأعلى.</li>
+                    <li><i class="fas fa-circle"></i> أي شكوى ضد إداري تقدم للأونر فقط.</li>
+                    <li><i class="fas fa-circle"></i> الاحترام متبادل بين الإدارة واللاعبين.</li>
+                </ul>
+            </div>
+
+            <!-- 4. قوانين الشرطة -->
+            <div class="rule-card police">
+                <h3><i class="fas fa-shield-halved"></i> قوانين الشرطة</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> الالتزام بالتسلسل القيادي.</li>
+                    <li><i class="fas fa-circle"></i> لا إطلاق نار دون أمر مشروع.</li>
+                    <li><i class="fas fa-circle"></i> استخدام الصفارات والإشارات الضوئية إلزامي.</li>
+                    <li><i class="fas fa-circle"></i> تقديم المساعدة للمواطنين أولوية.</li>
+                    <li><i class="fas fa-circle"></i> تحرير المخالفات وفق النظام.</li>
+                </ul>
+            </div>
+
+            <!-- 5. قوانين الصحة -->
+            <div class="rule-card ems">
+                <h3><i class="fas fa-ambulance"></i> قوانين الصحة</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> الاستجابة الفورية للبلاغات الطبية.</li>
+                    <li><i class="fas fa-circle"></i> التعاون مع الشرطة في الحوادث.</li>
+                    <li><i class="fas fa-circle"></i> لا للإسعاف في مناطق الـ DM.</li>
+                    <li><i class="fas fa-circle"></i> الحفاظ على المخزون الطبي.</li>
+                    <li><i class="fas fa-circle"></i> تقديم تقرير بعد كل حالة وفاة.</li>
+                </ul>
+            </div>
+
+            <!-- 6. قوانين العصابات -->
+            <div class="rule-card gang">
+                <h3><i class="fas fa-people-group"></i> قوانين العصابات</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> حياد منطقة العصابات (تورف).</li>
+                    <li><i class="fas fa-circle"></i> لا للهجمات دون سبب RP واضح.</li>
+                    <li><i class="fas fa-circle"></i> احترام مناطق النفوذ.</li>
+                    <li><i class="fas fa-circle"></i> تنسيق الهجمات مع قائد العصابة.</li>
+                    <li><i class="fas fa-circle"></i> ممنوع استهداف المدنيين عشوائياً.</li>
+                </ul>
+            </div>
+
+            <!-- 7. قوانين الإجرام -->
+            <div class="rule-card criminal">
+                <h3><i class="fas fa-gun"></i> قوانين الإجرام</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> الالتزام بقوانين الـ RP الواقعي.</li>
+                    <li><i class="fas fa-circle"></i> السرقة مسموحة ضمن السيناريو.</li>
+                    <li><i class="fas fa-circle"></i> لا لقتل اللاعبين بدون تفاعل.</li>
+                    <li><i class="fas fa-circle"></i> حظر خطف الشخصيات المهمة.</li>
+                    <li><i class="fas fa-circle"></i> العقوبات تضاعف لتكرار الجرائم.</li>
+                </ul>
+            </div>
         </div>
+        <!-- نهاية قسم القوانين -->
 
-        <div class="card" style="background: white; border-top: 4px solid #cd7f32; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 10px;">
-            <div style="font-size: 40px;">🗣️</div>
-            <h3 style="color: #142850;">مصطلحات اللعبة (RP)</h3>
-            <p style="color: #666;">قاموس شامل لفهم مصطلحات الرول بلاي (MG, DM, etc).</p>
-             <button style="background: #142850; color: gold; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 5px;">تصفح المصطلحات</button>
-        </div>
+    </div> <!-- نهاية container -->
 
-    </div>
-</main>
+    <!-- الفوتر -->
+    <footer>
+        <p>جميع الحقوق محفوظة لـ Respect SAMP Community © 2026</p>
+        <p class="ramadan">🌙 تقبل الله طاعتكم 🌙</p>
+    </footer>
 
-<footer style="background-color: #0a1a2a; color: grey; padding: 20px; text-align: center;">
-    <p>جميع الحقوق محفوظة لـ Respect SAMP Community © 2024</p>
-    <p style="color: gold;">🌙 تقبل الله طاعتكم 🌙</p>
-</footer>
+    <script>
+        // تحديث الوقت والمتصلين بشكل حيوي (اختياري)
+        function updateStats() {
+            // يمكنك ربط هذه القيم من خادم السيرفر لاحقاً
+            document.querySelector('.top-bar span:nth-child(2)').innerHTML = `👥 المتصلين: 150`;
+            document.querySelector('.top-bar span:nth-child(3)').innerHTML = `⏰ الوقت: ${new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })}`;
+        }
+        setInterval(updateStats, 60000); // كل دقيقة
+        updateStats();
+    </script>
+</body>
+</html>
