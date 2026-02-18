@@ -23,18 +23,19 @@
             line-height: 1.6;
         }
 
-        /* الشريط العلوي الحي */
+        /* الشريط العلوي (تاريخ ووقت فقط) */
         .top-bar {
             background-color: #0a1a2a;
             color: gold;
             padding: 8px 20px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             border-bottom: 1px solid #ffd70040;
             font-size: 1rem;
-            direction: ltr; /* للأرقام */
+            gap: 30px;
+            direction: ltr;
         }
 
         .top-bar span {
@@ -123,20 +124,20 @@
             background: linear-gradient(rgba(20,40,80,0.8), rgba(20,40,80,0.8)), url('https://via.placeholder.com/1600x600/1a2f4a/2e5a8a?text=GTA+RAMADAN');
             background-size: cover;
             background-position: center;
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
             color: white;
         }
 
         .hero h1 {
             color: gold;
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             opacity: 0.9;
         }
 
@@ -162,78 +163,12 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Streamers Grid */
-        .streamers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .streamer-card {
-            background: rgba(20, 45, 70, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 30px;
-            padding: 20px 10px;
-            text-align: center;
-            border: 1px solid #ffd70060;
-            transition: 0.3s;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-        }
-
-        .streamer-card:hover {
-            transform: translateY(-5px);
-            border-color: gold;
-            box-shadow: 0 12px 24px rgba(255,215,0,0.2);
-        }
-
-        .streamer-card i {
-            font-size: 3rem;
-            color: gold;
-            margin-bottom: 10px;
-        }
-
-        .streamer-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        /* Stats */
-        .stats-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 50px;
-            background: #142850;
-            border-radius: 60px;
-            padding: 40px 50px;
-            margin: 40px 0;
-            border: 1px solid gold;
-        }
-
-        .stat-item {
-            text-align: center;
-            min-width: 150px;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: gold;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 1.3rem;
-            color: #ddd;
-        }
-
-        /* Social Platforms */
+        /* منصات التواصل (ديسكورد ويوتيوب فقط) */
         .social-platforms {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 40px;
+            gap: 60px;
             margin: 50px 0;
         }
 
@@ -244,20 +179,20 @@
             gap: 10px;
             color: #fff;
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             transition: 0.2s;
         }
 
         .social-icon-large i {
-            font-size: 4rem;
+            font-size: 5rem;
             background: #142850;
-            width: 100px;
-            height: 100px;
+            width: 130px;
+            height: 130px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            border: 2px solid gold;
+            border: 3px solid gold;
             transition: 0.2s;
         }
 
@@ -271,7 +206,7 @@
             color: gold;
         }
 
-        /* Community Description */
+        /* وصف المجتمع (نفس النص) */
         .community-box {
             background: #142850;
             border-radius: 50px;
@@ -283,16 +218,48 @@
             text-align: center;
         }
 
+        /* صناع محتوى ريسبكت (قسم جديد) */
+        .creators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin: 40px 0 60px;
+        }
+
+        .creator-card {
+            background: rgba(20, 45, 70, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            padding: 20px 15px;
+            text-align: center;
+            border: 1px solid #ffd70060;
+            transition: 0.3s;
+        }
+
+        .creator-card:hover {
+            border-color: gold;
+            transform: translateY(-5px);
+        }
+
+        .creator-card i {
+            font-size: 3rem;
+            color: gold;
+            margin-bottom: 10px;
+        }
+
+        .creator-card h4 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .creator-card p {
+            color: #ccc;
+            font-size: 1rem;
+        }
+
         /* قسم القوانين (مخفي افتراضياً) */
         .rules-section {
             display: none;
-            margin: 40px 0;
-        }
-
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
             margin: 40px 0;
         }
 
@@ -303,6 +270,8 @@
             padding: 25px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             transition: 0.2s;
+            max-width: 700px;
+            margin: 20px auto;
         }
 
         .rule-card:hover {
@@ -311,16 +280,16 @@
         }
 
         .rule-card h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: gold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .rule-card h3 i {
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
 
         .rule-card ul {
@@ -329,33 +298,32 @@
         }
 
         .rule-card li {
-            margin-bottom: 12px;
-            font-size: 1.05rem;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
             border-bottom: 1px dotted #2a4a6a;
-            padding-bottom: 8px;
+            padding-bottom: 10px;
         }
 
         .rule-card li i {
             color: gold;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-top: 5px;
         }
 
         .edit-note {
             background: #0a1a2a;
             border-radius: 30px;
-            padding: 6px 15px;
+            padding: 8px 20px;
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
             color: #ffd700;
-            font-size: 0.9rem;
+            font-size: 1rem;
             border: 1px dashed gold;
         }
 
-        /* زر العودة */
         .back-home {
             text-align: center;
             margin: 30px 0;
@@ -399,21 +367,21 @@
 
         /* Responsive */
         @media (max-width: 700px) {
-            .hero h1 { font-size: 2.2rem; }
-            .stats-container { flex-direction: column; align-items: center; gap: 25px; }
+            .hero h1 { font-size: 2rem; }
             .top-bar { flex-direction: column; gap: 5px; }
             header { flex-direction: column; gap: 15px; text-align: center; }
+            .social-platforms { gap: 30px; }
+            .social-icon-large i { width: 100px; height: 100px; font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الشريط العلوي الحي (يتم تحديثه بواسطة JavaScript) -->
+    <!-- الشريط العلوي (تاريخ ووقت فقط) -->
     <div class="top-bar" id="topBar">
         <span id="hijriDate">🌙 تحميل...</span>
         <span id="gregorianDate">📅 تحميل...</span>
         <span id="liveTime">⏰ تحميل...</span>
-        <span id="playersCount">👥 المتصلين: تحميل...</span>
     </div>
 
     <!-- الهيدر مع الشعار والقائمة -->
@@ -423,20 +391,18 @@
         </div>
         <nav>
             <a href="#" id="homeLink">الرئيسية</a>
-            <a href="#">المنتدى</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">القوانين ▼</a>
                 <div class="dropdown-content">
-                    <a href="#" onclick="showRules('general')">قوانين عامة</a>
-                    <a href="#" onclick="showRules('important')">قوانين مهمة</a>
-                    <a href="#" onclick="showRules('admin')">قوانين الإدارة</a>
-                    <a href="#" onclick="showRules('police')">قوانين الشرطة</a>
-                    <a href="#" onclick="showRules('ems')">قوانين الصحة</a>
-                    <a href="#" onclick="showRules('gang')">قوانين العصابات</a>
-                    <a href="#" onclick="showRules('criminal')">قوانين الإجرام</a>
+                    <a href="#" onclick="showRule('general')">قوانين عامة</a>
+                    <a href="#" onclick="showRule('important')">قوانين مهمة</a>
+                    <a href="#" onclick="showRule('admin')">قوانين الإدارة</a>
+                    <a href="#" onclick="showRule('police')">قوانين الشرطة</a>
+                    <a href="#" onclick="showRule('ems')">قوانين الصحة</a>
+                    <a href="#" onclick="showRule('gang')">قوانين العصابات</a>
+                    <a href="#" onclick="showRule('criminal')">قوانين الإجرام</a>
                 </div>
             </div>
-            <a href="#">تسجيل دخول</a>
         </nav>
     </header>
 
@@ -449,58 +415,36 @@
     <div class="container">
         <!-- المحتوى الرئيسي (بدون قوانين) -->
         <div id="mainContent">
-            <!-- قسم البثوث -->
-            <h2 class="section-title">شاهد أفضل <span>البثوث</span></h2>
-            <div class="streamers-grid">
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Drb7h</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Peerless</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Fhlwy</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>xMusabRT</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>S5B</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Wolf</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>F1aisal</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>ABO8ALYY</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>OKB8</h3><p>بث مباشر</p></div>
-                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>RAYAN_A3</h3><p>بث مباشر</p></div>
-            </div>
-
-            <!-- قسم الإحصائيات -->
-            <h2 class="section-title">مجتمع <span>ريسبكت</span> بالأرقام</h2>
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">200k+</div>
-                    <div class="stat-label">مجموع الأعضاء</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">170k+</div>
-                    <div class="stat-label">مجموع المتابعين</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">60k+</div>
-                    <div class="stat-label">مجتمع تويتر</div>
-                </div>
-            </div>
-
-            <!-- منصات التواصل -->
+            <!-- منصات التواصل (ديسكورد ويوتيوب فقط) -->
             <h2 class="section-title">منصات <span>التواصل</span></h2>
             <div class="social-platforms">
-                <a href="#" class="social-icon-large"><i class="fas fa-video"></i> كيك</a>
                 <a href="#" class="social-icon-large"><i class="fab fa-discord"></i> دسكورد</a>
-                <a href="#" class="social-icon-large"><i class="fab fa-twitter"></i> تويتر</a>
+                <a href="#" class="social-icon-large"><i class="fab fa-youtube"></i> يوتيوب</a>
             </div>
 
-            <!-- وصف المجتمع -->
+            <!-- وصف المجتمع (ثابت) -->
             <h2 class="section-title">مجتمع <span>ريسبكت</span></h2>
             <div class="community-box">
                 مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
             </div>
+
+            <!-- قسم صناع محتوى ريسبكت (جديد) -->
+            <h2 class="section-title">صناع محتوى <span>ريسبكت</span></h2>
+            <div class="creators-grid">
+                <!-- يمكنك إضافة الأسماء هنا لاحقاً -->
+                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
+                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
+                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
+                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
+                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
+                <div class="creator-card"><i class="fas fa-user-star"></i><h4>...</h4><p>صانع محتوى</p></div>
+            </div>
         </div>
 
-        <!-- قسم القوانين (مخفي في البداية) -->
+        <!-- قسم القوانين (مخفي في البداية) - يظهر فيه القانون المختار فقط -->
         <div id="rulesSection" class="rules-section">
-            <h2 class="section-title">📜 <span>دستور السيرفر</span> ودليل اللاعب 📜</h2>
-            <div class="rules-grid" id="rulesGrid">
-                <!-- سيتم ملؤها بواسطة JavaScript عند اختيار القسم -->
+            <div id="ruleDisplay" class="rule-card">
+                <!-- سيتم وضع محتوى القانون هنا ديناميكياً -->
             </div>
             <div class="back-home">
                 <button onclick="showHome()">العودة إلى الرئيسية</button>
@@ -516,59 +460,32 @@
     </footer>
 
     <script>
-        // ========== تحديث الشريط العلوي ==========
+        // ========== تحديث الشريط العلوي (تاريخ ووقت فقط) ==========
         function updateTopBar() {
-            // الوقت الحالي في العراق/السعودية (توقيت بغداد/الرياض UTC+3)
             const now = new Date();
             const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Riyadh', hour12: false };
             const timeString = now.toLocaleTimeString('ar-SA', optionsTime);
 
-            // التاريخ الميلادي
             const optionsGregorian = { year: 'numeric', month: 'numeric', day: 'numeric', timeZone: 'Asia/Riyadh' };
             const gregorianDate = now.toLocaleDateString('ar-SA', optionsGregorian);
 
-            // التاريخ الهجري (بسيط: يمكن تحسينه بمكتبة لكن نستخدم تقريباً)
-            // نستخدم كائن Intl.DateTimeFormat مع التقويم الإسلامي
             const hijriOptions = { year: 'numeric', month: 'numeric', day: 'numeric', calendar: 'islamic', timeZone: 'Asia/Riyadh' };
             let hijriDate;
             try {
                 hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic', hijriOptions).format(now);
             } catch (e) {
-                hijriDate = 'رمضان 1445'; // fallback
+                hijriDate = 'رمضان 1446'; // fallback
             }
 
             document.getElementById('hijriDate').innerHTML = `🌙 ${hijriDate}`;
             document.getElementById('gregorianDate').innerHTML = `📅 ${gregorianDate}`;
             document.getElementById('liveTime').innerHTML = `⏰ ${timeString}`;
-
-            // عدد المتصلين (يتم تحديثه بشكل منفصل)
-            // يمكن استبدال الرابط الحقيقي لسيرفر SAMP
-            fetchPlayersCount();
         }
 
-        // محاكاة جلب عدد المتصلين من سيرفر SAMP
-        function fetchPlayersCount() {
-            // هنا يجب استخدام API حقيقي لسيرفر SAMP. مثال:
-            // fetch('https://api.samp-server.com/players?ip=your-server-ip')
-            //   .then(response => response.json())
-            //   .then(data => { document.getElementById('playersCount').innerHTML = `👥 المتصلين: ${data.players}`; })
-            //   .catch(error => { document.getElementById('playersCount').innerHTML = '👥 المتصلين: 150'; });
-            
-            // للعرض، نستخدم قيمة ثابتة مع إضافة رقم عشوائي لمحاكاة التغيير
-            const randomPlayers = Math.floor(Math.random() * 200) + 50; // 50-250
-            document.getElementById('playersCount').innerHTML = `👥 المتصلين: ${randomPlayers}`;
-        }
-
-        // تحديث كل ثانية
         setInterval(updateTopBar, 1000);
-        updateTopBar(); // تشغيل فوري
+        updateTopBar();
 
-        // ========== إدارة عرض القوانين ==========
-        const mainContent = document.getElementById('mainContent');
-        const rulesSection = document.getElementById('rulesSection');
-        const rulesGrid = document.getElementById('rulesGrid');
-
-        // بيانات القوانين (كل قسم مع بطاقاته)
+        // ========== بيانات القوانين (كل قانون بمفرده) ==========
         const rulesData = {
             general: {
                 title: 'قوانين عامة',
@@ -649,34 +566,31 @@
             }
         };
 
-        function showRules(category) {
-            // إخفاء المحتوى الرئيسي وإظهار قسم القوانين
-            mainContent.style.display = 'none';
-            rulesSection.style.display = 'block';
+        // ========== إظهار قانون محدد عند النقر من القائمة ==========
+        function showRule(category) {
+            const rule = rulesData[category];
+            if (!rule) return;
 
-            // بناء بطاقات القوانين للقسم المحدد (يمكن عرض جميع البطاقات أو قسم واحد، هنا نعرض كل الأقسام)
-            // لكن حسب الطلب، عند اختيار قسم معين من القائمة، نعرض جميع القوانين؟ المستخدم قال "ادخل عليهن من هاي القائمة" أي يمكنه الوصول للقوانين.
-            // الأفضل أن نعرض جميع القوانين عند النقر على أي رابط، أو نعرض فقط القسم المحدد.
-            // سأعرض جميع القوانين في صفحة القوانين (كل البطاقات) كما كانت سابقاً.
-            let html = '';
-            for (let key in rulesData) {
-                let rule = rulesData[key];
-                html += `
-                    <div class="rule-card">
-                        <h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3>
-                        <ul>
-                            ${rule.items.map(item => `<li><i class="fas fa-circle"></i> ${item}</li>`).join('')}
-                        </ul>
-                        <div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>
-                    </div>
-                `;
-            }
-            rulesGrid.innerHTML = html;
+            // بناء HTML للقانون المحدد فقط
+            let html = `
+                <h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3>
+                <ul>
+                    ${rule.items.map(item => `<li><i class="fas fa-circle"></i> ${item}</li>`).join('')}
+                </ul>
+                <div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>
+            `;
+
+            document.getElementById('ruleDisplay').innerHTML = html;
+
+            // إخفاء المحتوى الرئيسي وإظهار قسم القوانين
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('rulesSection').style.display = 'block';
         }
 
+        // ========== العودة إلى الصفحة الرئيسية ==========
         function showHome() {
-            mainContent.style.display = 'block';
-            rulesSection.style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('rulesSection').style.display = 'none';
         }
 
         // ربط رابط الرئيسية
