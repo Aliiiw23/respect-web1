@@ -65,6 +65,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -73,6 +74,7 @@
             font-weight: 600;
             transition: 0.2s;
             padding: 5px 0;
+            cursor: pointer;
         }
 
         nav a:hover {
@@ -250,13 +252,55 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 0 30px rgba(255,215,0,0.3);
+            background-color: #000;
         }
 
-        .video-container iframe {
+        .video-iframe {
             width: 100%;
             height: auto;
             aspect-ratio: 16 / 9;
             display: block;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 20, 40, 0.8);
+            backdrop-filter: blur(5px);
+            color: white;
+            transition: opacity 0.3s;
+            border-radius: 20px;
+        }
+
+        .video-overlay button {
+            background: gold;
+            color: #0a1a2a;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 20px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .video-overlay button:hover {
+            background: #ffd966;
+            transform: scale(1.05);
+        }
+
+        .video-overlay i {
+            font-size: 5rem;
+            color: gold;
         }
 
         /* صناع محتوى ريسبكت */
@@ -298,7 +342,105 @@
             font-size: 1rem;
         }
 
-        /* قسم القوانين (مخفي افتراضياً) */
+        /* ===== قسم معرض الصور ===== */
+        .gallery-section {
+            display: none;
+            margin: 40px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid gold;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: #ffd966;
+            box-shadow: 0 15px 30px rgba(255,215,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: gold;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: 0.3s;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        /* Lightbox (النافذة المنبثقة) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border: 4px solid gold;
+            border-radius: 15px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: gold;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: #ffd966;
+            transform: scale(1.1);
+        }
+
+        .lightbox-caption {
+            color: gold;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        /* ===== قسم القوانين (مخفي افتراضياً) ===== */
         .rules-section {
             display: none;
             margin: 40px 0;
@@ -433,16 +575,17 @@
         </div>
         <nav>
             <a href="#" id="homeLink">الرئيسية</a>
+            <a href="#" onclick="showGallery(); return false;">معرض الصور</a> <!-- رابط المعرض الجديد -->
             <div class="dropdown">
                 <a href="#" class="dropbtn">القوانين ▼</a>
                 <div class="dropdown-content">
-                    <a href="#" onclick="showRule('general')">قوانين عامة</a>
-                    <a href="#" onclick="showRule('important')">قوانين مهمة</a>
-                    <a href="#" onclick="showRule('admin')">قوانين الإدارة</a>
-                    <a href="#" onclick="showRule('police')">قوانين الشرطة</a>
-                    <a href="#" onclick="showRule('ems')">قوانين الصحة</a>
-                    <a href="#" onclick="showRule('gang')">قوانين العصابات</a>
-                    <a href="#" onclick="showRule('criminal')">قوانين الإجرام</a>
+                    <a href="#" onclick="showRule('general'); return false;">قوانين عامة</a>
+                    <a href="#" onclick="showRule('important'); return false;">قوانين مهمة</a>
+                    <a href="#" onclick="showRule('admin'); return false;">قوانين الإدارة</a>
+                    <a href="#" onclick="showRule('police'); return false;">قوانين الشرطة</a>
+                    <a href="#" onclick="showRule('ems'); return false;">قوانين الصحة</a>
+                    <a href="#" onclick="showRule('gang'); return false;">قوانين العصابات</a>
+                    <a href="#" onclick="showRule('criminal'); return false;">قوانين الإجرام</a>
                 </div>
             </div>
         </nav>
@@ -477,12 +620,12 @@
             <!-- قسم الفيديو: فيديو Google Drive الخاص بك -->
             <h2 class="section-title">🎥 فيديو <span>تعريفي</span></h2>
             <div class="video-section">
-                <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1VCE7Xgwsld5oFQTOGn0ik7ui3lwuJa-_/preview" 
-                            frameborder="0" 
-                            allowfullscreen 
-                            allow="autoplay; encrypted-media">
-                    </iframe>
+                <div class="video-container" id="videoContainer">
+                    <div class="video-overlay" id="videoOverlay">
+                        <i class="fas fa-play-circle"></i>
+                        <button onclick="playVideo()">تشغيل الفيديو</button>
+                    </div>
+                    <!-- يتم إضافة iframe هنا عند الضغط على الزر -->
                 </div>
                 <p style="color: #ccc; margin-top: 15px;">شاهد كيفية الانضمام واللعب في سيرفر Respect SAMP</p>
             </div>
@@ -507,6 +650,24 @@
             <div class="back-home">
                 <button onclick="showHome()">العودة إلى الرئيسية</button>
             </div>
+        </div>
+
+        <!-- قسم معرض الصور (جديد) -->
+        <div id="gallerySection" class="gallery-section">
+            <h2 class="section-title">🖼️ <span>معرض الصور</span></h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- سيتم ملؤها ديناميكياً بواسطة JavaScript -->
+            </div>
+            <div class="back-home">
+                <button onclick="showHome()">العودة إلى الرئيسية</button>
+            </div>
+        </div>
+
+        <!-- Lightbox (للصور المكبرة) -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightboxImg" src="" alt="">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
         </div>
 
     </div> <!-- نهاية container -->
@@ -543,7 +704,7 @@
         setInterval(updateTopBar, 1000);
         updateTopBar();
 
-        // ========== بيانات القوانين (كل قانون بمفرده) ==========
+        // ========== بيانات القوانين ==========
         const rulesData = {
             general: {
                 title: 'قوانين عامة',
@@ -624,12 +785,11 @@
             }
         };
 
-        // ========== إظهار قانون محدد عند النقر من القائمة ==========
+        // ========== إظهار قانون محدد ==========
         function showRule(category) {
             const rule = rulesData[category];
             if (!rule) return;
 
-            // بناء HTML للقانون المحدد فقط
             let html = `
                 <h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3>
                 <ul>
@@ -639,16 +799,73 @@
             `;
 
             document.getElementById('ruleDisplay').innerHTML = html;
-
-            // إخفاء المحتوى الرئيسي وإظهار قسم القوانين
             document.getElementById('mainContent').style.display = 'none';
             document.getElementById('rulesSection').style.display = 'block';
+            document.getElementById('gallerySection').style.display = 'none';
         }
 
-        // ========== العودة إلى الصفحة الرئيسية ==========
+        // ========== إظهار معرض الصور ==========
+        function showGallery() {
+            // إخفاء الأقسام الأخرى
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('rulesSection').style.display = 'none';
+            document.getElementById('gallerySection').style.display = 'block';
+
+            // إنشاء شبكة الصور (بيانات تجريبية)
+            const galleryGrid = document.getElementById('galleryGrid');
+            // مصفوفة الصور: يمكنك استبدال الروابط بروابط حقيقية
+            const images = [
+                { src: 'https://via.placeholder.com/800x450/142850/gold?text=صورة+1', caption: 'لقطة من السيرفر 1' },
+                { src: 'https://via.placeholder.com/800x450/1a3a5a/gold?text=صورة+2', caption: 'لقطة من السيرفر 2' },
+                { src: 'https://via.placeholder.com/800x450/0a2a4a/gold?text=صورة+3', caption: 'لقطة من السيرفر 3' },
+                { src: 'https://via.placeholder.com/800x450/2a4a6a/gold?text=صورة+4', caption: 'لقطة من السيرفر 4' },
+                { src: 'https://via.placeholder.com/800x450/3a5a7a/gold?text=صورة+5', caption: 'لقطة من السيرفر 5' },
+                { src: 'https://via.placeholder.com/800x450/4a6a8a/gold?text=صورة+6', caption: 'لقطة من السيرفر 6' }
+            ];
+
+            let html = '';
+            images.forEach((img, index) => {
+                html += `
+                    <div class="gallery-item" onclick="openLightbox('${img.src}', '${img.caption}')">
+                        <img src="${img.src}" alt="${img.caption}">
+                        <div class="overlay">${img.caption}</div>
+                    </div>
+                `;
+            });
+            galleryGrid.innerHTML = html;
+        }
+
+        // ========== Lightbox ==========
+        function openLightbox(src, caption) {
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxCaption').innerText = caption;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // ========== تشغيل الفيديو عند النقر على الزر ==========
+        function playVideo() {
+            const container = document.getElementById('videoContainer');
+            const overlay = document.getElementById('videoOverlay');
+            // إزالة الطبقة وإضافة iframe
+            overlay.style.display = 'none';
+            const iframe = document.createElement('iframe');
+            iframe.className = 'video-iframe';
+            iframe.src = 'https://drive.google.com/file/d/1VCE7Xgwsld5oFQTOGn0ik7ui3lwuJa-_/preview';
+            iframe.frameborder = '0';
+            iframe.allowfullscreen = true;
+            iframe.allow = 'autoplay; encrypted-media';
+            container.appendChild(iframe);
+        }
+
+        // ========== العودة إلى الرئيسية ==========
         function showHome() {
             document.getElementById('mainContent').style.display = 'block';
             document.getElementById('rulesSection').style.display = 'none';
+            document.getElementById('gallerySection').style.display = 'none';
         }
 
         // ربط رابط الرئيسية
@@ -657,12 +874,7 @@
             showHome();
         });
 
-        // منع إعادة تحميل الصفحة عند النقر على روابط القوانين
-        document.querySelectorAll('.dropdown-content a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault(); // منع التنقل
-            });
-        });
+        // منع إعادة تحميل الصفحة عند النقر على روابط القوانين (تم حلها بالفعل)
     </script>
 </body>
 </html>
