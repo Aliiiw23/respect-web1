@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>RESPECT SAMP · Real-Life Roleplay</title>
+    <title>RESPECT SAMP · الموقع الرسمي</title>
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -17,364 +17,338 @@
         }
 
         body {
-            font-family: 'Tajawal', sans-serif;
-            background: #0b0f0f;
-            color: #e0e0e0;
+            font-family: 'Cairo', sans-serif;
+            background: #0a0e0e;
+            color: #fff;
             line-height: 1.6;
-            background-image: radial-gradient(circle at 10% 20%, rgba(30, 80, 60, 0.15) 0%, transparent 30%),
-                              linear-gradient(135deg, #0a0f0f 0%, #141a1a 100%);
+            background-image: radial-gradient(circle at 20% 30%, rgba(0, 150, 120, 0.08) 0%, transparent 30%),
+                              linear-gradient(145deg, #0b1212 0%, #0e1717 100%);
             min-height: 100vh;
-            padding: 1rem;
         }
 
-        /* container */
         .container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 25px;
         }
 
-        /* glassmorphism cards */
-        .card {
-            background: rgba(20, 30, 30, 0.7);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(60, 120, 100, 0.3);
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 170, 0.1) inset;
-            padding: 1.8rem 1.5rem;
-            transition: transform 0.2s ease, border-color 0.2s;
-        }
-
-        .card:hover {
-            border-color: rgba(0, 255, 200, 0.5);
-            transform: translateY(-3px);
-        }
-
-        /* headings */
-        h1, h2, h3 {
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #c0ffd0, #a0f0e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0,255,200,0.3);
-            margin-bottom: 0.2rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: #b2ffd0;
-            margin-bottom: 1.5rem;
-            border-right: 5px solid #2ecc71;
-            padding-right: 1rem;
-        }
-
-        h3 {
-            font-size: 1.6rem;
-            color: #e0ffe0;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h3 i {
-            color: #2ecc71;
-            font-size: 1.8rem;
-        }
-
-        /* header */
+        /* Header */
         .header {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            margin-bottom: 2rem;
+            padding: 40px 0 20px;
         }
 
-        .server-badge {
-            background: rgba(0, 30, 20, 0.6);
+        .logo h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00ffb3, #2ee6c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0,255,200,0.4);
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            font-size: 1.5rem;
+            color: #a0d0c0;
+            margin-top: -5px;
+        }
+
+        .badge {
+            background: rgba(0, 150, 120, 0.2);
+            border: 1px solid #00cc99;
             border-radius: 50px;
-            padding: 0.3rem 1.5rem;
-            border: 1px solid #2ecc71;
-            color: #b2ffd0;
+            padding: 8px 30px;
+            margin-top: 20px;
             font-size: 1.2rem;
-            display: inline-block;
-            margin-top: 0.8rem;
             backdrop-filter: blur(5px);
         }
 
-        .server-badge i {
-            margin-left: 0.5rem;
-        }
-
-        /* navbar */
-        .nav {
+        /* Navbar */
+        .navbar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem 2rem;
-            margin: 2rem 0 1rem;
-            padding: 0.8rem 1.5rem;
-            background: rgba(10, 20, 18, 0.6);
+            gap: 15px 30px;
+            margin: 30px 0;
+            padding: 15px 25px;
+            background: rgba(0, 20, 15, 0.5);
             border-radius: 60px;
-            border: 1px solid #2e5e4e;
+            border: 1px solid #00aa88;
+            backdrop-filter: blur(5px);
         }
 
-        .nav a {
+        .navbar a {
             color: #eee;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.2rem;
-            transition: 0.2s;
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: 0.2s;
         }
 
-        .nav a i {
-            color: #2ecc71;
+        .navbar a i {
+            color: #00cc99;
         }
 
-        .nav a:hover {
-            color: #b2ffd0;
-            text-shadow: 0 0 8px #2ecc71;
+        .navbar a:hover {
+            color: #00ffb3;
         }
 
-        /* hero section (like image phrases) */
-        .hero-tagline {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem 2rem;
-            background: rgba(0, 20, 15, 0.6);
-            border-radius: 60px;
-            padding: 0.8rem 2rem;
-            margin: 2rem 0;
-            border: 1px dashed #3e8f7a;
-        }
-
-        .hero-tagline span {
-            font-size: 1.1rem;
-            background: rgba(0, 80, 70, 0.4);
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            display: inline-block;
-            color: #c0ffe0;
-        }
-
-        .hero-tagline i {
-            margin-left: 0.5rem;
-            color: #2ecc71;
-        }
-
-        /* spots / features */
-        .spots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .spot-item {
-            background: rgba(30, 50, 45, 0.6);
-            border-radius: 30px;
-            padding: 1.5rem 1rem;
+        /* Streamers Section */
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 50px 0 30px;
             text-align: center;
-            border: 1px solid #2a5a4a;
-            backdrop-filter: blur(4px);
-        }
-
-        .spot-item i {
-            font-size: 2.5rem;
-            color: #2ecc71;
-            margin-bottom: 0.5rem;
-        }
-
-        .spot-item h4 {
-            font-size: 1.3rem;
             color: #fff;
+            position: relative;
         }
 
-        .spot-item p {
-            color: #a0c0b0;
+        .section-title span {
+            background: linear-gradient(135deg, #00cc99, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .streamers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .streamer-card {
+            background: rgba(20, 40, 35, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 25px 15px;
+            text-align: center;
+            border: 1px solid #00aa88;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .streamer-card:hover {
+            transform: translateY(-8px);
+            border-color: #00ffcc;
+            box-shadow: 0 15px 30px rgba(0,255,150,0.2);
+        }
+
+        .streamer-card i {
+            font-size: 3.5rem;
+            color: #00cc99;
+            margin-bottom: 15px;
+        }
+
+        .streamer-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .streamer-card p {
+            color: #a0d0c0;
             font-size: 1rem;
         }
 
-        /* rules grid */
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            background: rgba(0, 30, 25, 0.6);
+            border-radius: 80px;
+            padding: 40px 50px;
+            margin: 60px 0;
+            border: 1px solid #00aa88;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-item {
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #00ffb3;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            color: #b0e0d0;
+        }
+
+        /* Social Platforms */
+        .social-platforms {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .social-icon-large {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: 0.2s;
+        }
+
+        .social-icon-large i {
+            font-size: 4rem;
+            background: rgba(0, 150, 120, 0.3);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid #00aa88;
+            transition: 0.2s;
+        }
+
+        .social-icon-large:hover i {
+            background: #00aa88;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        .social-icon-large:hover {
+            color: #00ffb3;
+        }
+
+        /* Community Description */
+        .community-box {
+            background: rgba(10, 30, 25, 0.7);
+            border-radius: 60px;
+            padding: 40px;
+            margin: 60px 0;
+            border: 1px solid #00aa88;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Rules Section */
+        .rules-section {
+            margin: 70px 0;
+        }
+
         .rules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.8rem;
-            margin-top: 2rem;
+            gap: 25px;
+            margin-top: 40px;
         }
 
         .rule-card {
-            background: rgba(15, 25, 22, 0.8);
-            backdrop-filter: blur(6px);
-            border-radius: 30px;
-            padding: 1.8rem 1.5rem;
-            border: 1px solid #2b5e4c;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            background: rgba(15, 35, 30, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 40px;
+            padding: 25px;
+            border: 1px solid #008066;
             transition: 0.2s;
         }
 
         .rule-card:hover {
-            border-color: #2ecc71;
+            border-color: #00cc99;
+        }
+
+        .rule-card h3 {
+            font-size: 1.8rem;
+            color: #b2ffd0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rule-card h3 i {
+            color: #00cc99;
         }
 
         .rule-card ul {
             list-style: none;
-            padding-right: 0;
         }
 
         .rule-card li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 12px;
             font-size: 1.1rem;
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            border-bottom: 1px dotted #2a5a4a;
-            padding-bottom: 0.5rem;
+            border-bottom: 1px dotted #1a4d40;
+            padding-bottom: 8px;
         }
 
         .rule-card li i {
-            color: #2ecc71;
-            font-size: 1.2rem;
-            margin-left: 0.3rem;
+            color: #00cc99;
+            font-size: 1rem;
+            margin-top: 5px;
         }
 
-        .rule-card .badge {
-            background: #1e4a3a;
-            color: #b2ffd0;
-            padding: 0.1rem 1rem;
+        .edit-note {
+            background: #1a3a30;
             border-radius: 30px;
-            font-size: 0.8rem;
-            margin-right: 0.8rem;
+            padding: 8px 15px;
+            display: inline-block;
+            margin-top: 15px;
+            color: #b2ffd0;
+            font-size: 0.9rem;
         }
 
-        /* social section */
-        .social-section {
+        /* Footer */
+        .footer {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 2rem;
-            background: rgba(10, 30, 25, 0.7);
-            border-radius: 60px;
-            padding: 2rem 2.5rem;
-            margin: 3rem 0;
-            border: 1px solid #2e5e4e;
+            gap: 30px;
+            padding: 40px 0;
+            border-top: 1px solid #1a4d40;
+            margin-top: 60px;
         }
 
-        .social-links {
+        .footer-links {
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 40px;
         }
 
-        .social-links a {
-            color: #ddd;
-            font-size: 1.8rem;
+        .footer-links a {
+            color: #b0d0c0;
+            text-decoration: none;
+            font-size: 1.2rem;
             transition: 0.2s;
         }
 
-        .social-links a:hover {
-            color: #2ecc71;
-            transform: scale(1.1);
+        .footer-links a:hover {
+            color: #00ffb3;
         }
 
-        .newsletter {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
+        .copyright {
+            color: #608070;
         }
 
-        .newsletter input {
-            padding: 0.8rem 1.5rem;
-            border-radius: 60px;
-            border: none;
-            background: #1f3a32;
-            color: white;
-            font-family: 'Tajawal', sans-serif;
-            border: 1px solid #2ecc71;
-            outline: none;
-            min-width: 220px;
-        }
-
-        .newsletter button {
-            background: #2ecc71;
-            border: none;
-            border-radius: 60px;
-            padding: 0.8rem 2rem;
-            font-weight: bold;
-            color: #0a1a14;
-            cursor: pointer;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 1rem;
-            transition: 0.2s;
-        }
-
-        .newsletter button:hover {
-            background: #b2ffd0;
-            color: #000;
-        }
-
-        /* server image placeholder */
-        .server-img {
-            width: 100%;
-            height: 250px;
-            border-radius: 40px;
-            background: linear-gradient(145deg, #1b3a30, #0b201a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem 0;
-            border: 3px dashed #3b8b70;
-            color: #a0e0c0;
-            font-size: 1.5rem;
-            background-image: url('https://via.placeholder.com/1200x400/1a2f28/2ecc71?text=+SERVER+IMAGE+ (ضع+صورتك+هنا)');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
-        }
-
-        .server-img span {
-            background: rgba(0,0,0,0.7);
-            padding: 0.8rem 2rem;
-            border-radius: 60px;
-            backdrop-filter: blur(5px);
-        }
-
-        /* footer */
-        .footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding: 2rem;
-            border-top: 1px solid #2b5a4a;
-            color: #7f9e90;
-        }
-
-        .edit-note {
-            background: #1b362e;
-            padding: 0.8rem;
-            border-radius: 40px;
-            font-size: 0.95rem;
-            color: #b2ffd0;
-            display: inline-block;
-        }
-
-        /* responsive */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .nav { gap: 1rem; }
-            .social-section { flex-direction: column; text-align: center; }
-            .rule-card li { font-size: 1rem; }
+        /* Responsive */
+        @media (max-width: 700px) {
+            .logo h1 { font-size: 2.8rem; }
+            .stats-container { flex-direction: column; align-items: center; gap: 25px; }
+            .footer { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
         }
     </style>
 </head>
@@ -382,50 +356,73 @@
     <div class="container">
         <!-- HEADER -->
         <div class="header">
-            <h1>RESPECT SAMP</h1>
-            <div style="font-size: 1.3rem; color: #b0d0c0;">Real‑Life Roleplay from Your Phone</div>
-            <div class="server-badge">
-                <i class="fas fa-shield-alt"></i> لطفا · امنیت · Respectful service
+            <div class="logo">
+                <h1>RESPECT SAMP</h1>
+                <p>Real‑Life Roleplay from Your Phone</p>
+            </div>
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i> Respectful service: انتبه - لطفاً
             </div>
         </div>
 
-        <!-- NAVBAR (quick scroll) -->
-        <div class="nav">
+        <!-- NAVIGATION -->
+        <div class="navbar">
+            <a href="#streamers"><i class="fas fa-video"></i> البثوث</a>
+            <a href="#stats"><i class="fas fa-chart-line"></i> الإحصائيات</a>
             <a href="#rules"><i class="fas fa-gavel"></i> القوانين</a>
-            <a href="#police"><i class="fas fa-car"></i> شرطة</a>
-            <a href="#health"><i class="fas fa-ambulance"></i> صحة</a>
-            <a href="#gangs"><i class="fas fa-skull"></i> عصابات</a>
-            <a href="#criminal"><i class="fas fa-gun"></i> إجرام</a>
-            <a href="#social"><i class="fas fa-users"></i> اجتماعي</a>
+            <a href="#community"><i class="fas fa-users"></i> المجتمع</a>
+            <a href="#social"><i class="fas fa-thumbs-up"></i> التواصل</a>
         </div>
 
-        <!-- HERO TICKER (exact phrases from the image) -->
-        <div class="hero-tagline">
-            <span><i class="fas fa-check-circle"></i> Keep on using than</span>
-            <span><i class="fas fa-lock"></i> امنیت بیشتر باشد</span>
-            <span><i class="fas fa-shield"></i> Security & safety</span>
-            <span><i class="fas fa-heartbeat"></i> Vital product · مهمترین محصول</span>
-            <span><i class="fas fa-hand-holding-heart"></i> خدمت با سلامتی</span>
-            <span><i class="fas fa-tactical"></i> Tactical we know · سعی کنید</span>
+        <!-- STREAMERS SECTION (مثل الموقع الأصلي) -->
+        <h2 class="section-title" id="streamers">شاهد أفضل <span>البثوث</span></h2>
+        <div class="streamers-grid">
+            <!-- يمكنك تغيير الأسماء والأيقونات -->
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Drb7h</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Peerless</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Fhlwy</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>xMusabRT</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>S5B</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Wolf</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>F1aisal</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>ABO8ALYY</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>OKB8</h3><p>بث مباشر</p></div>
+            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>RAYAN_A3</h3><p>بث مباشر</p></div>
         </div>
 
-        <!-- SPOTS SECTION (Product sales, Research insights, etc) -->
-        <h2><i class="fas fa-bolt"></i> Spots · خدمات و مزايا</h2>
-        <div class="spots-grid">
-            <div class="spot-item"><i class="fas fa-cart-shopping"></i><h4>Product sales</h4><p>فروش محصولات</p></div>
-            <div class="spot-item"><i class="fas fa-flask"></i><h4>Research insights</h4><p>تحقیقات علمی</p></div>
-            <div class="spot-item"><i class="fas fa-database"></i><h4>Robust data protection</h4><p>حفاظت از داده ها</p></div>
-            <div class="spot-item"><i class="fas fa-truck"></i><h4>Secure delivery</h4><p>حمل و نقل سریع</p></div>
-            <div class="spot-item"><i class="fas fa-star"></i><h4>Subsequent reviews</h4><p>بعد از بررسی</p></div>
+        <!-- STATISTICS SECTION -->
+        <h2 class="section-title" id="stats">مجتمع <span>ريسبكت</span> بالأرقام</h2>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">200k+</div>
+                <div class="stat-label">مجموع الأعضاء</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">170k+</div>
+                <div class="stat-label">مجموع المتابعين</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">60k+</div>
+                <div class="stat-label">مجتمع تويتر</div>
+            </div>
         </div>
 
-        <!-- SERVER IMAGE PLACEHOLDER (ضع صورة السيرفر الخاصة بك) -->
-        <div class="server-img">
-            <span>🖼️ صورة السيرفر (استبدل الرابط في CSS)</span>
+        <!-- SOCIAL PLATFORMS (كيك، دسكورد، تويتر) -->
+        <h2 class="section-title" id="social">منصات <span>التواصل</span></h2>
+        <div class="social-platforms">
+            <a href="#" class="social-icon-large"><i class="fas fa-video"></i> كيك</a>
+            <a href="#" class="social-icon-large"><i class="fab fa-discord"></i> دسكورد</a>
+            <a href="#" class="social-icon-large"><i class="fab fa-twitter"></i> تويتر</a>
         </div>
 
-        <!-- RULES SECTION (كل القوانين) -->
-        <h2 id="rules"><i class="fas fa-gavel"></i> القوانين والتشريعات</h2>
+        <!-- COMMUNITY DESCRIPTION -->
+        <h2 class="section-title" id="community">مجتمع <span>ريسبكت</span></h2>
+        <div class="community-box">
+            مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
+        </div>
+
+        <!-- RULES SECTION (كل القوانين التي طلبتها) -->
+        <h2 class="section-title" id="rules"><span>القوانين</span> والتشريعات</h2>
         <div class="rules-grid">
             <!-- قوانين مهمة -->
             <div class="rule-card">
@@ -437,7 +434,7 @@
                     <li><i class="fas fa-circle"></i> لا للسب أو العنصرية بأي شكل.</li>
                     <li><i class="fas fa-circle"></i> الصوت فقط في الراديو المخصص.</li>
                 </ul>
-                <div class="edit-note" style="margin-top: 1rem;">🔧 قابل للتعديل</div>
+                <div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>
             </div>
             <!-- قوانين عامة -->
             <div class="rule-card">
@@ -452,7 +449,7 @@
             </div>
             <!-- قوانين الإدارة والأونر -->
             <div class="rule-card">
-                <h3><i class="fas fa-crown"></i> قوانين الإدارة والأونر</h3>
+                <h3><i class="fas fa-crown"></i> قوانين الإدارة</h3>
                 <ul>
                     <li><i class="fas fa-circle"></i> قرارات الإدارة نهائية وغير قابلة للنقاش.</li>
                     <li><i class="fas fa-circle"></i> الإدارة ملزمة بتطبيق القانون بعدل.</li>
@@ -461,8 +458,8 @@
                     <li><i class="fas fa-circle"></i> الاحترام متبادل بين الإدارة واللاعبين.</li>
                 </ul>
             </div>
-            <!-- قوانين الشرطة (Police) -->
-            <div class="rule-card" id="police">
+            <!-- قوانين الشرطة -->
+            <div class="rule-card">
                 <h3><i class="fas fa-shield-halved"></i> قوانين الشرطة</h3>
                 <ul>
                     <li><i class="fas fa-circle"></i> الالتزام بالتسلسل القيادي.</li>
@@ -471,10 +468,9 @@
                     <li><i class="fas fa-circle"></i> تقديم المساعدة للمواطنين أولوية.</li>
                     <li><i class="fas fa-circle"></i> تحرير المخالفات وفق النظام.</li>
                 </ul>
-                <p style="color:#7fdb9a; margin-top:0.5rem;"><i class="fas fa-pen"></i> يمكنك إضافة أو تعديل البنود هنا.</p>
             </div>
-            <!-- قوانين الصحة (EMS) -->
-            <div class="rule-card" id="health">
+            <!-- قوانين الصحة -->
+            <div class="rule-card">
                 <h3><i class="fas fa-ambulance"></i> قوانين الصحة</h3>
                 <ul>
                     <li><i class="fas fa-circle"></i> الاستجابة الفورية للبلاغات الطبية.</li>
@@ -485,7 +481,7 @@
                 </ul>
             </div>
             <!-- قوانين العصابات -->
-            <div class="rule-card" id="gangs">
+            <div class="rule-card">
                 <h3><i class="fas fa-people-group"></i> قوانين العصابات</h3>
                 <ul>
                     <li><i class="fas fa-circle"></i> حياد منطقة العصابات (تورف).</li>
@@ -496,7 +492,7 @@
                 </ul>
             </div>
             <!-- قوانين الإجرام -->
-            <div class="rule-card" id="criminal">
+            <div class="rule-card">
                 <h3><i class="fas fa-gun"></i> قوانين الإجرام</h3>
                 <ul>
                     <li><i class="fas fa-circle"></i> الالتزام بقوانين الـ RP الواقعي.</li>
@@ -508,38 +504,22 @@
             </div>
         </div>
 
-        <!-- SOCIAL SECTION (Like, share, follow...) -->
-        <h2 id="social"><i class="fas fa-heart"></i> تواصل معنا</h2>
-        <div class="social-section">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fas fa-thumbs-up"></i></a>
-                <a href="#"><i class="fas fa-share"></i></a>
-                <a href="#"><i class="fas fa-comment"></i></a>
-            </div>
-            <div class="newsletter">
-                <input type="email" placeholder="بريدك الإلكتروني" value="">
-                <button><i class="fas fa-envelope"></i> اشتراك</button>
-            </div>
-        </div>
-        <div style="text-align: center; margin: 1rem 0; color: #b2d0c0;">
-            <i class="fas fa-star"></i> Like, share, comment · تایید · به دنبال ما · جدیدترین محصولات
-        </div>
-
-        <!-- FOOTER -->
+        <!-- FOOTER (مثل الموقع: من نحن، القوانين، اتصل بنا) -->
         <div class="footer">
-            <p>RESPECT SAMP · Real-Life Roleplay from Your Phone</p>
-            <p class="edit-note"><i class="fas fa-edit"></i> جميع القوانين قابلة للتعديل والإضافة من خلال ملف index.html</p>
-            <p style="margin-top: 1rem;">تم التصميم وفق الصورة المرفوعة · 2025</p>
+            <div class="footer-links">
+                <a href="#">من نحن</a>
+                <a href="#rules">القوانين</a>
+                <a href="#">اتصل بنا</a>
+            </div>
+            <div class="copyright">
+                © 2026 RESPECT SAMP · جميع الحقوق محفوظة
+            </div>
         </div>
     </div>
 
-    <!-- simple script (just for console greeting) -->
     <script>
-        console.log("RESPECT SAMP · موقع القوانين – مرحباً بك");
+        // يمكنك إضافة أي تفاعلات بسيطة هنا
+        console.log("مرحباً بك في موقع RESPECT SAMP");
     </script>
 </body>
 </html>
