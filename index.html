@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -24,7 +23,7 @@
             line-height: 1.6;
         }
 
-        /* شريط علوي */
+        /* الشريط العلوي الحي */
         .top-bar {
             background-color: #0a1a2a;
             color: gold;
@@ -35,6 +34,7 @@
             align-items: center;
             border-bottom: 1px solid #ffd70040;
             font-size: 1rem;
+            direction: ltr; /* للأرقام */
         }
 
         .top-bar span {
@@ -59,21 +59,63 @@
             letter-spacing: 1px;
         }
 
+        nav {
+            position: relative;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
         nav a {
-            color: #f5f5dc; /* cream */
-            margin: 0 12px;
+            color: #f5f5dc;
             text-decoration: none;
             font-weight: 600;
             transition: 0.2s;
+            padding: 5px 0;
         }
 
         nav a:hover {
             color: gold;
         }
 
-        nav a.active {
+        /* القائمة المنسدلة للقوانين */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #142850;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+            border: 1px solid gold;
+            border-radius: 10px;
+            z-index: 1;
+            top: 30px;
+            right: 0;
+        }
+
+        .dropdown-content a {
+            color: #f5f5dc;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #2a4a6a;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #1e3a5a;
             color: gold;
-            font-weight: bold;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         /* Hero */
@@ -241,7 +283,12 @@
             text-align: center;
         }
 
-        /* Rules Cards */
+        /* قسم القوانين (مخفي افتراضياً) */
+        .rules-section {
+            display: none;
+            margin: 40px 0;
+        }
+
         .rules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -251,7 +298,7 @@
 
         .rule-card {
             background: #142850;
-            border-top: 5px solid gold; /* default gold, but each will be overridden */
+            border-top: 5px solid gold;
             border-radius: 20px;
             padding: 25px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
@@ -308,14 +355,28 @@
             border: 1px dashed gold;
         }
 
-        /* ألوان الحدود لكل فئة */
-        .rule-card.general { border-top-color: gold; }
-        .rule-card.important { border-top-color: red; }
-        .rule-card.admin { border-top-color: purple; }
-        .rule-card.police { border-top-color: blue; }
-        .rule-card.ems { border-top-color: green; }
-        .rule-card.gang { border-top-color: darkorange; }
-        .rule-card.criminal { border-top-color: crimson; }
+        /* زر العودة */
+        .back-home {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .back-home button {
+            background: gold;
+            color: #0a1a2a;
+            border: none;
+            padding: 12px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .back-home button:hover {
+            background: #ffd966;
+            transform: scale(1.05);
+        }
 
         /* Footer */
         footer {
@@ -347,11 +408,12 @@
 </head>
 <body>
 
-    <!-- الشريط العلوي (تاريخ، متصلين، وقت) -->
-    <div class="top-bar">
-        <span>🌙 5 رمضان</span>
-        <span>👥 المتصلين: 150</span>
-        <span>⏰ الوقت: 21:30</span>
+    <!-- الشريط العلوي الحي (يتم تحديثه بواسطة JavaScript) -->
+    <div class="top-bar" id="topBar">
+        <span id="hijriDate">🌙 تحميل...</span>
+        <span id="gregorianDate">📅 تحميل...</span>
+        <span id="liveTime">⏰ تحميل...</span>
+        <span id="playersCount">👥 المتصلين: تحميل...</span>
     </div>
 
     <!-- الهيدر مع الشعار والقائمة -->
@@ -360,9 +422,20 @@
             RESPECT ☪️ SAMP
         </div>
         <nav>
-            <a href="#">الرئيسية</a>
+            <a href="#" id="homeLink">الرئيسية</a>
             <a href="#">المنتدى</a>
-            <a href="#" class="active">القوانين ▼</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">القوانين ▼</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showRules('general')">قوانين عامة</a>
+                    <a href="#" onclick="showRules('important')">قوانين مهمة</a>
+                    <a href="#" onclick="showRules('admin')">قوانين الإدارة</a>
+                    <a href="#" onclick="showRules('police')">قوانين الشرطة</a>
+                    <a href="#" onclick="showRules('ems')">قوانين الصحة</a>
+                    <a href="#" onclick="showRules('gang')">قوانين العصابات</a>
+                    <a href="#" onclick="showRules('criminal')">قوانين الإجرام</a>
+                </div>
+            </div>
             <a href="#">تسجيل دخول</a>
         </nav>
     </header>
@@ -374,143 +447,65 @@
     </section>
 
     <div class="container">
-
-        <!-- قسم البثوث (مثل respect.sa) -->
-        <h2 class="section-title">شاهد أفضل <span>البثوث</span></h2>
-        <div class="streamers-grid">
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Drb7h</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Peerless</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Fhlwy</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>xMusabRT</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>S5B</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Wolf</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>F1aisal</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>ABO8ALYY</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>OKB8</h3><p>بث مباشر</p></div>
-            <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>RAYAN_A3</h3><p>بث مباشر</p></div>
-        </div>
-
-        <!-- قسم الإحصائيات -->
-        <h2 class="section-title">مجتمع <span>ريسبكت</span> بالأرقام</h2>
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">200k+</div>
-                <div class="stat-label">مجموع الأعضاء</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">170k+</div>
-                <div class="stat-label">مجموع المتابعين</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">60k+</div>
-                <div class="stat-label">مجتمع تويتر</div>
-            </div>
-        </div>
-
-        <!-- منصات التواصل (كيك، دسكورد، تويتر) -->
-        <h2 class="section-title">منصات <span>التواصل</span></h2>
-        <div class="social-platforms">
-            <a href="#" class="social-icon-large"><i class="fas fa-video"></i> كيك</a>
-            <a href="#" class="social-icon-large"><i class="fab fa-discord"></i> دسكورد</a>
-            <a href="#" class="social-icon-large"><i class="fab fa-twitter"></i> تويتر</a>
-        </div>
-
-        <!-- وصف المجتمع -->
-        <h2 class="section-title">مجتمع <span>ريسبكت</span></h2>
-        <div class="community-box">
-            مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
-        </div>
-
-        <!-- ========== قسم القوانين الكامل ========== -->
-        <h2 class="section-title">📜 <span>دستور السيرفر</span> ودليل اللاعب 📜</h2>
-        <div class="rules-grid">
-
-            <!-- 1. قوانين عامة -->
-            <div class="rule-card general">
-                <h3><i class="fas fa-globe"></i> قوانين عامة</h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> اتباع تعليمات الإدارة أولاً.</li>
-                    <li><i class="fas fa-circle"></i> لا للنقاش خارج الشخصية (OOC) في العام.</li>
-                    <li><i class="fas fa-circle"></i> الالتزام بلغة السيرفر (العربية/الإنجليزية).</li>
-                    <li><i class="fas fa-circle"></i> عدم إزعاج اللاعبين الآخرين.</li>
-                    <li><i class="fas fa-circle"></i> التقارير تكون في التذكرة المخصصة.</li>
-                </ul>
-                <div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>
+        <!-- المحتوى الرئيسي (بدون قوانين) -->
+        <div id="mainContent">
+            <!-- قسم البثوث -->
+            <h2 class="section-title">شاهد أفضل <span>البثوث</span></h2>
+            <div class="streamers-grid">
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Drb7h</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Peerless</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Fhlwy</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>xMusabRT</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>S5B</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>Wolf</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>F1aisal</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>ABO8ALYY</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>OKB8</h3><p>بث مباشر</p></div>
+                <div class="streamer-card"><i class="fas fa-user-circle"></i><h3>RAYAN_A3</h3><p>بث مباشر</p></div>
             </div>
 
-            <!-- 2. قوانين مهمة -->
-            <div class="rule-card important">
-                <h3><i class="fas fa-exclamation-triangle"></i> قوانين مهمة</h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> احترام جميع اللاعبين والإدارة.</li>
-                    <li><i class="fas fa-circle"></i> عدم استخدام الغش أو البرامج الخارجية.</li>
-                    <li><i class="fas fa-circle"></i> الالتزام بقوانين المحاكاة الواقعية.</li>
-                    <li><i class="fas fa-circle"></i> لا للسب أو العنصرية بأي شكل.</li>
-                    <li><i class="fas fa-circle"></i> الصوت فقط في الراديو المخصص.</li>
-                </ul>
+            <!-- قسم الإحصائيات -->
+            <h2 class="section-title">مجتمع <span>ريسبكت</span> بالأرقام</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">200k+</div>
+                    <div class="stat-label">مجموع الأعضاء</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">170k+</div>
+                    <div class="stat-label">مجموع المتابعين</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">60k+</div>
+                    <div class="stat-label">مجتمع تويتر</div>
+                </div>
             </div>
 
-            <!-- 3. قوانين الإدارة والأونر -->
-            <div class="rule-card admin">
-                <h3><i class="fas fa-crown"></i> قوانين الإدارة</h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> قرارات الإدارة نهائية وغير قابلة للنقاش.</li>
-                    <li><i class="fas fa-circle"></i> الإدارة ملزمة بتطبيق القانون بعدل.</li>
-                    <li><i class="fas fa-circle"></i> الأونر هو المرجع الأعلى.</li>
-                    <li><i class="fas fa-circle"></i> أي شكوى ضد إداري تقدم للأونر فقط.</li>
-                    <li><i class="fas fa-circle"></i> الاحترام متبادل بين الإدارة واللاعبين.</li>
-                </ul>
+            <!-- منصات التواصل -->
+            <h2 class="section-title">منصات <span>التواصل</span></h2>
+            <div class="social-platforms">
+                <a href="#" class="social-icon-large"><i class="fas fa-video"></i> كيك</a>
+                <a href="#" class="social-icon-large"><i class="fab fa-discord"></i> دسكورد</a>
+                <a href="#" class="social-icon-large"><i class="fab fa-twitter"></i> تويتر</a>
             </div>
 
-            <!-- 4. قوانين الشرطة -->
-            <div class="rule-card police">
-                <h3><i class="fas fa-shield-halved"></i> قوانين الشرطة</h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> الالتزام بالتسلسل القيادي.</li>
-                    <li><i class="fas fa-circle"></i> لا إطلاق نار دون أمر مشروع.</li>
-                    <li><i class="fas fa-circle"></i> استخدام الصفارات والإشارات الضوئية إلزامي.</li>
-                    <li><i class="fas fa-circle"></i> تقديم المساعدة للمواطنين أولوية.</li>
-                    <li><i class="fas fa-circle"></i> تحرير المخالفات وفق النظام.</li>
-                </ul>
-            </div>
-
-            <!-- 5. قوانين الصحة -->
-            <div class="rule-card ems">
-                <h3><i class="fas fa-ambulance"></i> قوانين الصحة</h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> الاستجابة الفورية للبلاغات الطبية.</li>
-                    <li><i class="fas fa-circle"></i> التعاون مع الشرطة في الحوادث.</li>
-                    <li><i class="fas fa-circle"></i> لا للإسعاف في مناطق الـ DM.</li>
-                    <li><i class="fas fa-circle"></i> الحفاظ على المخزون الطبي.</li>
-                    <li><i class="fas fa-circle"></i> تقديم تقرير بعد كل حالة وفاة.</li>
-                </ul>
-            </div>
-
-            <!-- 6. قوانين العصابات -->
-            <div class="rule-card gang">
-                <h3><i class="fas fa-people-group"></i> قوانين العصابات</h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> حياد منطقة العصابات (تورف).</li>
-                    <li><i class="fas fa-circle"></i> لا للهجمات دون سبب RP واضح.</li>
-                    <li><i class="fas fa-circle"></i> احترام مناطق النفوذ.</li>
-                    <li><i class="fas fa-circle"></i> تنسيق الهجمات مع قائد العصابة.</li>
-                    <li><i class="fas fa-circle"></i> ممنوع استهداف المدنيين عشوائياً.</li>
-                </ul>
-            </div>
-
-            <!-- 7. قوانين الإجرام -->
-            <div class="rule-card criminal">
-                <h3><i class="fas fa-gun"></i> قوانين الإجرام</h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> الالتزام بقوانين الـ RP الواقعي.</li>
-                    <li><i class="fas fa-circle"></i> السرقة مسموحة ضمن السيناريو.</li>
-                    <li><i class="fas fa-circle"></i> لا لقتل اللاعبين بدون تفاعل.</li>
-                    <li><i class="fas fa-circle"></i> حظر خطف الشخصيات المهمة.</li>
-                    <li><i class="fas fa-circle"></i> العقوبات تضاعف لتكرار الجرائم.</li>
-                </ul>
+            <!-- وصف المجتمع -->
+            <h2 class="section-title">مجتمع <span>ريسبكت</span></h2>
+            <div class="community-box">
+                مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
             </div>
         </div>
-        <!-- نهاية قسم القوانين -->
+
+        <!-- قسم القوانين (مخفي في البداية) -->
+        <div id="rulesSection" class="rules-section">
+            <h2 class="section-title">📜 <span>دستور السيرفر</span> ودليل اللاعب 📜</h2>
+            <div class="rules-grid" id="rulesGrid">
+                <!-- سيتم ملؤها بواسطة JavaScript عند اختيار القسم -->
+            </div>
+            <div class="back-home">
+                <button onclick="showHome()">العودة إلى الرئيسية</button>
+            </div>
+        </div>
 
     </div> <!-- نهاية container -->
 
@@ -521,14 +516,181 @@
     </footer>
 
     <script>
-        // تحديث الوقت والمتصلين بشكل حيوي (اختياري)
-        function updateStats() {
-            // يمكنك ربط هذه القيم من خادم السيرفر لاحقاً
-            document.querySelector('.top-bar span:nth-child(2)').innerHTML = `👥 المتصلين: 150`;
-            document.querySelector('.top-bar span:nth-child(3)').innerHTML = `⏰ الوقت: ${new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })}`;
+        // ========== تحديث الشريط العلوي ==========
+        function updateTopBar() {
+            // الوقت الحالي في العراق/السعودية (توقيت بغداد/الرياض UTC+3)
+            const now = new Date();
+            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Riyadh', hour12: false };
+            const timeString = now.toLocaleTimeString('ar-SA', optionsTime);
+
+            // التاريخ الميلادي
+            const optionsGregorian = { year: 'numeric', month: 'numeric', day: 'numeric', timeZone: 'Asia/Riyadh' };
+            const gregorianDate = now.toLocaleDateString('ar-SA', optionsGregorian);
+
+            // التاريخ الهجري (بسيط: يمكن تحسينه بمكتبة لكن نستخدم تقريباً)
+            // نستخدم كائن Intl.DateTimeFormat مع التقويم الإسلامي
+            const hijriOptions = { year: 'numeric', month: 'numeric', day: 'numeric', calendar: 'islamic', timeZone: 'Asia/Riyadh' };
+            let hijriDate;
+            try {
+                hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic', hijriOptions).format(now);
+            } catch (e) {
+                hijriDate = 'رمضان 1445'; // fallback
+            }
+
+            document.getElementById('hijriDate').innerHTML = `🌙 ${hijriDate}`;
+            document.getElementById('gregorianDate').innerHTML = `📅 ${gregorianDate}`;
+            document.getElementById('liveTime').innerHTML = `⏰ ${timeString}`;
+
+            // عدد المتصلين (يتم تحديثه بشكل منفصل)
+            // يمكن استبدال الرابط الحقيقي لسيرفر SAMP
+            fetchPlayersCount();
         }
-        setInterval(updateStats, 60000); // كل دقيقة
-        updateStats();
+
+        // محاكاة جلب عدد المتصلين من سيرفر SAMP
+        function fetchPlayersCount() {
+            // هنا يجب استخدام API حقيقي لسيرفر SAMP. مثال:
+            // fetch('https://api.samp-server.com/players?ip=your-server-ip')
+            //   .then(response => response.json())
+            //   .then(data => { document.getElementById('playersCount').innerHTML = `👥 المتصلين: ${data.players}`; })
+            //   .catch(error => { document.getElementById('playersCount').innerHTML = '👥 المتصلين: 150'; });
+            
+            // للعرض، نستخدم قيمة ثابتة مع إضافة رقم عشوائي لمحاكاة التغيير
+            const randomPlayers = Math.floor(Math.random() * 200) + 50; // 50-250
+            document.getElementById('playersCount').innerHTML = `👥 المتصلين: ${randomPlayers}`;
+        }
+
+        // تحديث كل ثانية
+        setInterval(updateTopBar, 1000);
+        updateTopBar(); // تشغيل فوري
+
+        // ========== إدارة عرض القوانين ==========
+        const mainContent = document.getElementById('mainContent');
+        const rulesSection = document.getElementById('rulesSection');
+        const rulesGrid = document.getElementById('rulesGrid');
+
+        // بيانات القوانين (كل قسم مع بطاقاته)
+        const rulesData = {
+            general: {
+                title: 'قوانين عامة',
+                icon: 'fa-globe',
+                items: [
+                    'اتباع تعليمات الإدارة أولاً.',
+                    'لا للنقاش خارج الشخصية (OOC) في العام.',
+                    'الالتزام بلغة السيرفر (العربية/الإنجليزية).',
+                    'عدم إزعاج اللاعبين الآخرين.',
+                    'التقارير تكون في التذكرة المخصصة.'
+                ]
+            },
+            important: {
+                title: 'قوانين مهمة',
+                icon: 'fa-exclamation-triangle',
+                items: [
+                    'احترام جميع اللاعبين والإدارة.',
+                    'عدم استخدام الغش أو البرامج الخارجية.',
+                    'الالتزام بقوانين المحاكاة الواقعية.',
+                    'لا للسب أو العنصرية بأي شكل.',
+                    'الصوت فقط في الراديو المخصص.'
+                ]
+            },
+            admin: {
+                title: 'قوانين الإدارة',
+                icon: 'fa-crown',
+                items: [
+                    'قرارات الإدارة نهائية وغير قابلة للنقاش.',
+                    'الإدارة ملزمة بتطبيق القانون بعدل.',
+                    'الأونر هو المرجع الأعلى.',
+                    'أي شكوى ضد إداري تقدم للأونر فقط.',
+                    'الاحترام متبادل بين الإدارة واللاعبين.'
+                ]
+            },
+            police: {
+                title: 'قوانين الشرطة',
+                icon: 'fa-shield-halved',
+                items: [
+                    'الالتزام بالتسلسل القيادي.',
+                    'لا إطلاق نار دون أمر مشروع.',
+                    'استخدام الصفارات والإشارات الضوئية إلزامي.',
+                    'تقديم المساعدة للمواطنين أولوية.',
+                    'تحرير المخالفات وفق النظام.'
+                ]
+            },
+            ems: {
+                title: 'قوانين الصحة',
+                icon: 'fa-ambulance',
+                items: [
+                    'الاستجابة الفورية للبلاغات الطبية.',
+                    'التعاون مع الشرطة في الحوادث.',
+                    'لا للإسعاف في مناطق الـ DM.',
+                    'الحفاظ على المخزون الطبي.',
+                    'تقديم تقرير بعد كل حالة وفاة.'
+                ]
+            },
+            gang: {
+                title: 'قوانين العصابات',
+                icon: 'fa-people-group',
+                items: [
+                    'حياد منطقة العصابات (تورف).',
+                    'لا للهجمات دون سبب RP واضح.',
+                    'احترام مناطق النفوذ.',
+                    'تنسيق الهجمات مع قائد العصابة.',
+                    'ممنوع استهداف المدنيين عشوائياً.'
+                ]
+            },
+            criminal: {
+                title: 'قوانين الإجرام',
+                icon: 'fa-gun',
+                items: [
+                    'الالتزام بقوانين الـ RP الواقعي.',
+                    'السرقة مسموحة ضمن السيناريو.',
+                    'لا لقتل اللاعبين بدون تفاعل.',
+                    'حظر خطف الشخصيات المهمة.',
+                    'العقوبات تضاعف لتكرار الجرائم.'
+                ]
+            }
+        };
+
+        function showRules(category) {
+            // إخفاء المحتوى الرئيسي وإظهار قسم القوانين
+            mainContent.style.display = 'none';
+            rulesSection.style.display = 'block';
+
+            // بناء بطاقات القوانين للقسم المحدد (يمكن عرض جميع البطاقات أو قسم واحد، هنا نعرض كل الأقسام)
+            // لكن حسب الطلب، عند اختيار قسم معين من القائمة، نعرض جميع القوانين؟ المستخدم قال "ادخل عليهن من هاي القائمة" أي يمكنه الوصول للقوانين.
+            // الأفضل أن نعرض جميع القوانين عند النقر على أي رابط، أو نعرض فقط القسم المحدد.
+            // سأعرض جميع القوانين في صفحة القوانين (كل البطاقات) كما كانت سابقاً.
+            let html = '';
+            for (let key in rulesData) {
+                let rule = rulesData[key];
+                html += `
+                    <div class="rule-card">
+                        <h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3>
+                        <ul>
+                            ${rule.items.map(item => `<li><i class="fas fa-circle"></i> ${item}</li>`).join('')}
+                        </ul>
+                        <div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>
+                    </div>
+                `;
+            }
+            rulesGrid.innerHTML = html;
+        }
+
+        function showHome() {
+            mainContent.style.display = 'block';
+            rulesSection.style.display = 'none';
+        }
+
+        // ربط رابط الرئيسية
+        document.getElementById('homeLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            showHome();
+        });
+
+        // منع إعادة تحميل الصفحة عند النقر على روابط القوانين
+        document.querySelectorAll('.dropdown-content a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // منع التنقل
+            });
+        });
     </script>
 </body>
 </html>
