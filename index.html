@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>RESPECT SAMP · الموقع الرسمي</title>
-    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* إعدادات عامة */
         * {
             margin: 0;
             padding: 0;
@@ -18,70 +18,114 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background: #0a1a2a;
+            background: linear-gradient(135deg, #050a15, #0a1a2a, #0d1117);
+            background-attachment: fixed;
             color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* خلفية ضوئية لإبراز الزجاج */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(20,40,80,0.3) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        /* فئة التنسيق الزجاجي العامة */
+        .glass-panel {
+            background: rgba(15, 25, 45, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
         /* الشريط العلوي */
         .top-bar {
-            background-color: #0a1a2a;
-            color: gold;
-            padding: 8px 20px;
+            background: rgba(5, 10, 20, 0.6);
+            backdrop-filter: blur(10px);
+            color: #ffd700;
+            padding: 10px 20px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #ffd70040;
-            font-size: 1rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            font-size: 0.95rem;
             gap: 30px;
             direction: ltr;
-        }
-
-        .top-bar span {
-            margin: 0 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
         }
 
         /* الهيدر */
         header {
-            background-color: #142850;
-            padding: 15px 30px;
-            border-bottom: 3px solid gold;
+            padding: 15px 40px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: none;
+            border-radius: 0 0 20px 20px;
+            margin: 0 10px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-top: none;
         }
 
         .logo {
-            font-size: 28px;
-            color: gold;
+            font-size: 26px;
+            color: #ffd700;
             font-weight: 800;
             letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
         nav {
             position: relative;
             display: flex;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
             flex-wrap: wrap;
         }
 
         nav a {
-            color: #f5f5dc;
+            color: #e0e0e0;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.2s;
-            padding: 5px 0;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 10px;
             cursor: pointer;
         }
 
         nav a:hover {
-            color: gold;
+            color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
         }
 
-        /* القائمة المنسدلة للقوانين */
+        /* القائمة المنسدلة */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -90,22 +134,27 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #142850;
-            min-width: 220px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-            border: 1px solid gold;
-            border-radius: 10px;
+            min-width: 240px;
+            border-radius: 15px;
             z-index: 1;
-            top: 30px;
+            top: 100%;
             right: 0;
+            margin-top: 10px;
+            overflow: hidden;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .dropdown-content a {
-            color: #f5f5dc;
-            padding: 12px 16px;
-            text-decoration: none;
+            color: #e0e0e0;
+            padding: 15px 20px;
             display: block;
-            border-bottom: 1px solid #2a4a6a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0;
         }
 
         .dropdown-content a:last-child {
@@ -113,8 +162,9 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #1e3a5a;
-            color: gold;
+            background-color: rgba(255, 215, 0, 0.15);
+            color: #ffd700;
+            padding-right: 25px; /* تأثير حركي خفيف */
         }
 
         .dropdown:hover .dropdown-content {
@@ -123,71 +173,82 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(rgba(20,40,80,0.8), rgba(20,40,80,0.8)), url('https://via.placeholder.com/1600x600/1a2f4a/2e5a8a?text=GTA+RAMADAN');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px 40px;
+            position: relative;
+            padding: 80px 20px 60px;
             text-align: center;
             color: white;
+            margin-top: 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://via.placeholder.com/1600x600/0a1a2a/0a1a2a') center/cover;
+            opacity: 0.3;
+            z-index: -1;
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
         }
 
         .hero h1 {
-            color: gold;
-            font-size: 2.8rem;
+            color: #ffd700;
+            font-size: 3.5rem;
             margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 5px 20px rgba(255,215,0,0.3);
+            font-weight: 800;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-
-        /* الصورة تحت النص */
-        .hero-image {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
+            font-size: 1.3rem;
+            color: #b0c4de;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 20px;
-            border: 3px solid gold;
-            box-shadow: 0 0 25px rgba(255,215,0,0.3);
-            width: 600px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.1);
+            width: 700px;
+            transition: transform 0.3s;
+        }
+        
+        .hero-image img:hover {
+            transform: translateY(-5px);
         }
 
         /* أقسام عامة */
         .container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 25px;
         }
 
         .section-title {
             font-size: 2.5rem;
-            font-weight: 700;
-            margin: 50px 0 30px;
+            font-weight: 800;
+            margin: 80px 0 40px;
             text-align: center;
             color: #fff;
             position: relative;
         }
 
         .section-title span {
-            background: linear-gradient(135deg, gold, #f0b300);
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
         }
 
-        /* منصات التواصل (ديسكورد فقط) */
+        /* منصات التواصل */
         .social-platforms {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 60px;
             margin: 50px 0;
         }
 
@@ -195,46 +256,50 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            color: #fff;
+            gap: 15px;
+            color: #e0e0e0;
             text-decoration: none;
             font-size: 1.5rem;
-            transition: 0.2s;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
         .social-icon-large i {
-            font-size: 5rem;
-            background: #142850;
-            width: 130px;
-            height: 130px;
+            font-size: 4rem;
+            width: 120px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            border: 3px solid gold;
-            transition: 0.2s;
+            border-radius: 35px; /* شكل عصري بدلاً من الدائرة */
+            background: rgba(88, 101, 242, 0.1);
+            border: 2px solid rgba(88, 101, 242, 0.5);
+            color: #5865F2;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.2);
         }
 
         .social-icon-large:hover i {
-            background: gold;
-            color: #0a1a2a;
-            transform: scale(1.1);
+            background: #5865F2;
+            color: #fff;
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(88, 101, 242, 0.5);
+            border-color: #5865F2;
         }
-
+        
         .social-icon-large:hover {
-            color: gold;
+            color: #5865F2;
         }
 
         /* وصف المجتمع */
         .community-box {
-            background: #142850;
-            border-radius: 50px;
-            padding: 40px;
+            border-radius: 30px;
+            padding: 50px;
             margin: 40px 0;
-            border: 1px solid gold;
             font-size: 1.2rem;
-            line-height: 1.8;
+            line-height: 2;
             text-align: center;
+            color: #e2e8f0;
         }
 
         /* قسم الفيديو */
@@ -246,12 +311,12 @@
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             margin: 30px auto;
-            border: 3px solid gold;
-            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(255,215,0,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(255,215,0,0.1);
             background-color: #000;
         }
 
@@ -264,136 +329,125 @@
 
         .video-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: rgba(10, 20, 40, 0.8);
-            backdrop-filter: blur(5px);
-            color: white;
-            transition: opacity 0.3s;
-            border-radius: 20px;
+            background: rgba(5, 10, 20, 0.7);
+            backdrop-filter: blur(8px);
+            transition: all 0.4s ease;
         }
 
         .video-overlay button {
-            background: gold;
-            color: #0a1a2a;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #050a15;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.5rem;
-            font-weight: bold;
+            padding: 15px 45px;
+            font-size: 1.3rem;
+            font-weight: 800;
             border-radius: 50px;
             cursor: pointer;
-            transition: 0.2s;
-            margin-top: 20px;
+            transition: all 0.3s;
+            margin-top: 25px;
             font-family: 'Cairo', sans-serif;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
         }
 
         .video-overlay button:hover {
-            background: #ffd966;
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
         }
 
         .video-overlay i {
-            font-size: 5rem;
-            color: gold;
+            font-size: 6rem;
+            color: #ffd700;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
         }
 
-        /* صناع محتوى ريسبكت (4 فقط) */
+        /* صناع محتوى */
         .creators-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin: 40px 0 60px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 50px 0 80px;
         }
 
         .creator-card {
-            background: rgba(20, 45, 70, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 30px;
-            padding: 20px 15px;
+            border-radius: 25px;
+            padding: 30px 20px;
             text-align: center;
-            border: 1px solid #ffd70060;
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
-            color: #fff;
             display: block;
         }
 
         .creator-card:hover {
-            border-color: gold;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.2);
+            border-color: rgba(255, 215, 0, 0.6);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255,215,0,0.15);
+            background: rgba(25, 35, 65, 0.6);
         }
 
-        .creator-card i {
+        .creator-card i.fa-user-star {
             font-size: 3.5rem;
-            color: gold;
-            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            display: inline-block;
         }
 
         .creator-card h4 {
             font-size: 1.4rem;
             color: #fff;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .creator-card p {
-            color: #ccc;
-            font-size: 1rem;
-            display: flex;
+            color: #a0aec0;
+            font-size: 1.1rem;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 5px;
+            gap: 8px;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
         }
 
         .creator-card p i {
-            font-size: 1.2rem;
             color: #ff0000;
         }
 
-        /* قسم القوانين (مخفي افتراضياً) */
+        /* قسم القوانين */
         .rules-section {
             display: none;
             margin: 40px 0;
+            animation: fadeIn 0.5s ease;
         }
 
         .rule-card {
-            background: #142850;
-            border-top: 5px solid gold;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            transition: 0.2s;
-            max-width: 800px;
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 900px;
             margin: 20px auto;
         }
 
-        .rule-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255,215,0,0.15);
-        }
-
         .rule-card h3 {
-            font-size: 2rem;
-            color: gold;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            color: #ffd700;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
             gap: 15px;
-            border-bottom: 2px solid gold;
-            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 15px;
         }
 
         .rule-card h3 i {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
         }
 
         .rule-card ul {
@@ -402,112 +456,119 @@
         }
 
         .rule-card li {
-            margin-bottom: 15px;
-            font-size: 1rem;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            border-bottom: 1px dotted #2a4a6a;
-            padding-bottom: 12px;
-            line-height: 1.7;
-            white-space: pre-wrap;
-            word-break: break-word;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s;
+            line-height: 1.8;
+            color: #e2e8f0;
         }
 
-        .rule-card li:last-child {
-            border-bottom: none;
+        .rule-card li:hover {
+            background: rgba(255, 215, 0, 0.05);
+            border-color: rgba(255, 215, 0, 0.2);
+            transform: translateX(-5px);
         }
 
         .rule-card li i {
-            color: gold;
-            font-size: 1rem;
-            margin-top: 5px;
+            color: #ffd700;
+            font-size: 0.8rem;
+            margin-top: 8px;
             flex-shrink: 0;
         }
 
-        .rule-card .sub-title {
-            color: gold;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 10px 0 5px;
-            display: block;
-        }
-
         .edit-note {
-            background: #0a1a2a;
-            border-radius: 30px;
-            padding: 8px 20px;
-            display: inline-block;
-            margin-top: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+            padding: 10px 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
             color: #ffd700;
             font-size: 1rem;
-            border: 1px dashed gold;
+            border: 1px dashed rgba(255, 215, 0, 0.4);
         }
 
         .back-home {
             text-align: center;
-            margin: 30px 0;
+            margin: 40px 0;
         }
 
         .back-home button {
-            background: gold;
-            color: #0a1a2a;
-            border: none;
-            padding: 12px 40px;
-            font-size: 1.3rem;
+            background: rgba(15, 25, 45, 0.6);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 15px 40px;
+            font-size: 1.2rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.3s;
+            font-family: 'Cairo', sans-serif;
         }
 
         .back-home button:hover {
-            background: #ffd966;
+            background: #ffd700;
+            color: #050a15;
             transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
         }
 
         /* Footer */
         footer {
-            background-color: #0a1a2a;
-            color: #aaa;
-            padding: 30px 20px;
+            background: rgba(5, 10, 20, 0.8);
+            backdrop-filter: blur(15px);
+            color: #a0aec0;
+            padding: 40px 20px;
             text-align: center;
-            border-top: 2px solid gold;
-            margin-top: 60px;
+            border-top: 1px solid rgba(255, 215, 0, 0.15);
+            margin-top: 80px;
         }
 
         footer p {
-            margin: 8px 0;
+            margin: 10px 0;
+            font-size: 1.1rem;
         }
 
         footer .ramadan {
-            color: gold;
-            font-size: 1.3rem;
+            color: #ffd700;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            margin-top: 15px;
         }
 
         /* Responsive */
-        @media (max-width: 700px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.2rem; }
-            .top-bar { flex-direction: column; gap: 5px; }
-            header { flex-direction: column; gap: 15px; text-align: center; }
-            .social-platforms { gap: 30px; }
-            .social-icon-large i { width: 100px; height: 100px; font-size: 4rem; }
-            .creators-grid { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .top-bar { flex-direction: column; gap: 8px; }
+            header { flex-direction: column; gap: 20px; padding: 20px; border-radius: 0; margin: 0; }
+            nav { justify-content: center; }
+            .section-title { font-size: 2rem; }
+            .community-box { padding: 30px 20px; }
+            .rule-card { padding: 25px 15px; }
+            .social-icon-large i { width: 100px; height: 100px; font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
     <div class="top-bar" id="topBar">
         <span id="hijriDate">🌙 تحميل...</span>
         <span id="gregorianDate">📅 تحميل...</span>
         <span id="liveTime">⏰ تحميل...</span>
     </div>
 
-    <!-- الهيدر -->
-    <header>
+    <header class="glass-panel">
         <div class="logo">
             RESPECT ☪️ SAMP
         </div>
@@ -515,7 +576,7 @@
             <a href="#" id="homeLink">الرئيسية</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">القوانين ▼</a>
-                <div class="dropdown-content">
+                <div class="dropdown-content glass-panel">
                     <a href="#" onclick="showRule('general'); return false;">قوانين عامة</a>
                     <a href="#" onclick="showRule('important'); return false;">قوانين مهمة</a>
                     <a href="#" onclick="showRule('admin'); return false;">قوانين الإدارة</a>
@@ -529,33 +590,28 @@
         </nav>
     </header>
 
-    <!-- قسم الهيرو -->
     <section class="hero">
         <h1>رمضان كريم في مجتمع Respect SAMP</h1>
         <p>التزم بالقوانين واستمتع بأفضل تجربة لعب واقعي في الشهر الفضيل</p>
         <div class="hero-image">
-            <img src="https://i.imgur.com/placeholder.jpg" alt="Respect SAMP" onerror="this.src='https://via.placeholder.com/600x300/142850/gold?text=Respect+SAMP';">
+            <img src="https://i.imgur.com/placeholder.jpg" alt="Respect SAMP" onerror="this.src='https://via.placeholder.com/700x350/0f172a/ffd700?text=Respect+SAMP+VIP';">
         </div>
     </section>
 
     <div class="container">
-        <!-- المحتوى الرئيسي -->
         <div id="mainContent">
-            <!-- منصات التواصل (ديسكورد فقط) -->
             <h2 class="section-title">منصات <span>التواصل</span></h2>
             <div class="social-platforms">
                 <a href="https://discord.gg/f9QJbGEdsd" target="_blank" class="social-icon-large">
-                    <i class="fab fa-discord"></i> دسكورد
+                    <i class="fab fa-discord"></i> ديسكورد
                 </a>
             </div>
 
-            <!-- وصف المجتمع -->
             <h2 class="section-title">مجتمع <span>ريسبكت</span></h2>
-            <div class="community-box">
+            <div class="community-box glass-panel">
                 مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
             </div>
 
-            <!-- قسم الفيديو -->
             <h2 class="section-title">🎥 فيديو <span>تعريفي</span></h2>
             <div class="video-section">
                 <div class="video-container" id="videoContainer">
@@ -564,28 +620,27 @@
                         <button onclick="playVideo()">تشغيل الفيديو</button>
                     </div>
                 </div>
-                <p style="color: #ccc; margin-top: 15px;">شاهد كيفية الانضمام واللعب في سيرفر Respect SAMP</p>
+                <p style="color: #b0c4de; margin-top: 15px; font-size: 1.1rem;">شاهد كيفية الانضمام واللعب في سيرفر Respect SAMP</p>
             </div>
 
-            <!-- صناع محتوى ريسبكت (4 فقط) -->
             <h2 class="section-title">صناع محتوى <span>ريسبكت</span></h2>
             <div class="creators-grid">
-                <a href="https://youtube.com/@saiboryt?si=ax-77z6dqbaSyFUV" target="_blank" class="creator-card">
+                <a href="https://youtube.com/@saiboryt?si=ax-77z6dqbaSyFUV" target="_blank" class="creator-card glass-panel">
                     <i class="fas fa-user-star"></i>
                     <h4>Saibor | سايبور</h4>
                     <p><i class="fab fa-youtube"></i> يوتيوب</p>
                 </a>
-                <a href="https://youtube.com/@lawan-dx8qi?si=P6whg0w7PDG7adJc" target="_blank" class="creator-card">
+                <a href="https://youtube.com/@lawan-dx8qi?si=P6whg0w7PDG7adJc" target="_blank" class="creator-card glass-panel">
                     <i class="fas fa-user-star"></i>
                     <h4>عليوان&3lawan</h4>
                     <p><i class="fab fa-youtube"></i> يوتيوب</p>
                 </a>
-                <a href="https://www.youtube.com/@ALSAYB_911/" target="_blank" class="creator-card">
+                <a href="https://www.youtube.com/@ALSAYB_911/" target="_blank" class="creator-card glass-panel">
                     <i class="fas fa-user-star"></i>
                     <h4>ALSAYB_911</h4>
                     <p><i class="fab fa-youtube"></i> يوتيوب</p>
                 </a>
-                <a href="https://youtube.com/@udsajad528?si=F3en_r2qAdQBZr1l" target="_blank" class="creator-card">
+                <a href="https://youtube.com/@udsajad528?si=F3en_r2qAdQBZr1l" target="_blank" class="creator-card glass-panel">
                     <i class="fas fa-user-star"></i>
                     <h4>FURY</h4>
                     <p><i class="fab fa-youtube"></i> يوتيوب</p>
@@ -593,9 +648,8 @@
             </div>
         </div>
 
-        <!-- قسم القوانين (مخفي) -->
         <div id="rulesSection" class="rules-section">
-            <div id="ruleDisplay" class="rule-card"></div>
+            <div id="ruleDisplay" class="rule-card glass-panel"></div>
             <div class="back-home">
                 <button onclick="showHome()">العودة إلى الرئيسية</button>
             </div>
@@ -603,7 +657,6 @@
 
     </div>
 
-    <!-- الفوتر -->
     <footer>
         <p>جميع الحقوق محفوظة لـ Respect SAMP Community © 2026</p>
         <p class="ramadan">🌙 تقبل الله طاعتكم 🌙</p>
@@ -827,17 +880,19 @@
             if (!rule) return;
             let html = `<h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3><ul>`;
             rule.items.forEach(item => {
-                html += `<li><i class="fas fa-circle"></i> ${item.replace(/\n/g, '<br>')}</li>`;
+                html += `<li><i class="fas fa-circle"></i> <span>${item.replace(/\n/g, '<br>')}</span></li>`;
             });
             html += `</ul><div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>`;
             document.getElementById('ruleDisplay').innerHTML = html;
             document.getElementById('mainContent').style.display = 'none';
             document.getElementById('rulesSection').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function showHome() {
             document.getElementById('mainContent').style.display = 'block';
             document.getElementById('rulesSection').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         document.getElementById('homeLink').addEventListener('click', function(e) { e.preventDefault(); showHome(); });
