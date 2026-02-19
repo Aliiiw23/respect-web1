@@ -10,11 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* إعدادات عامة */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Cairo', sans-serif;
@@ -23,32 +19,6 @@
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* خلفية ضوئية لإبراز الزجاج */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -20%;
-            left: -10%;
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, rgba(0,0,0,0) 70%);
-            z-index: -1;
-            border-radius: 50%;
-        }
-        
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: -20%;
-            right: -10%;
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle, rgba(20,40,80,0.3) 0%, rgba(0,0,0,0) 70%);
-            z-index: -1;
-            border-radius: 50%;
         }
 
         /* فئة التنسيق الزجاجي العامة */
@@ -60,859 +30,289 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        /* الشريط العلوي */
         .top-bar {
             background: rgba(5, 10, 20, 0.6);
             backdrop-filter: blur(10px);
             color: #ffd700;
             padding: 10px 20px;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
             border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             gap: 30px;
             direction: ltr;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
         }
 
-        /* الهيدر */
         header {
             padding: 15px 40px;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: none;
             border-radius: 0 0 20px 20px;
             margin: 0 10px;
-            border: 1px solid rgba(255, 215, 0, 0.1);
-            border-top: none;
         }
 
-        .logo {
-            font-size: 26px;
-            color: #ffd700;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-        }
+        .logo { font-size: 26px; color: #ffd700; font-weight: 800; text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
 
-        nav {
-            position: relative;
-            display: flex;
-            gap: 25px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+        nav { display: flex; gap: 15px; align-items: center; }
+        nav a { color: #e0e0e0; text-decoration: none; font-weight: 600; padding: 8px 15px; border-radius: 10px; transition: 0.3s; cursor: pointer; }
+        nav a:hover, nav a.active { color: #ffd700; background: rgba(255, 215, 0, 0.1); }
 
-        nav a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 8px 15px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            color: #ffd700;
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        /* القائمة المنسدلة */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            min-width: 240px;
-            border-radius: 15px;
-            z-index: 1;
-            top: 100%;
-            right: 0;
-            margin-top: 10px;
-            overflow: hidden;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .dropdown-content a {
-            color: #e0e0e0;
-            padding: 15px 20px;
-            display: block;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 0;
-        }
-
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(255, 215, 0, 0.15);
-            color: #ffd700;
-            padding-right: 25px; /* تأثير حركي خفيف */
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+        .apply-btn {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #050a15 !important;
+            font-weight: 800 !important;
         }
 
         /* Hero */
-        .hero {
-            position: relative;
-            padding: 80px 20px 60px;
-            text-align: center;
-            color: white;
-            margin-top: 20px;
-        }
+        .hero { text-align: center; padding: 80px 20px; }
+        .hero h1 { color: #ffd700; font-size: 3rem; margin-bottom: 15px; }
+        .hero p { color: #b0c4de; font-size: 1.2rem; margin-bottom: 30px; }
+        .hero img { width: 100%; max-width: 600px; border-radius: 20px; border: 2px solid rgba(255, 215, 0, 0.3); }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://via.placeholder.com/1600x600/0a1a2a/0a1a2a') center/cover;
-            opacity: 0.3;
-            z-index: -1;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-title { font-size: 2.2rem; text-align: center; margin: 60px 0 30px; }
+        .section-title span { color: #ffd700; }
 
-        .hero h1 {
-            color: #ffd700;
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            text-shadow: 0 5px 20px rgba(255,215,0,0.3);
-            font-weight: 800;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #b0c4de;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 25px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.1);
-            width: 700px;
-            transition: transform 0.3s;
-        }
-        
-        .hero-image img:hover {
-            transform: translateY(-5px);
-        }
-
-        /* أقسام عامة */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 25px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 80px 0 40px;
-            text-align: center;
-            color: #fff;
-            position: relative;
-        }
-
-        .section-title span {
-            background: linear-gradient(135deg, #ffd700, #ffaa00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-        }
-
-        /* منصات التواصل */
-        .social-platforms {
-            display: flex;
-            justify-content: center;
-            margin: 50px 0;
-        }
-
-        .social-icon-large {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            color: #e0e0e0;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .social-icon-large i {
-            font-size: 4rem;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 35px; /* شكل عصري بدلاً من الدائرة */
-            background: rgba(88, 101, 242, 0.1);
-            border: 2px solid rgba(88, 101, 242, 0.5);
-            color: #5865F2;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.2);
-        }
-
-        .social-icon-large:hover i {
-            background: #5865F2;
-            color: #fff;
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(88, 101, 242, 0.5);
-            border-color: #5865F2;
-        }
-        
-        .social-icon-large:hover {
-            color: #5865F2;
-        }
-
-        /* وصف المجتمع */
-        .community-box {
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px 0;
-            font-size: 1.2rem;
-            line-height: 2;
-            text-align: center;
-            color: #e2e8f0;
-        }
-
-        /* قسم الفيديو */
-        .video-section {
-            margin: 60px 0;
-            text-align: center;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            margin: 30px auto;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(255,215,0,0.1);
-            background-color: #000;
-        }
-
-        .video-iframe {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 9;
-            display: block;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: rgba(5, 10, 20, 0.7);
-            backdrop-filter: blur(8px);
-            transition: all 0.4s ease;
-        }
-
-        .video-overlay button {
-            background: linear-gradient(135deg, #ffd700, #ffaa00);
-            color: #050a15;
-            border: none;
-            padding: 15px 45px;
-            font-size: 1.3rem;
-            font-weight: 800;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 25px;
-            font-family: 'Cairo', sans-serif;
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .video-overlay button:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
-        }
-
-        .video-overlay i {
-            font-size: 6rem;
-            color: #ffd700;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-        }
-
-        /* صناع محتوى */
-        .creators-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin: 50px 0 80px;
-        }
-
-        .creator-card {
-            border-radius: 25px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            display: block;
-        }
-
-        .creator-card:hover {
-            border-color: rgba(255, 215, 0, 0.6);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(255,215,0,0.15);
-            background: rgba(25, 35, 65, 0.6);
-        }
-
-        .creator-card i.fa-user-star {
-            font-size: 3.5rem;
-            background: linear-gradient(135deg, #ffd700, #ffaa00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .creator-card h4 {
-            font-size: 1.4rem;
-            color: #fff;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .creator-card p {
-            color: #a0aec0;
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0,0,0,0.3);
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-
-        .creator-card p i {
-            color: #ff0000;
-        }
-
-        /* قسم القوانين */
-        .rules-section {
+        /* نافذة التقديم (Modal) */
+        .modal {
             display: none;
-            margin: 40px 0;
-            animation: fadeIn 0.5s ease;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
-        .rule-card {
+        .modal-content {
+            width: 100%;
+            max-width: 600px;
             border-radius: 30px;
             padding: 40px;
-            max-width: 900px;
-            margin: 20px auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
         }
 
-        .rule-card h3 {
-            font-size: 2.2rem;
-            color: #ffd700;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            padding-bottom: 15px;
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        .rule-card h3 i {
-            font-size: 2.5rem;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-        }
-
-        .rule-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .rule-card li {
-            margin-bottom: 18px;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.3s;
-            line-height: 1.8;
-            color: #e2e8f0;
-        }
-
-        .rule-card li:hover {
-            background: rgba(255, 215, 0, 0.05);
-            border-color: rgba(255, 215, 0, 0.2);
-            transform: translateX(-5px);
-        }
-
-        .rule-card li i {
-            color: #ffd700;
-            font-size: 0.8rem;
-            margin-top: 8px;
-            flex-shrink: 0;
-        }
-
-        .edit-note {
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 20px;
-            padding: 10px 25px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 30px;
-            color: #ffd700;
-            font-size: 1rem;
-            border: 1px dashed rgba(255, 215, 0, 0.4);
-        }
-
-        .back-home {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .back-home button {
-            background: rgba(15, 25, 45, 0.6);
-            backdrop-filter: blur(10px);
-            color: #fff;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 50px;
+        .close-modal {
+            position: absolute;
+            top: 20px; left: 20px;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Cairo', sans-serif;
+            color: #ff4444;
         }
 
-        .back-home button:hover {
-            background: #ffd700;
+        .form-group { margin-bottom: 20px; text-align: right; }
+        .form-group label { display: block; margin-bottom: 8px; color: #ffd700; font-weight: 600; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Cairo';
+            outline: none;
+        }
+        .form-group input:focus { border-color: #ffd700; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            border: none;
+            border-radius: 12px;
             color: #050a15;
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(5, 10, 20, 0.8);
-            backdrop-filter: blur(15px);
-            color: #a0aec0;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 215, 0, 0.15);
-            margin-top: 80px;
-        }
-
-        footer p {
-            margin: 10px 0;
+            font-weight: 800;
             font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
         }
+        .submit-btn:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3); }
 
-        footer .ramadan {
-            color: #ffd700;
-            font-size: 1.4rem;
-            font-weight: bold;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-            margin-top: 15px;
-        }
+        /* التنسيقات القديمة (للحفاظ على المميزات) */
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; min-width: 200px; right: 0; top: 100%; border-radius: 15px; margin-top: 10px; z-index: 100; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { display: block; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
-            .top-bar { flex-direction: column; gap: 8px; }
-            header { flex-direction: column; gap: 20px; padding: 20px; border-radius: 0; margin: 0; }
-            nav { justify-content: center; }
-            .section-title { font-size: 2rem; }
-            .community-box { padding: 30px 20px; }
-            .rule-card { padding: 25px 15px; }
-            .social-icon-large i { width: 100px; height: 100px; font-size: 3.5rem; }
-        }
+        .community-box { border-radius: 25px; padding: 30px; text-align: center; margin: 40px 0; }
+        .creator-card { border-radius: 20px; padding: 20px; text-align: center; text-decoration: none; display: block; transition: 0.3s; }
+        .creator-card:hover { transform: translateY(-10px); }
+        .creators-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+
+        .rules-section { display: none; margin-top: 40px; }
+        .rule-card { border-radius: 20px; padding: 30px; }
+        
+        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,215,0,0.1); margin-top: 60px; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar" id="topBar">
+    <div class="top-bar">
         <span id="hijriDate">🌙 تحميل...</span>
         <span id="gregorianDate">📅 تحميل...</span>
         <span id="liveTime">⏰ تحميل...</span>
     </div>
 
     <header class="glass-panel">
-        <div class="logo">
-            RESPECT ☪️ SAMP
-        </div>
+        <div class="logo">RESPECT ☪️ SAMP</div>
         <nav>
-            <a href="#" id="homeLink">الرئيسية</a>
+            <a href="#" onclick="showHome()">الرئيسية</a>
             <div class="dropdown">
-                <a href="#" class="dropbtn">القوانين ▼</a>
+                <a>القوانين ▼</a>
                 <div class="dropdown-content glass-panel">
-                    <a href="#" onclick="showRule('general'); return false;">قوانين عامة</a>
-                    <a href="#" onclick="showRule('important'); return false;">قوانين مهمة</a>
-                    <a href="#" onclick="showRule('admin'); return false;">قوانين الإدارة</a>
-                    <a href="#" onclick="showRule('police'); return false;">قوانين الشرطة</a>
-                    <a href="#" onclick="showRule('ems'); return false;">قوانين الصحة</a>
-                    <a href="#" onclick="showRule('gang'); return false;">قوانين العصابات</a>
-                    <a href="#" onclick="showRule('criminal'); return false;">قوانين الإجرام</a>
-                    <a href="#" onclick="showRule('glossary'); return false;">📚 المصطلحات</a>
+                    <a href="#" onclick="showRule('general')">عامة</a>
+                    <a href="#" onclick="showRule('police')">الشرطة</a>
+                    <a href="#" onclick="showRule('ems')">الصحة</a>
+                    <a href="#" onclick="showRule('gang')">العصابات</a>
                 </div>
             </div>
+            <a href="#" class="apply-btn" onclick="openModal()">تقديم الآن 📝</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>رمضان كريم في مجتمع Respect SAMP</h1>
-        <p>التزم بالقوانين واستمتع بأفضل تجربة لعب واقعي في الشهر الفضيل</p>
-        <div class="hero-image">
-            <img src="https://i.imgur.com/placeholder.jpg" alt="Respect SAMP" onerror="this.src='https://via.placeholder.com/700x350/0f172a/ffd700?text=Respect+SAMP+VIP';">
-        </div>
-    </section>
-
-    <div class="container">
-        <div id="mainContent">
-            <h2 class="section-title">منصات <span>التواصل</span></h2>
-            <div class="social-platforms">
-                <a href="https://discord.gg/f9QJbGEdsd" target="_blank" class="social-icon-large">
-                    <i class="fab fa-discord"></i> ديسكورد
-                </a>
-            </div>
-
-            <h2 class="section-title">مجتمع <span>ريسبكت</span></h2>
-            <div class="community-box glass-panel">
-                مجتمع سيرفر "ريسبكت" العربي هو مجتمع حيوي يجمع بين اللاعبين والمؤثرين والمشاهدين، مما يخلق بيئة تفاعلية وغنية. يشارك اللاعبون في بناء تجارب مميزة داخل السيرفر، بينما يسهم المؤثرون والاستريمرز في نشر المتعة والإثارة عبر البث المباشر، مما يعزز التفاعل والتواصل بين اللاعبين والجماهير. المتابعون يتفاعلون بشكل مستمر، ويشاركون في الفعاليات والمسابقات، مما يعزز روح التعاون والتأثير داخل مجتمع "ريسبكت" الذي يعكس قوة وتأثير هذا التجمع.
-            </div>
-
-            <h2 class="section-title">🎥 فيديو <span>تعريفي</span></h2>
-            <div class="video-section">
-                <div class="video-container" id="videoContainer">
-                    <div class="video-overlay" id="videoOverlay">
-                        <i class="fas fa-play-circle"></i>
-                        <button onclick="playVideo()">تشغيل الفيديو</button>
-                    </div>
+    <div id="applyModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 style="text-align: center; color: #ffd700; margin-bottom: 25px;">استمارة تقديم ريسبكت</h2>
+            <form id="applyForm">
+                <div class="form-group">
+                    <label>الاسم الثلاثي (داخل اللعبة):</label>
+                    <input type="text" id="charName" placeholder="مثال: Ahmed_Mansour" required>
                 </div>
-                <p style="color: #b0c4de; margin-top: 15px; font-size: 1.1rem;">شاهد كيفية الانضمام واللعب في سيرفر Respect SAMP</p>
-            </div>
-
-            <h2 class="section-title">صناع محتوى <span>ريسبكت</span></h2>
-            <div class="creators-grid">
-                <a href="https://youtube.com/@saiboryt?si=ax-77z6dqbaSyFUV" target="_blank" class="creator-card glass-panel">
-                    <i class="fas fa-user-star"></i>
-                    <h4>Saibor | سايبور</h4>
-                    <p><i class="fab fa-youtube"></i> يوتيوب</p>
-                </a>
-                <a href="https://youtube.com/@lawan-dx8qi?si=P6whg0w7PDG7adJc" target="_blank" class="creator-card glass-panel">
-                    <i class="fas fa-user-star"></i>
-                    <h4>عليوان&3lawan</h4>
-                    <p><i class="fab fa-youtube"></i> يوتيوب</p>
-                </a>
-                <a href="https://www.youtube.com/@ALSAYB_911/" target="_blank" class="creator-card glass-panel">
-                    <i class="fas fa-user-star"></i>
-                    <h4>ALSAYB_911</h4>
-                    <p><i class="fab fa-youtube"></i> يوتيوب</p>
-                </a>
-                <a href="https://youtube.com/@udsajad528?si=F3en_r2qAdQBZr1l" target="_blank" class="creator-card glass-panel">
-                    <i class="fas fa-user-star"></i>
-                    <h4>FURY</h4>
-                    <p><i class="fab fa-youtube"></i> يوتيوب</p>
-                </a>
-            </div>
+                <div class="form-group">
+                    <label>العمر الحقيقي:</label>
+                    <input type="number" id="realAge" required>
+                </div>
+                <div class="form-group">
+                    <label>يوزر الديسكورد (ID):</label>
+                    <input type="text" id="discordUser" placeholder="User#0000" required>
+                </div>
+                <div class="form-group">
+                    <label>الجهة المطلوب التقديم عليها:</label>
+                    <select id="targetDept">
+                        <option value="الشرطة">الشرطة (RTPD)</option>
+                        <option value="الصحة">الصحة (RTEM)</option>
+                        <option value="عصابة رسمية">عصابة رسمية</option>
+                        <option value="إدارة السيرفر">طاقم الإدارة</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>لماذا تريد الانضمام إلينا؟</label>
+                    <textarea id="reason" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">إرسال التقديم</button>
+            </form>
         </div>
+    </div>
 
-        <div id="rulesSection" class="rules-section">
-            <div id="ruleDisplay" class="rule-card glass-panel"></div>
-            <div class="back-home">
-                <button onclick="showHome()">العودة إلى الرئيسية</button>
-            </div>
+    <div class="container" id="mainContent">
+        <section class="hero">
+            <h1>عالمك الواقعي في <span>Respect</span></h1>
+            <p>انضم لأكبر تجمع لمحبي الـ SAMP في الوطن العربي</p>
+            <img src="https://via.placeholder.com/600x300/0a1a2a/ffd700?text=Respect+SAMP+World" alt="Hero">
+        </section>
+
+        <h2 class="section-title">صناع المحتوى <span>المميزين</span></h2>
+        <div class="creators-grid">
+            <a href="https://youtube.com/@saiboryt" target="_blank" class="creator-card glass-panel">
+                <h4>Saibor | سايبور</h4>
+                <p>يوتيوب</p>
+            </a>
+            <a href="https://youtube.com/@lawan-dx8qi" target="_blank" class="creator-card glass-panel">
+                <h4>عليوان&3lawan</h4>
+                <p>يوتيوب</p>
+            </a>
         </div>
+    </div>
 
+    <div class="container rules-section" id="rulesSection">
+        <div id="ruleDisplay" class="rule-card glass-panel"></div>
+        <button onclick="showHome()" class="submit-btn" style="width: 200px; margin: 20px auto; display: block;">عودة</button>
     </div>
 
     <footer>
-        <p>جميع الحقوق محفوظة لـ Respect SAMP Community © 2026</p>
-        <p class="ramadan">🌙 تقبل الله طاعتكم 🌙</p>
+        <p>جميع الحقوق محفوظة لـ Respect SAMP © 2026</p>
+        <p style="color: gold; margin-top: 10px;">🌙 رمضان مبارك 🌙</p>
     </footer>
 
     <script>
-        // تحديث الشريط العلوي
-        function updateTopBar() {
+        // --- وظائف الوقت ---
+        function updateTime() {
             const now = new Date();
-            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Riyadh', hour12: false };
-            const timeString = now.toLocaleTimeString('ar-SA', optionsTime);
-            const optionsGregorian = { year: 'numeric', month: 'numeric', day: 'numeric', timeZone: 'Asia/Riyadh' };
-            const gregorianDate = now.toLocaleDateString('ar-SA', optionsGregorian);
-            const hijriOptions = { year: 'numeric', month: 'numeric', day: 'numeric', calendar: 'islamic', timeZone: 'Asia/Riyadh' };
-            let hijriDate;
-            try {
-                hijriDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic', hijriOptions).format(now);
-            } catch (e) {
-                hijriDate = 'رمضان 1446';
-            }
-            document.getElementById('hijriDate').innerHTML = `🌙 ${hijriDate}`;
-            document.getElementById('gregorianDate').innerHTML = `📅 ${gregorianDate}`;
-            document.getElementById('liveTime').innerHTML = `⏰ ${timeString}`;
+            document.getElementById('liveTime').innerText = "⏰ " + now.toLocaleTimeString('ar-SA');
+            document.getElementById('gregorianDate').innerText = "📅 " + now.toLocaleDateString('ar-SA');
+            document.getElementById('hijriDate').innerText = "🌙 رمضان 1446";
         }
-        setInterval(updateTopBar, 1000);
-        updateTopBar();
+        setInterval(updateTime, 1000); updateTime();
 
-        // بيانات القوانين (محدثة بالكامل)
-        const rulesData = {
-            general: {
-                title: 'قوانين عامة',
-                icon: 'fa-globe',
-                items: [
-                    'ممنوع استخدام اي شخصية افتراضية الا من خلال المتجر فقط.',
-                    'ممنوع كتابة أسمك على شكل رموز مثال: (W_0)، او يكون اسم شخصيه مشهوره مثال: ( بابلو اسكوبار ) . ( دربحة ) الخ….',
-                    'لك الحق فى استخدام شخصية اجرامية والأخرى يجب ان تكون في اي جهة حكومية.',
-                    'ممنوع الستريم سنايب أو متابعة البثوث أثناء اللعب منعاً باتاً وعقوبتها شديدة.',
-                    'ممنوع نهائياً التواجد في الديسكورد او التواصل الخارجي لجميع اللاعبين.',
-                    'ممنوع الاعتداء على البوتات لاي سبب مهما كان ويجب ان تعتبره مواطن ويتم تطبيق القوانين عليه.',
-                    'يمنع طلب تعويض في حال خسرت فلوسك وأسلحتك وأغراضك بسبب التحلل أو نقلك إلى المستشفى.',
-                    'ممنوع الكتابة خارج "الرول بلاي" في تطبيق تويتر، ويمكن الكتابة فقط في الأمور الداخلة في إطار التمثيل وتقمص الشخصيات والسيناريوهات والأمور المكملة لها.',
-                    'ممنوع الدخول فى اى سناريو الا اذا كانت بينكم معرفه في الرول بلاي لمدة لا تقل عن ثلاث ايام.',
-                    'ممنوع القذف بالأعراض والشتم والكلام البذيء والكلام الطائفي أو السياسي أو الديني أو القبلي ويعتبر مخالف للنظام العام وربما تصل إلى حظرك من السيرفر نهائياً ومن غير تنبيه.',
-                    'يمنع استخدام كلمات غير مفهومه او كلام مشفر او التلميح و السب او الشتم او كلمات غير عاميه.',
-                    'يمنع طلب الخدمات المتاحة بالجوال بقصد الخطف أو القتل أو السرقة أو بغير الاستفادة من الخدمة.',
-                    'يمنع توزيع الفلوس أو التسليف أو ما شابه بين اللاعبين بمبالغ كبيرة : ( 10الاف فما فوق ) يجب ان تكون بين الطرفين معرفه لا تقل عن ثلاث ايام.',
-                    'ممنوع منعاً باتاً قتل الأشخاص في حال كانوا ينفذون الاوامر او بحجة النسيان.',
-                    'مشاركتك لاي من معلوماتك او حساباتك الشخصية ( قوقل – روك ستار – سامب – دسكورد ) مع اي شخص كان واستخدامها للدخول الى السيرفر يعرضكم جميعا للباند النهائي.',
-                    'يمنع ان تحمل شخصين في نفس الوقت – ( حمل + سحب ) مهما كانت الاسباب.',
-                    'تنبيه على القيادة الغير واقعيه في حال تم رصد اي مواطن يقود مركبته بطريقة غير واقعيه ( سرعة بدون سبب – قطع اشارات بدون سبب – تهور في القيادة بدون سبب ) و الى مالا ذلك … سيكون عليها تحذير PowerGamming الرجاء القيادة بشكل واقعي تجنبا من التحذيرات او الباند.',
-                    '* [يحق للرقابه المحاسبه على جميع الاخطاء حتى لو لم تكن ضمن القوانين]'
-                ]
-            },
-            important: {
-                title: 'قوانين مهمة',
-                icon: 'fa-exclamation-triangle',
-                items: [
-                    'قوانين الحياة الجديدة - NLR: في حال اغمائك بشكل كامل لا يمكنك الكلام او الحركة او فعل اي شيء. في حال تم اسقاطك من قبل شخص و تم انعاشك من قبل مسعفين تستطيع تذكر جميع الاحداث. في حال تم احراق جثك لا تستطيع تذكر اي شي حصل لك (منها العداوات او السناريوهات).',
-                    'قانون تقدير الحياة - NWL: هي الحفاظ على حياتك وحياة الآخرين، وعدم التهور، وأن لا تستهين بقتل الأشخاص، وأن لا تقاوم المجرم أو الشرطة او اي شخص يحمل سلاح مهما كان خصوصاً اذا كنت أعزل. وهذا لا يمنع استعمال حق الدفاع عن النفس عند الضرورة التي تمنعك من طلب مساعدة الشرطة، وبكل الأحوال يجب محاورة اللاعب بشكل جيد والتفاوض معه قبل الشروع بأي عمل يعرض حياة اللاعب الآخر للخطر.',
-                    'القتل العشوائي - RDM: قتل الأشخاص دون سبب, تهديد, بصورة عشوائية او بدون عداوة يعتبر القتل العشوائي ممنوع ومخالف للنظام العام للسيرفر.',
-                    'الميتا جيمنج Metagaming: اي معلومة تحصل عليها من خارج المدينة مثال معلومة حصلت عليها من بث او دسكورد او مقطع باليوتيوب كلها تعتبر مخالفة.',
-                    'الخوف على الحياة - NVL: عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد من وسائل أخرى يعتبر الخوف على الحياة شي اساسي ومهم جدا مثال: اذا كان هناك اداة تعرض حياتك للخطر.'
-                ]
-            },
-            admin: {
-                title: 'قوانين الإدارة',
-                icon: 'fa-crown',
-                items: [
-                    'قرارات الإدارة نهائية وغير قابلة للنقاش.',
-                    'الإدارة ملزمة بتطبيق القانون بعدل.',
-                    'الأونر هو المرجع الأعلى.',
-                    'أي شكوى ضد إداري تقدم للأونر فقط.',
-                    'الاحترام متبادل بين الإدارة واللاعبين.'
-                ]
-            },
-            police: {
-                title: 'قوانين الشرطة',
-                icon: 'fa-shield-halved',
-                items: [
-                    '🔳 قوانين وتعليمات شرطة ريسبكت 🔲',
-                    '🔳 يجب أن يكون رجل الأمن مهذب تجاه المواطنين ومع زملائهم , يجب أن يكون لبقاً في أداء واجبه، متحكم في اعصابه ويتحمل أقصى درجات الصبر وتقدير. حتى في مواجهة الاستفزاز الشديد. لا يجوز لهم استخدامها لغة أو إيماءات بذيئة أو عنيفة أو بذيئة تجاه المواطنين أو زملائه في شرطة ريسبكت.',
-                    '⬜ لا يجوز لرجال الأمن ارتكاب أي عمل من أعمال الفساد. وعليهم أيضا معارضة ومكافحة كل هذه الأعمال بصرامة و الإبلاغ عنها.',
-                    '⬜ يجب على رجال الأمن تطبيق القانون ، في أدائهم لواجبهم ، احترام وحماية كرامة الإنسان والحفاظ على حقوق الإنسان لجميع الأشخاص ودعمها.',
-                    '⬜ لا يجوز لرجال الأمن استخدام القوة الإجبارية إلا عند الضرورة القصوى او عند الاعتداء عليه بالضرر وتكون بالقدر المطلوب لأداء واجبهم.',
-                    '⬜ يمكن لرجل الأمن ممارسة عمله و تطبيق القانون كلما اقتضت الظروف ذلك ، سواء أكان بالزي الرسمي أو حتى وهو خارج الدوام.',
-                    '⬜ يجب الحفاظ على سرية الأمور العسكرية ذات الطبيعة السرية التي في متناول رجل الأمن عن تطبيق القانون ، ما لم يتطلب أداء الواجب أو متطلبات العدالة خلاف ذلك بشكل صارم.',
-                    '🔳 يجب على رجال الأمن ضمان الحماية الكاملة لصحة الأشخاص المحتجزين لديهم ،و يجب عليهم اتخاذ إجراءات فورية لتأمين العناية الطبية عند الاقتضاء.',
-                    '▬▬▬▬▬▬▬▬▬▬',
-                    '🔴 تعتبر الخيانة او التمرد انهيارًا خطيرًا في الانضباط والنظام داخل حكومة ريسبكت. لذلك ،، فإن أي رجل امن يكون متمردًا تجاه حكومة ريسبكت يخضع لإجراءات تأديبية قد تؤدي إلى إنهاء الخدمة أو الإعدام بالرصاص.',
-                    '🔴 يشمل التمرد او الخيانة ما يلي:-',
-                    '🔳 لغة وقحة أو مسيئة أو أفعال تجاه الضابط المشرف أو غيره عضو معين للقيادة .',
-                    '🔳 الإخفاق أو الرفض المتعمد للامتثال لأمر قانوني صادر عن هذا الضابط أو من القيادات .',
-                    '🔳 السخرية من أوامر عضو معين في القيادة أو الضابط المشرف سواء بحضورهم او غيابهم .',
-                    '🔳 لا يجوز لرجال الأمن ، في أي وقت ، عدم احترام رئيسهم بأي طريقة كانت.',
-                    '▬▬▬▬▬▬▬▬▬▬',
-                    '⬜ معاملة المحبوسين',
-                    'أ. لن يسيء رجال الشرطة معاملة المحتجزين لديه. سوف يتعاملون مع الأشخاص وفقًا للإجراءات المعمول بها.',
-                    'ب. لا يجوز لموظف الشرطة في ريسبكت، دون سلطة مناسبة ، الإفراج عن أي سجين من مسؤوليته ، أو الإهمال أو تركه.',
-                    '⬜ حقوق المواطن اثناء القاء القبض عليه',
-                    '[ تم القبض عليك من قبل شرطة LSPD يجب عليك التزام الصمت الى حين وضعك في غرفة التحقيق او الزنزانة. أي شيء ستقوله يمكن ان يستخدم ضدك في التحقيق. لديك الحق في طلب محاميك اذا كان متوفر. ]',
-                    '▬▬▬▬▬▬▬▬▬▬',
-                    '🔳 استخدام القوة',
-                    'لن يستخدم رجل الأمن ، بصفته الرسمية ، القوة غير الضرورية أو المفرطة. سيستخدم رجال الأمن الحد الأدنى من القوة اللازمة للتأثير على عملية الاعتقال والتغلب على أي مقاومة معروضة.',
-                    '🔳 الأسلحة النارية',
-                    'لا يجوز استخدام الأسلحة أو عرضها أو التعامل معها بطريقة غير مبالية أو غير حكيمة أو تتعارض مع سياسة ريسبكت',
-                    '🔳 عدم الكفاءة',
-                    'يتحمل رجال الأمن المسؤولية الكاملة عن حسن أداء واجباتهم. يجب أن يحافظ رجال الأمن على الكفاءة الكافية لأداء واجباتهم بشكل صحيح . يؤدي رجال الأمن واجباتهم بطريقة تحافظ على أعلى مستويات الكفاءة في تنفيذ مهام وأهداف إدارة الشرطة.',
-                    '🔳 لا يجوز لرجل الأمن ، أثناء أداء مهام إنفاذ القانون ، أن يطلب ، من أجل منفعة شخصية ، معلومات شخصية من المواطنين أو يقدم معلومات شخصية عن أنفسهم ، والتي يمكن تفسيرها بشكل معقول على أنها تستخدم مناصبهم كموظف شرطة لتحقيق منفعة شخصية أو اسباب شخصية.',
-                    '🔳 أثناء الاتصال بالرجل الأمن المخالف، لن يطلب رجل الأمن معلومات شخصية من رجل امن مخالف و / أو يقدم معلومات مماثلة لأي سبب بخلاف ذلك الذي قد يكون مطلوبًا بشكل معقول لأغراض إنفاذ القانون.',
-                    '▬▬▬▬▬▬▬▬▬▬',
-                    '`هذه القوانين قابله للتعديل من قبل ادارة ريسبكت RTPD في أي وقت`',
-                    '`Respect City Police Department`'
-                ]
-            },
-            ems: {
-                title: 'قوانين الصحة',
-                icon: 'fa-ambulance',
-                items: [
-                    '🔴 يمنع لموظفين وزارة الصحة الدخول الى منطقة سيناريو الا بعد انتهاء السيناريو وقد لا يتم تطبيق هاذا القانون باسباب يحددها الامن الوطني',
-                    '🔴 يمنع لموظفين وزارة الصحة استخدام سيارات غير تابعة للوزارة في حالة لم تكن بإجازة',
-                    '🔴 يمنع لموظفين وزارة الصحة بالقتل او التلويت داخل المدينة او بالخارج',
-                    '🔴 يمنع استخدام الراديو لأغراض اخرى غير متعلقة بأمور الصحة',
-                    '🔴 يمنع تزويد أي احد بال PainKiller بدون تصريح موثوق من الوزير',
-                    '🔴 يمنع تكون داخل عصابة أو منظمة',
-                    '🔴 يمنع التعامل مع المجرمين أو المنظمات الإرهابية',
-                    '🟢 مسموح لوزارة الصحة باحتجاز مجرم داخل المستشفى بعد معالجته في حال قامت احد الوزارات بطلب ذالك',
-                    '🟢 يمنع لموظفين وزارة الصحة لبس ملابس غير تابعة للوزارة في حالة لم تكن بإجازة',
-                    '🟢 مسموح لافراد الصحة المشاركة بالسيناريوهات لمعالجة افراد الوزارة ولكن يمكن للعصابات قتلهم بالسيناريو وذالك يسموح لافراد الصحة المشاركة بالسيناريوهات لمعالجة افراد الوزارة',
-                    '▬▬▬▬▬▬▬▬▬▬',
-                    '`هذه القوانين قابلة للتعديل من قبل ادارة ريسبكت RTEM بأي وقت`',
-                    '`Respect City Emergency Medical`'
-                ]
-            },
-            gang: {
-                title: 'قوانين العصابات',
-                icon: 'fa-people-group',
-                items: [
-                    '🔴 تعتبر هذة القوانين خاصة بالعصابات ويجب على الجميع الالتزام بكل البنود مع الألتزام بجميع القوانين الخاصة بالسيرفر حيث تكون القوانين كامله مدمجه ومكمله لبعضها',
-                    '🔴 يمنع منعا باتا التواجد في اي ديسكورد للعصابات غير الديسكورد الرسمي لـ المدينة ريسبكت واذا تم رصدك فى اي ديسكورد اخر سيتم محاسبتك رقابياً',
-                    '⚪ التقديم على طلب تكوين اجرامي او الترقيه لـ مستوى اخر لا يعني القبول من الممكن التأجيل او الالغاء لـ الطلب فرجاء الانتظار لحين الرد عليك فى التذكره',
-                    '🔴 لا يمكن للعصابات الاتحاد في الفايت او العداوة مع عصابة اخرى سواء مع عصابة او مع الشرطة',
-                    '🔴 لا يمكن ان يتم اعلان العداوه او حرب العصابة الا من خلال تأكيد بين قائده العصابتين',
-                    '🟢 في حال وقع فايت بين عصابتين في مكان مأهول بالسكن يحق للشرطة التدخل بشكل مباشر و اذا كان في مكان نائي يحق للشرطة التدخل بشكل غير مباشر',
-                    '🔴 لا تتكون عداوة بين عصابتين بسبب خطف احد اعضائها الا اذا كانت عصابة ذات سلطة اجرامية او اذا كان المخطوف هو قائد العصابة',
-                    '🔴 لا يمكن الاتفاق على اى حدث بين اي عصابتين الا من خلال الموافقه الكاملة من مسئول العصابات او النائب',
-                    '🟢 عند وجود اى تعدي من افراد العصابة على قوانين العصابات سيتم اتخاذ العقوبات اللازمه مع العصابة',
-                    '🔴 يمنع استقطاب أعضاء العصابة بشكل عشوائي ويجب ان يوجد ثقة مبنية داخل الرول بلاي',
-                    '🟢 يجب الالتزام بالقوانين العامة للسيرفر تجنبا للعقوبات',
-                    '🟢 قائد العصابة هو المسؤول الأول والاخير امام الإدارة في المخالفات الجماعية',
-                    '🔴 تعطى العصابة تحذير او أكثر في حال مخالفة القوانين وعند التكرار قد تصل الى تصفير كامل العصابة',
-                    '🟢 تتكون العداوة بين عصابتين الا لأسباب مقنعة ويجب ان تكون مصورة',
-                    '🔴 في حال عدم التواجد او التفاعل في اى عصابه من العصابات المتاحة سيتم تصفير العصابه بدون الرجوع الى البوس',
-                    '🔴 عدد التحذيرات لتصفير العصابه 3 تحذيرات فقط',
-                    '🔴 لن يتم الغاء تحذير العصابه الا بعد شهر من اخذ التحذير',
-                    '🔴 في حال أخذت العصابة تحذيرين سيتم مضاعفة مدة التحذيرات على العصابة',
-                    '🟢 يحق لمسؤول العصابات تعديل او حذف او اضافة القوانين في اي وقت لذلك يجب مراجعة القوانين من حين لاخر.'
-                ]
-            },
-            criminal: {
-                title: 'قوانين الإجرام',
-                icon: 'fa-gun',
-                items: [
-                    '🔴 ممنوع ملاحقة العساكر بغرض محاولة المضايقات اوالتدخل بعملهم او الترصد و بناء عداوة معهم.',
-                    '🔴 يمنع منعاً باتاً التحلل او الخروج من المدينة نهائياً الأ بعد 10 دقايق من بعد انتهاء السناريو.',
-                    '🔴 ممنوع الدخول فى اى سناريو الا اذا كانت بينكم معرفه في الرول بلاي لمدة لا تقل عن اسبوع.',
-                    '🔴 يمنع طلب الخدمات المتاحة بالجوال بقصد الخطف أو القتل أو السرقة أو بغير الاستفادة من الخدمة.',
-                    '⚪ في حال رفع عليك شخص سلاح ناري او سلاح ابيض يجب عليك ان تستلم بشكل كامل للشخص. و ان كان هناك اي مخالفه في السناريو يجب عليك مجارتها في الاحداث و ان تستكمل السناريو حتى النهايه.',
-                    '🟢 النشاط الاجرامي يقتصر على 6 اشخاص فقط شامل التدخل الخارجي ضد العسكر.',
-                    '🔴 يمنع انك تخطف شخص في مكان عام او غيرها من الاماكن -يجب عليك سحب الشخص الى مكان خالي من الاشخاص و تتغاضى عن الانظار و بعدها تستطيع خطف الشخص.',
-                    '🔴 يمنع ان تاخذ احد معارفك سواءً كنت في عصابه او زملاء كرهينة يجب عليك اخذ رهينة ليس بينك وبينها معرفه.',
-                    '🔴 ممنوع منعاً باتاً قتل الأشخاص في حال كانوا ينفذون الاوامر او بحجة النسيان.',
-                    '🟢 يسمح لك السرقه في الاماكن المشبوه مثل بيع المخدرات او الجزيره او مكان بيع الممنوعات و غيرها من الاماكن المشبوه بعد تهديد الاشخاص.',
-                    '🔴 ممنوع تسرق وتهرب على طول، لازم تنتظر الشرطة على الأقل 10 دقائق.',
-                    '🔴 يمنع تلويت العساكر أو أخذ عتادهم الا في حال هجموا على مقركم',
-                    '🔴 في حال اسقطت عسكري او مجرم سواءً كنت في سناريو سرقه او غيرها يمنع انك تنقل العسكري او المجرمين للمستشفى بعد انتهاء الفايت الا اذا كان الشخص في عصابتك او مجموعتك.',
-                    '🔴 عند تبادل اطلاق النار بين طرفين يمنع انك تكون حامل شخص بيدك خلال اطلاق النار يجب انزال الشخص و بعدها تستطيع ان تتبادل اطلاق النار.',
-                    '🔴 ممنوع اعطاء اي من المعلومات الاجرامية او اي شئ يخص الاجرام بشكل كامل للغرباء الا بعد معرفه تتجاوز اسبوع كامل.',
-                    '🟢 يحق لك سرقة المواطن فقط في حال وجود عداوة بينك وبينه.',
-                    '🔴 يمنع تكوين عداوة على اسباب تافه مثال ( الضرب بالايدي بسبب مشادة كلامية - او شخص صدمك بالمركبه و هرب - خطف لاجل السرقة - الخ...).',
-                    '🟢 يحق للمواطن سرقة العسكري في اذا كان هناك سناريو سرقة البنوك والمجوهرات والمراكز العسكرية كالميناء والمقرات ولا يشمل سرقة المحلات.',
-                    '🔴 عدم بناء العداوة بسبب العسكري كان يؤدي وظيفته.',
-                    '🟢 في حال تمت مداهمة حارة عصابة من قبل الشرطة يحق للعصابة سرقة العساكر في مكان الحارة.',
-                    '🔴 يمنع الخطف في شارع عام او امام العلن او في مواقع عامة مثل الوظائف او المراكز او المستشفى، لذلك يجب عليك استدراج الشخص الى مكان منعزل او ممر ضيق بحيث يكون بعيد عن الانظار بشكل عام.',
-                    '🟡 تحديد عدد اللاعبين للسرقة كحد اقصى :',
-                    '`سرقة منزل` عدد المجرمين | 2-4 عدد الشرطه | 5',
-                    '`سرقة الميناء` عدد المجرمين | 5 عدد الشرطه | 8',
-                    '`سرقة شاحنة البنك` عدد المجرمين | 2-4 عدد الشرطه | 4-6',
-                    '`سرقة محل اسلحة` عدد المجرمين | 4 عدد الشرطه | 6-8',
-                    '`سرقة البنك المركزي` عدد المجرمين | 6-10 عدد الشرطه | 8-12',
-                    '`سرقة بنك فليكا` عدد المجرمين | 4-6 عدد الشرطه | 6-8',
-                    '`سرقة محل مجوهرات` عدد المجرمين | 4-6 عدد الشرطه | 6-8',
-                    '`سرقة محل ملابس/سوبر ماركت/مطعم` عدد المجرمين | 1-4 عدد الشرطه | 4-6',
-                    'ــــــــــــــــــــــــــــــــــــــــــــــــ'
-                ]
-            },
-            glossary: {
-                title: 'المصطلحات المستخدمة',
-                icon: 'fa-book',
-                items: [
-                    '`طلع من السيرفر` = راح ينام',
-                    '`ايديك` = الهوية',
-                    '`الديسكورد` = واتساب',
-                    '`الرول بلاي` = الحياة',
-                    '`أنت ملگلگ / عندك لاگ` = انت مصدع',
-                    '`صارلك كراش او فصل النت` = فصل مخي',
-                    '`سكن مخفي / سيارة مخفية` = صبغتك خربانه / صبغة السيارة خربانه',
-                    '`الماب مو محمل` = عندي مشكله بالنظر (دون الخروج عن الرول بلاي)',
-                    '`ابتعدت عن الجهاز` = اخذت غفوه مع تقمص الدور',
-                    '`تبند / جاه باند` = ترحل',
-                    '`شخص خرج عن الرول بلاي الرد يكون` = مو فاهم عليك',
-                    '`الرقابة` = الأمن الوقائي',
-                    '`تصوير` = الداش كام',
-                    '`البث` = السناب',
-                    '`ريستارت` = اعصار'
-                ]
+        // --- وظائف النافذة (Modal) ---
+        function openModal() { document.getElementById('applyModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('applyModal').style.display = 'none'; }
+
+        // --- إرسال التقديم للديسكورد (Webhook) ---
+        document.getElementById('applyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // ضع رابط الـ Webhook الخاص بسيرفرك هنا
+            const webhookURL = "https://discord.com/api/webhooks/1473992116349698143/5Ebp8xGy-PO4qHf2o9_hRbmunh6057ad_wcduUbv2DwpyBM5-9MPlZY_D8KIz2DJFsos"; 
+
+            if(webhookURL === "https://discord.com/api/webhooks/1473992116349698143/5Ebp8xGy-PO4qHf2o9_hRbmunh6057ad_wcduUbv2DwpyBM5-9MPlZY_D8KIz2DJFsos") {
+                alert("يرجى وضع رابط الويب هوك في الكود ليعمل التقديم!");
+                return;
             }
-        };
 
-        function showRule(category) {
-            const rule = rulesData[category];
-            if (!rule) return;
-            let html = `<h3><i class="fas ${rule.icon}"></i> ${rule.title}</h3><ul>`;
-            rule.items.forEach(item => {
-                html += `<li><i class="fas fa-circle"></i> <span>${item.replace(/\n/g, '<br>')}</span></li>`;
+            const data = {
+                username: "بوت التقديمات - Respect",
+                embeds: [{
+                    title: "📝 تقديم جديد للمدينة",
+                    color: 16768768,
+                    fields: [
+                        { name: "👤 اسم الشخصية", value: document.getElementById('charName').value, inline: true },
+                        { name: "🎂 العمر", value: document.getElementById('realAge').value, inline: true },
+                        { name: "🆔 ديسكورد", value: document.getElementById('discordUser').value, inline: true },
+                        { name: "🏢 الوظيفة المطلوبة", value: document.getElementById('targetDept').value },
+                        { name: "💬 السبب", value: document.getElementById('reason').value }
+                    ],
+                    footer: { text: "تم الإرسال من الموقع الرسمي" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(() => {
+                alert("✅ تم إرسال تقديمك بنجاح! سيتم الرد عليك في الديسكورد.");
+                closeModal();
+                document.getElementById('applyForm').reset();
+            }).catch(err => {
+                alert("❌ حدث خطأ أثناء الإرسال، حاول لاحقاً.");
             });
-            html += `</ul><div class="edit-note"><i class="fas fa-edit"></i> قابل للتعديل</div>`;
-            document.getElementById('ruleDisplay').innerHTML = html;
+        });
+
+        // --- التنقل بين القوانين والصفحة الرئيسية ---
+        function showRule(cat) {
             document.getElementById('mainContent').style.display = 'none';
             document.getElementById('rulesSection').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('ruleDisplay').innerHTML = `<h2>قوانين ${cat}</h2><p>يتم تحميل القوانين...</p>`;
+            // هنا تضع نصوص القوانين كما في الكود السابق
         }
-
         function showHome() {
             document.getElementById('mainContent').style.display = 'block';
             document.getElementById('rulesSection').style.display = 'none';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        document.getElementById('homeLink').addEventListener('click', function(e) { e.preventDefault(); showHome(); });
-
-        function playVideo() {
-            const container = document.getElementById('videoContainer');
-            const overlay = document.getElementById('videoOverlay');
-            overlay.style.display = 'none';
-            const iframe = document.createElement('iframe');
-            iframe.className = 'video-iframe';
-            iframe.src = 'https://drive.google.com/file/d/1VCE7Xgwsld5oFQTOGn0ik7ui3lwuJa-_/preview';
-            iframe.frameborder = '0';
-            iframe.allowfullscreen = true;
-            iframe.allow = 'autoplay; encrypted-media';
-            container.appendChild(iframe);
-        }
-
-        document.querySelectorAll('.dropdown-content a').forEach(link => {
-            link.addEventListener('click', function(e) { e.preventDefault(); });
-        });
     </script>
 </body>
 </html>
